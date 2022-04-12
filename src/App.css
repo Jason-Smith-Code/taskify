@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --TumbleWeed: #E09F7D;
+    --SizzlingRed: #EF5D60;
+    --ParadisePink: #EC4067;
+    --Flirt: #A01A7D;
+    --RussianViolet: #311847;
+}
