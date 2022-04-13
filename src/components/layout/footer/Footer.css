@@ -1,6 +1,8 @@
 #Footer {
-    padding: 10px 0;
-    text-align: center;
-    background-color: #202020;
-    color: var(--Flirt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-color: var(--NavyBlue);
+    color: var(--TextCyan);
 }

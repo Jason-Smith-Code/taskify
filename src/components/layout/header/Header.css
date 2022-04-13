@@ -1,19 +1,40 @@
 #header {
+    height: 40px;
     width: 100%;
-    background-color: var(--Flirt);
+    padding: 0px 20px;
+    background-color: var(--NavyBlue);
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    color: var(--TextCyan);
 }
 
 #logo-container {
     display: flex;
     align-items: center;
-    color: rgb(51, 248, 255)
 }
 
 #logo-text {
-    font-weight: 900;
+    font-weight: 100;
     letter-spacing: 5px;
     margin-left: 10px;
+}
+
+.spacing-right {
+    margin-right: 50px;
+}
+
+#login-register-menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.top-menu-text {
+    margin-left:5px;
 }

@@ -4,8 +4,14 @@
     padding: 0;
 }
 
-p {
+p, h1, h2, h3, h4, h5, h6, a {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 1.5em;
+    margin-bottom: 25px;
 }
 
 :root {
@@ -14,4 +20,6 @@ p {
     --ParadisePink: #EC4067;
     --Flirt: #A01A7D;
     --RussianViolet: #311847;
+    --NavyBlue: #000937;
+    --TextCyan: rgb(51, 248, 255);
 }
