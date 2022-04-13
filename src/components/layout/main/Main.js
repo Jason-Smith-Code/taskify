@@ -1,4 +1,6 @@
 import './Main.css';
+import React from "react";
+import { TaskForm } from '../../forms/TaskForm';
 
 export function Main() {
     return(
@@ -7,6 +9,7 @@ export function Main() {
                 <div className="adding-column-split add-tasks">
                     <h2>Add tasks</h2>
                     <p>Add a button, which expands into a form to add a task. The form will simply ask for a Title and a Description</p>
+                    <TaskForm />
                 </div>
                 <div className="adding-column-split add-categories">
                     <h2>Add categories</h2>
