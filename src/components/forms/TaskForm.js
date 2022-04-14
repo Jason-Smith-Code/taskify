@@ -23,7 +23,7 @@ export function TaskForm(props) {
     // make fields required
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form getByTestId="form" onSubmit={handleSubmit}>
             <label>
                 Task Title
                 <input

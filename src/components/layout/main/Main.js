@@ -1,6 +1,7 @@
 import './Main.css';
 import React from "react";
 import { TaskForm } from '../../forms/TaskForm';
+import Button from '../../button/Button';
 
 export function Main() {
     return(
@@ -13,6 +14,7 @@ export function Main() {
                 </div>
                 <div className="adding-column-split add-categories">
                     <h2>Add categories</h2>
+                    <Button label="Hello" id="Jason"></Button>
                     <p>create a button (text field) which adds a category column, the text field will be the name of the category</p>
                 </div>
             </div>
