@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function TaskForm(props) {
+export function TaskForm({onSubmit = handleSubmit, ...props}) {
     // we need to monitor the state of the 2 items in the form, title, description.
     // use state will be expecting a string, so we will use an empty string in the useState
     const [title, setTitle] = useState("");
@@ -24,9 +24,9 @@ export function TaskForm(props) {
     return (
         <form data-testid="adding-task-form" onSubmit={handleSubmit}>
             <label>
-                Task Title
+                Title
                 <input
-                    required={true}
+                    // required={true}
                     data-testid='adding-task-form-input-title'
                     placeholder="title"
                     type="text"
@@ -35,9 +35,9 @@ export function TaskForm(props) {
                 />
             </label>
             <label>
-                Task Description
+                Description
                 <textarea
-                    required={true}
+                    // required={true}
                     data-testid='adding-task-form-input-description'
                     type="text"
                     placeholder="description"
@@ -45,7 +45,8 @@ export function TaskForm(props) {
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </label>
-            <input data-testid='adding-task-submit' type="submit" value="Submit" />
+            {/* Disable submit while both input field conditions are not met */}
+            <button data-testid='adding-task-submit' type="submit" value="Submit">Submit</button>
         </form>
     )
 }
