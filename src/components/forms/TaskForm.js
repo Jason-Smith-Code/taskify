@@ -10,7 +10,7 @@ export function TaskForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         clearForm()
-        alert(`Submitting Name ${title} & ${description}`);
+        console.log(`Submitting Name ${title} & ${description}`);
     }
 
     // clear form data after submitting
@@ -21,12 +21,13 @@ export function TaskForm(props) {
 
     // limit the character count of task title
     // make fields required
-
     return (
-        <form onSubmit={handleSubmit}>
+        <form data-testid="adding-task-form" onSubmit={handleSubmit}>
             <label>
                 Task Title
                 <input
+                    required={true}
+                    data-testid='adding-task-form-input-title'
                     placeholder="title"
                     type="text"
                     value={title}
@@ -36,12 +37,15 @@ export function TaskForm(props) {
             <label>
                 Task Description
                 <textarea
+                    required={true}
+                    data-testid='adding-task-form-input-description'
                     type="text"
+                    placeholder="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </label>
-            <input type="submit" value="Submit" />
+            <input data-testid='adding-task-submit' type="submit" value="Submit" />
         </form>
     )
 }
