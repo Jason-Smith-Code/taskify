@@ -9,13 +9,11 @@ export function Main() {
             <div className="column adding-column">
                 <div className="adding-column-split add-tasks">
                     <h2>Add tasks</h2>
-                    <p>Add a button, which expands into a form to add a task. The form will simply ask for a Title and a Description</p>
                     <TaskForm />
                 </div>
                 <div className="adding-column-split add-categories">
                     <h2>Add categories</h2>
                     <Button label="Hello" id="Jason"></Button>
-                    <p>create a button (text field) which adds a category column, the text field will be the name of the category</p>
                 </div>
             </div>
             <div className="column category-column pending-column">
