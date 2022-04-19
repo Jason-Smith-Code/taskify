@@ -1,7 +1,7 @@
 import './Main.css';
 import React from "react";
 import { TaskForm } from '../../forms/TaskForm';
-import Button from '../../button/Button';
+import { CategoryForm } from '../../forms/CategoryForm';
 
 export function Main() {
     return(
@@ -13,7 +13,7 @@ export function Main() {
                 </div>
                 <div className="adding-column-split add-categories">
                     <h2>Add categories</h2>
-                    <Button label="Hello" id="Jason"></Button>
+                    <CategoryForm />
                 </div>
             </div>
             <div className="column category-column pending-column">

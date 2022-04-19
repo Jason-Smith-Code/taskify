@@ -40,32 +40,27 @@ export function TaskForm() {
 
     return (
         <form data-testid="adding-task-form" onSubmit={handleSubmit}>
-            <label>
-                
-                <input
-                    required={true}
-                    data-testid='adding-task-form-input-title'
-                    placeholder="Enter Task Title"
-                    type="text"
-                    value={title}
-                    maxLength={maxTitleSize}
-                    onChange={(e) => onChangeTitle(e)}
-                />
-                <p>{title.length > 0 ? "" : "Title Required"}</p>
-                <p>Remaining characters: {characters}</p>
-                <p>{title.length === maxTitleSize ? "Character cap reached" : ""}</p>
-            </label>
-            <label>
-                
-                <textarea
-                    required={true}
-                    data-testid='adding-task-form-input-description'
-                    type="text"
-                    placeholder="Enter Task Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-            </label>
+            <input
+                required={true}
+                data-testid='adding-task-form-input-title'
+                placeholder="Enter Task Title"
+                type="text"
+                value={title}
+                maxLength={maxTitleSize}
+                onChange={(e) => onChangeTitle(e)}
+            />
+            <p className="form-message">{title.length > 0 ? "" : "Title Required"}</p>
+            <p className="form-message">Remaining characters: {characters}</p>
+            <p className="form-message">{title.length === maxTitleSize ? "Character cap reached" : ""}</p>
+            
+            <textarea
+                required={true}
+                data-testid='adding-task-form-input-description'
+                type="text"
+                placeholder="Enter Task Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+            />
             {/* Disable submit while both input field conditions are not met */}
             <button data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
         </form>
