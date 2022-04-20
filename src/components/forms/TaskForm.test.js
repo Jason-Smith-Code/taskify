@@ -1,5 +1,4 @@
 import {render, fireEvent} from '@testing-library/react';
-//import {screen} from '@testing-library/dom';
 import { TaskForm } from './TaskForm';
 import React from 'react';
 import '@testing-library/jest-dom';
@@ -31,15 +30,28 @@ describe('<TaskForm />', () => {
     test("Form successfully submitted filled in", () => {
         const logSpy = jest.spyOn(console, "log");
         const handleSubmit = jest.fn();
-        const { getByLabelText, getByText } = render(<TaskForm onSubmit={handleSubmit} />);
-        const inputValue1 = "hi this is a new titl222222222222222222e";
+        const { getByTestId, getByText } = render(<TaskForm onSubmit={handleSubmit} />);
+        const inputValue1 = "hi this is a new title";
         const inputValue2 = "hi this is a new descrption";
 
-        fireEvent.change(getByLabelText(/Title/i), { target: { value: inputValue1 } });
-        fireEvent.change(getByLabelText(/Description/i), { target: { value: inputValue2 } });
+        fireEvent.change(getByTestId('adding-task-form-input-title'), { target: { value: inputValue1 } });
+        fireEvent.change(getByTestId('adding-task-form-input-description'), { target: { value: inputValue2 } });
         fireEvent.click(getByText(/Add Task/i));
         expect(logSpy).toHaveBeenCalledTimes(1);
         expect(logSpy).toHaveBeenCalledWith(`Submitting Name ${inputValue1} & ${inputValue2}`);
+    });
+
+    test('Form cannot be submitted if input fields are empty', () => {
+        const message = "a field is empty, form cannot be submitted";
+        const emptyString = "";
+        const logSpy = jest.spyOn(console, "log");
+        const handleSubmit = jest.fn();
+        const { getByTestId, getByText } = render(<TaskForm onSubmit={handleSubmit} />);
+
+        fireEvent.change(getByTestId('adding-task-form-input-title'), { target: { value: emptyString } });
+        fireEvent.change(getByTestId('adding-task-form-input-description'), { target: { value: emptyString } });
+        fireEvent.click(getByText(/Add Task/i));
+        expect(logSpy).toHaveBeenCalledWith(message);
     });
 
 })

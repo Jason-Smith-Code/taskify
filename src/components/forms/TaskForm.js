@@ -51,7 +51,7 @@ export function TaskForm() {
             />
             <p className="form-message">{title.length > 0 ? "" : "Title Required"}</p>
             <p className="form-message">Remaining characters: {characters}</p>
-            <p className="form-message">{title.length === maxTitleSize ? "Character cap reached" : ""}</p>
+            {title.length === maxTitleSize ? <p className="form-message" data-testid='cap-reached'>Character cap reached</p> : ""}
             
             <textarea
                 required={true}

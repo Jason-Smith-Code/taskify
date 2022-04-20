@@ -1,0 +1,19 @@
+.task-item {
+    width: 100%;
+    color: white;
+    background-color: var(--NavyBlue);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item-icon {
+    margin-left: 10px;
+}
+
+.task-item-icon:hover {
+    cursor: pointer;
+}

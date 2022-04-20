@@ -1,0 +1,1 @@
+export const TaskList = ["Clean the house","Walk the dog", "Buy a laptop", "Birthday Tuesday", "Fix the car", "Go for a swim" ];
