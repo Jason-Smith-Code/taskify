@@ -1,4 +1,9 @@
 import { Pending } from "./pending/Pending"
+import './CategoryList';
+
+// here we import ther category list, and map through it to render added categories.
+// make sure to add a horizontal scroll for when a user adds more categories that the screen can hold. Set categories at a fixed width
+// allow users to change colour of category
 
 export const TaskCategories = () => {
 
@@ -7,8 +12,6 @@ export const TaskCategories = () => {
             <Pending />
             <div className="column category-column column-1">
                 <h2>Category 1 tasks</h2>
-                <p>Tasks can be dragged and dropped into any one of these columns, to sort and organise them</p>
-                <p>Tasks can also be moved up and down each column to present a heirachi of importance</p>
             </div>
             <div className="column category-column column-2">
                 <h2>Category 2 tasks</h2>

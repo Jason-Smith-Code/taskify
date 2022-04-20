@@ -5,7 +5,11 @@
     padding: 15px;
     border-radius: 15px;
     margin: 15px 0;
+    transition: 1s ease-in-out;
+}
+.task-row-title {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
@@ -16,4 +20,8 @@
 
 .task-item-icon:hover {
     cursor: pointer;
+}
+
+.task-description-container {
+    margin-top: 25px
 }
