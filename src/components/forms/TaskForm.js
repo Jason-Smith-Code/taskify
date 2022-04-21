@@ -9,7 +9,6 @@ export function TaskForm() {
     const [characters, setCharacters] = useState(20);
     const [description, setDescription] = useState("");
     const maxTitleSize = 20;
-    const minLengthDescription = 50;
 
     // handle form submit
     const handleSubmit = (event) => {
