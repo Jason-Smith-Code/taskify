@@ -1,0 +1,13 @@
+.column {
+    padding: 25px;
+    width: 400px;
+    flex: none;
+    border: 1px solid black;
+    height: 100%;
+}
+
+#category-container {
+    overflow-x: auto;
+    width: calc(100% - 400px);
+    display: flex;
+}
