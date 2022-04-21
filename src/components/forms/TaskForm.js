@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import './Forms.css';
+import { addTask } from "../../features/taskListSlice";
+import { useDispatch } from "react-redux";
+import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
+
 
 export function TaskForm() {
     // we need to monitor the state of the 2 items in the form, title, description.
@@ -10,6 +14,8 @@ export function TaskForm() {
     const [description, setDescription] = useState("");
     const maxTitleSize = 20;
 
+    const dispatch = useDispatch();
+
     // handle form submit
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -17,7 +23,13 @@ export function TaskForm() {
             console.log("a field is empty, form cannot be submitted")
             return
         }
+        dispatch(addTask({
+            key: GenerateUniqueId(),
+            title: title,
+            description: description
+        }))
         clearForm()
+
         console.log(`Submitting Name ${title} & ${description}`);
         
     }
