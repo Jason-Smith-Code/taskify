@@ -6,16 +6,16 @@ import { useDispatch } from 'react-redux';
 
 export const Task = (task) => {
 
-    const iconSize = "lg";
+    const iconSize = "xl";
     const dispatch = useDispatch();
 
     return(
         <div className="task-item">
             <div className="task-row-edit-delete">
                 {/* Edit button */}
-                <FontAwesomeIcon icon={faPenToSquare} size={iconSize}/>
+                <button className="icon-button"><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
                 {/* delete task button */}
-                <a className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faCircleMinus} size={iconSize}/></a>            
+                <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faCircleMinus} size={iconSize}/></button>            
             </div>
             <div className='task-title-description-container'>
                 <h3 className='task-title'>{task.title}</h3>
@@ -23,7 +23,7 @@ export const Task = (task) => {
             </div>
             {/* Move task button */}
             <div className='move-button-container'>
-                <FontAwesomeIcon icon={faArrowsUpDownLeftRight} size={iconSize}/>
+                <button className="icon-button"><FontAwesomeIcon icon={faArrowsUpDownLeftRight} size={iconSize}/></button>
             </div>
         </div>
     )

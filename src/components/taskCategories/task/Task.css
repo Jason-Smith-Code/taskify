@@ -24,10 +24,16 @@
 .move-button-container {
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
 }
 
 .task-title {
     margin-bottom: 20px;
+}
+
+.icon-button {
+    border: none;
+    background: none;
+    color: white;
 }
