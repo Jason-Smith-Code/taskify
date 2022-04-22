@@ -4,10 +4,29 @@
     flex: none;
     border: 1px solid black;
     height: 100%;
+    overflow-y: auto;
 }
 
 #category-container {
     overflow-x: auto;
     width: calc(100% - 400px);
     display: flex;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#addCategoryButton {
+    width: fit-content;
+    border:none;
+    background-color: var(--NavyBlue);
+    color: white;
+    font-size: 1.5em;
+    padding: 25px 50px;
+    border-radius: 25px;
+
 }

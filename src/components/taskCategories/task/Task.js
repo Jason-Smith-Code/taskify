@@ -1,4 +1,4 @@
-import { faArrowsUpDownLeftRight, faCircleMinus, faPenToSquare, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleMinus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Task.css';
 import { deleteTask, showDescription } from '../../../features/taskListSlice';

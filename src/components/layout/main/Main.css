@@ -3,13 +3,3 @@
     width: 100%;
     display: flex;
 }
-
-.adding-column {
-    width: 16.666%;
-    height: 100%;
-    background-color: rgb(255, 252, 224);
-}
-
-.adding-column-split {
-    height: 50%;
-}

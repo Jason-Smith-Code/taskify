@@ -21,8 +21,6 @@ export const taskListSlice = createSlice({
             if (task) {
                 task.show = !task.show
             }
-
-
         }
     }
 })
