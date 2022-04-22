@@ -36,7 +36,7 @@ export function CategoryForm() {
             <p className="form-message">Remaining characters: {characters}</p>
             <p className="form-message">{category.length === maxTitleSize ? "Character cap reached" : ""}</p>
             {/* Disable submit while both input field conditions are not met */}
-            <button data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
+            <button data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Category</button>
         </form>
     )
 }

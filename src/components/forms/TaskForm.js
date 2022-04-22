@@ -73,7 +73,7 @@ export function TaskForm() {
                 onChange={(e) => setDescription(e.target.value)}
             />
             {/* Disable submit while both input field conditions are not met */}
-            <button data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
+            <button className="task" data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
         </form>
     )
 }

@@ -12,11 +12,19 @@ export const taskListSlice = createSlice({
     reducers: {
         addTask: (state, action) => {
             state.taskList.push(action.payload)
+        },
+        deleteTask: (state, action) => {
+            state.taskList = state.taskList.filter((task) => task.key !== action.payload);
         }
+        // removeItemFromCart: (state, action) => {
+        //     state.cartItems = state.cartItems.filter(
+        //         cartItem => cartItem.id !== action.payload.cartItemId
+        //     )
+        // }
     }
 })
 
-export const { addTask } = taskListSlice.actions;
+export const { addTask, deleteTask} = taskListSlice.actions;
 
 
 export const getTaskList = state => state.tasks.taskList;

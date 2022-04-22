@@ -7,21 +7,27 @@
     margin: 15px 0;
     transition: 1s ease-in-out;
 }
-.task-row-title {
+.task-row-edit-delete {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.task-item-icon {
-    margin-left: 10px;
-}
-
 .task-item-icon:hover {
     cursor: pointer;
 }
 
-.task-description-container {
-    margin-top: 25px
+.task-title-description-container {
+    margin: 20px 0;
+}
+.move-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+}
+
+.task-title {
+    margin-bottom: 20px;
 }
