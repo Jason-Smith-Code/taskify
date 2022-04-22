@@ -26,7 +26,8 @@ export function TaskForm() {
         dispatch(addTask({
             key: GenerateUniqueId(),
             title: title,
-            description: description
+            description: description,
+            show: false
         }))
         clearForm()
 

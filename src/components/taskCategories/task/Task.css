@@ -5,17 +5,17 @@
     padding: 15px;
     border-radius: 15px;
     margin: 15px 0;
-    transition: 1s ease-in-out;
+    transition: 3s ease-in-out;
+}
+
+.task-item:hover {
+    cursor: grab;
 }
 .task-row-edit-delete {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.task-item-icon:hover {
-    cursor: pointer;
 }
 
 .task-title-description-container {
@@ -36,4 +36,8 @@
     border: none;
     background: none;
     color: white;
+}
+
+.icon-button:hover {
+    cursor: pointer;
 }

@@ -15,16 +15,19 @@ export const taskListSlice = createSlice({
         },
         deleteTask: (state, action) => {
             state.taskList = state.taskList.filter((task) => task.key !== action.payload);
+        },
+        showDescription: (state, action) => {
+            const task = state.taskList.find((task) => task.key === action.payload);
+            if (task) {
+                task.show = !task.show
+            }
+
+
         }
-        // removeItemFromCart: (state, action) => {
-        //     state.cartItems = state.cartItems.filter(
-        //         cartItem => cartItem.id !== action.payload.cartItemId
-        //     )
-        // }
     }
 })
 
-export const { addTask, deleteTask} = taskListSlice.actions;
+export const { addTask, deleteTask, showDescription} = taskListSlice.actions;
 
 
 export const getTaskList = state => state.tasks.taskList;
