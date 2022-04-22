@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 export const Pending = () => {
     const selectedTasks = useSelector(getTaskList);
-    console.log(selectedTasks)
 
     return (
         <div className="column full-height">
