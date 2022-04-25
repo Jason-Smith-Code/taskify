@@ -16,7 +16,7 @@ export const TaskCategories = () => {
                 <Category 
                     title={category.title} 
                     key={category.key} 
-                    id={category.key}
+                    id={category.id}
                 />)}
                 <div className='column center'>
                     <CategoryForm />

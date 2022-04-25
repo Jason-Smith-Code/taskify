@@ -15,7 +15,7 @@ export const Category = (category) => {
                 <h2>{category.title}</h2>
                 <div>
                     <button className="icon-button"><FontAwesomeIcon icon={faPenToSquare} size={iconSize} className="category-icons"/></button>
-                    <button className="icon-button" onClick={() => dispatch(deleteCategory(category.key))}><FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/></button>
+                    <button className="icon-button" onClick={() => dispatch(deleteCategory(category.id))}><FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/></button>
                 </div> 
             </div>
             {/* map out tasks in this category */}

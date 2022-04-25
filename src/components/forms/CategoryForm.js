@@ -20,7 +20,7 @@ export function CategoryForm() {
             return
         }
         dispatch(addCategory({
-            key: GenerateUniqueId(),
+            id: GenerateUniqueId(),
             title: title,
         }));
         clearForm();
