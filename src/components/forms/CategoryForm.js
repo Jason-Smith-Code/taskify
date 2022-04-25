@@ -1,24 +1,37 @@
 import React, { useState } from "react";
 import './Forms.css';
+import { addCategory } from "../../features/categoryListSlice";
+import { useDispatch } from "react-redux";
+import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
 
 export function CategoryForm() {
-    const [category, setCategory] = useState("");
+    const [title, setTitle] = useState("");
     const [characters, setCharacters] = useState(20)
     const maxTitleSize = 20;
 
+    const dispatch = useDispatch();
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        clearForm()
+        if (title === ""){
+            console.log("a field is empty, form cannot be submitted")
+            return
+        }
+        dispatch(addCategory({
+            key: GenerateUniqueId(),
+            title: title,
+        }));
+        clearForm();
     }
 
     const clearForm = () => {
-        setCategory("");
+        setTitle("");
     }
 
     const onCategoryChange = (e) => {
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size)
-        setCategory(e.target.value);
+        setTitle(e.target.value);
     }
 
     return (
@@ -28,13 +41,13 @@ export function CategoryForm() {
                 data-testid='adding-category-form-input-title'
                 placeholder="Enter category Title"
                 type="text"
-                value={category}
+                value={title}
                 maxLength={maxTitleSize}
                 onChange={(e) => onCategoryChange(e)}
             />
-            <p className="form-message">{category.length > 0 ? "" : "Title Required"}</p>
+            <p className="form-message">{title.length > 0 ? "" : "Title Required"}</p>
             <p className="form-message">Remaining characters: {characters}</p>
-            <p className="form-message">{category.length === maxTitleSize ? "Character cap reached" : ""}</p>
+            <p className="form-message">{title.length === maxTitleSize ? "Character cap reached" : ""}</p>
             {/* Disable submit while both input field conditions are not met */}
             <button data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Category</button>
         </form>

@@ -1,0 +1,9 @@
+.category-title-container {
+    background-color: var(--NavyBlue);
+    padding: 25px;
+    border-radius: 25px;
+    color: white;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -6,12 +6,13 @@ export const Pending = () => {
     const selectedTasks = useSelector(getTaskList);
     return (
         <div className="column full-height">
-            <h2>Pending tasks</h2>
+            <div className="category-title-container"><h2>Pending tasks</h2></div>
             {selectedTasks.map(task => 
             <div>
                 <Task 
                     title={task.title} 
-                    id={task.key} 
+                    id={task.key}
+                    key={task.key} 
                     description={task.description}
                     show={task.show}
                 />
