@@ -10,7 +10,6 @@ p, h1, h2, h3, h4, h5, h6, a, input, textarea {
 
 h1, h2, h3 {
     font-weight: 100;
-    letter-spacing: 5px;
 }
 
 :root {
