@@ -7,11 +7,7 @@ export function Main() {
     return(
         <div id="main">
             <div className="column">
-                <div className="">
-                    <div className="category-title-container"><h2>Add tasks</h2></div>
-
-                    <TaskForm />
-                </div>
+                <TaskForm />
             </div>
             <TaskCategories />
         </div>
