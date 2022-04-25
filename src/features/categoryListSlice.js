@@ -12,11 +12,17 @@ export const categoryListSlice = createSlice({
         deleteCategory: (state, action) => {
             console.log("deleting category")
             state.categoryList = state.categoryList.filter((category) => category.id !== action.payload);
+        },
+        editCategoryTitle: (state, action) => {
+            // find index
+            const index = state.categoryList.findIndex(category => category.id === action.payload.id);
+            console.log(index)
+            state.categoryList[index].title = action.payload.title;
         }
     }
 });
 
-export const { addCategory, deleteCategory} = categoryListSlice.actions;
+export const { addCategory, deleteCategory, editCategoryTitle} = categoryListSlice.actions;
 
 export const getGetCategoryList = state => state.categories.categoryList;
 
