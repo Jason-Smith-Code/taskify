@@ -8,11 +8,15 @@ export const categoryListSlice = createSlice({
     reducers: {
         addCategory: (state, action) => {
             state.categoryList.push(action.payload)
+        },
+        deleteCategory: (state, action) => {
+            console.log("deleting category")
+            state.categoryList = state.categoryList.filter((category) => category.id !== action.payload);
         }
     }
-})
+});
 
-export const { addCategory } = categoryListSlice.actions;
+export const { addCategory, deleteCategory} = categoryListSlice.actions;
 
 export const getGetCategoryList = state => state.categories.categoryList;
 

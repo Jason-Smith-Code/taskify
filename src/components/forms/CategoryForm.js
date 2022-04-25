@@ -8,7 +8,7 @@ import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 export function CategoryForm() {
     const [title, setTitle] = useState("");
-    const [characters, setCharacters] = useState(20)
+    const [characters, setCharacters] = useState(20);
     const maxTitleSize = 20;
 
     const dispatch = useDispatch();
