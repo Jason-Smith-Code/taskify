@@ -8,16 +8,13 @@ export const Pending = () => {
         <div className="column full-height">
             <div className="category-title-container"><h2>Pending tasks</h2></div>
             {selectedTasks.map(task => 
-            <div>
                 <Task 
-                    key={task.key}
+                    key={task.id}
                     title={task.title} 
-                    id={task.key}
+                    id={task.id}
                     description={task.description}
                     show={task.show}
                 />
-            </div>
-            
             )}
         </div>
     )

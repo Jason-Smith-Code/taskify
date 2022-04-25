@@ -14,10 +14,10 @@ export const taskListSlice = createSlice({
             state.taskList.push(action.payload)
         },
         deleteTask: (state, action) => {
-            state.taskList = state.taskList.filter((task) => task.key !== action.payload);
+            state.taskList = state.taskList.filter((task) => task.id !== action.payload);
         },
         showDescription: (state, action) => {
-            const task = state.taskList.find((task) => task.key === action.payload);
+            const task = state.taskList.find((task) => task.id === action.payload);
             if (task) {
                 task.show = !task.show
             }

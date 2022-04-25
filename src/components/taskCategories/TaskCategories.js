@@ -15,13 +15,12 @@ export const TaskCategories = () => {
                 {selectedCategories.map(category => 
                 <Category 
                     title={category.title} 
-                    key={category.key} 
+                    key={category.id} 
                     id={category.id}
                 />)}
                 <div className='column center'>
                     <CategoryForm />
                 </div>
-                
             </div>
     )
 }

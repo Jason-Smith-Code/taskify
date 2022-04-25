@@ -27,7 +27,7 @@ export function TaskForm() {
         }
         const uniqueNumber = GenerateUniqueId();
         dispatch(addTask({
-            key: uniqueNumber,
+            id: uniqueNumber,
             title: title,
             description: description,
             show: false
