@@ -10,9 +10,9 @@ export const Pending = () => {
             {selectedTasks.map(task => 
             <div>
                 <Task 
+                    key={task.key}
                     title={task.title} 
                     id={task.key}
-                    key={task.key} 
                     description={task.description}
                     show={task.show}
                 />

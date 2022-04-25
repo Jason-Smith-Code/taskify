@@ -27,7 +27,7 @@ button.task {
 
 form {
     background-color: var(--NavyBlue);
-    padding: 25px;
+    padding: 25px 25px 25px 25px;
     border-radius: 25px;
 }
 
@@ -36,3 +36,31 @@ form {
     margin: 10px 0;
 }
 
+#addCategoryButton {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    background-color: var(--NavyBlue);
+    color: white;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+    border-radius: 25px 25px 0 0;
+    font-weight: 100;
+    transition: 250ms;
+}
+
+#category-form {
+    width: 100%;
+}
+
+.form-submit {
+    margin-top: 25px;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: none;
+    border: 1px solid white;
+    border-radius: 0px 0px 10px 10px;
+    color: white;
+}

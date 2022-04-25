@@ -3,6 +3,8 @@ import './Forms.css';
 import { addTask } from "../../features/taskListSlice";
 import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 
 export function TaskForm() {
@@ -23,8 +25,9 @@ export function TaskForm() {
             console.log("a field is empty, form cannot be submitted")
             return
         }
+        const uniqueNumber = GenerateUniqueId();
         dispatch(addTask({
-            key: GenerateUniqueId(),
+            key: uniqueNumber,
             title: title,
             description: description,
             show: false
@@ -52,6 +55,7 @@ export function TaskForm() {
 
     return (
         <form data-testid="adding-task-form" onSubmit={handleSubmit}>
+            <div id="addCategoryButton"><h3>Add task</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>
             <input
                 required={true}
                 data-testid='adding-task-form-input-title'
@@ -74,7 +78,7 @@ export function TaskForm() {
                 onChange={(e) => setDescription(e.target.value)}
             />
             {/* Disable submit while both input field conditions are not met */}
-            <button className="task" data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
+            <button className="form-submit" data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
         </form>
     )
 }

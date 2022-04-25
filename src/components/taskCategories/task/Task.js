@@ -20,6 +20,7 @@ export const Task = (task) => {
             <div className='task-title-description-container'>
                 <h3 className='task-title'>{task.title}</h3>
                 {task.show === false ? "" : <p>{task.description}</p>}
+                <p>task ID = {task.id}</p>
             </div>
         </div>
     )

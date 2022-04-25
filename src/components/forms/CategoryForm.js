@@ -3,6 +3,8 @@ import './Forms.css';
 import { addCategory } from "../../features/categoryListSlice";
 import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 export function CategoryForm() {
     const [title, setTitle] = useState("");
@@ -35,7 +37,8 @@ export function CategoryForm() {
     }
 
     return (
-        <form data-testid="adding-category-form" onSubmit={handleSubmit}>    
+        <form id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
+            <div id="addCategoryButton"><h3>Add category</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>    
             <input
                 required={true}
                 data-testid='adding-category-form-input-title'
@@ -49,7 +52,7 @@ export function CategoryForm() {
             <p className="form-message">Remaining characters: {characters}</p>
             <p className="form-message">{title.length === maxTitleSize ? "Character cap reached" : ""}</p>
             {/* Disable submit while both input field conditions are not met */}
-            <button data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Category</button>
+            <button data-testid='adding-task-submit' className="form-submit" type="submit" value="Submit">Add Category</button>
         </form>
     )
 }
