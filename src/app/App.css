@@ -14,10 +14,12 @@ h1, h2, h3 {
 
 :root {
     --Color1: #ffffff;
-    --Color2: rgb(0, 242, 255);
-    --Color3: #000000;
+    --Color2: #69009e;
+    --Color3: #9E0091;
+    --Color4: black;
+    --Color5: #ff00b1;
 }
 
 .App {
-    background: linear-gradient(125deg, rgba(165,177,194,1) 0%, rgba(193,233,241,1) 100%);
+    background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%)
 }

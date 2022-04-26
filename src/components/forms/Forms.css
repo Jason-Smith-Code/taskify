@@ -6,6 +6,17 @@ input[type="text"] {
     border: 1px solid var(--Color3);
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--Color3);
+    opacity: 1; /* Firefox */
+}
+
+textarea:focus, input:focus{
+    outline-color: var(--Color5);
+    outline-style: solid;
+    outline-width: thin;
+}
+
 textarea {
     padding: 5px;
     width: 100%;
@@ -32,7 +43,7 @@ form {
 }
 
 .form-message {
-    color: var(--Color2);
+    color: #ff00b1;
     margin: 10px 0;
 }
 
@@ -40,7 +51,7 @@ form {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    color: var(--Color3);
+    color: var(--Color2);
     margin-bottom: 25px;
     font-size: 1.5em;
 }
@@ -58,14 +69,16 @@ form {
     border: 1px solid var(--Color3);
     border-radius: 0px 0px 10px 10px;
     color: var(--Color3);
+    transition: 250ms;
 }
 
 .form-submit:hover {
     cursor: pointer;
+    border: 1px solid var(--Color2);
 }
 
 .padded {
     padding: 25px;
-    -webkit-box-shadow: 0px 5px 19px 0px var(--Color3);
-    box-shadow: 0px 5px 10px 0px var(--Color3);
+    -webkit-box-shadow: 0px 5px 10px 0px var(--Color4);
+    box-shadow: 0px 5px 10px 0px var(--Color4);
 }

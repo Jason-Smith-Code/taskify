@@ -6,6 +6,8 @@
     border-radius: 15px;
     margin: 15px 0;
     transition: 3s ease-in-out;
+    -webkit-box-shadow: 0px 5px 10px 0px var(--Color4);
+    box-shadow: 0px 5px 10px 0px var(--Color4);
 }
 
 .task-item:hover {
@@ -35,7 +37,7 @@
 .icon-button {
     border: none;
     background: none;
-    color: var(--Color3);
+    color: var(--Color2);
 }
 
 .icon-button:hover {
