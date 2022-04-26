@@ -39,7 +39,7 @@ export function CategoryForm() {
     // i need to fire off scroll to end when dispatch has been submitted from adding a category
     useEffect(() => {
         scrollToEnd()
-    });
+    }, [title]);
 
     function scrollToEnd() {
         const element = document.getElementById('category-container');
