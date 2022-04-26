@@ -3,6 +3,6 @@
     align-items: center;
     justify-content: center;
     height: 40px;
-    background-color: var(--NavyBlue);
-    color: var(--TextCyan);
+    background-color: var(--Color1);
+    color: var(--Color2);
 }

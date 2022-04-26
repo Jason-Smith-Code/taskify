@@ -54,8 +54,8 @@ export function TaskForm() {
     }
 
     return (
-        <form data-testid="adding-task-form" onSubmit={handleSubmit}>
-            <div id="addCategoryButton"><h3>Add task</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>
+        <form className="padded" data-testid="adding-task-form" onSubmit={handleSubmit}>
+            <div className="form-header"><h3>Add task</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>
             <input
                 required={true}
                 data-testid='adding-task-form-input-title'

@@ -37,8 +37,8 @@ export function CategoryForm() {
     }
 
     return (
-        <form id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
-            <div id="addCategoryButton"><h3>Add category</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>    
+        <form className="padded"id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
+            <div className="form-header"><h3>Add category</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>    
             <input
                 required={true}
                 data-testid='adding-category-form-input-title'

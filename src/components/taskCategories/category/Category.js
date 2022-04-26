@@ -27,6 +27,7 @@ export const Category = (category) => {
             id: categoryId,
             title: newTitle
         }));
+        setEditing(false)
     }
 
     // when edit mode is true, a submit button appears 
@@ -48,10 +49,10 @@ export const Category = (category) => {
                         value={newTitle}
                         onChange={(e) => onCategoryChange(e)}
                     ></input> 
-                    <button type="submit" value="Submit">Submit</button>
+                    <button type="submit" value="Submit">Confirm</button>
                 </form>
                 : <h2>{category.title}</h2> }
-                
+                {isEditing === false ? 
                 <div>
                     <button className="icon-button" onClick={toggleEditMode}>
                         <FontAwesomeIcon icon={faPenToSquare} size={iconSize} className="category-icons"/>
@@ -59,7 +60,8 @@ export const Category = (category) => {
                     <button className="icon-button" onClick={() => dispatch(deleteCategory(category.id))}>
                         <FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/>
                     </button>
-                </div> 
+                </div> :""
+                }
             </div>
             {/* map out tasks in this category */}
         </div>

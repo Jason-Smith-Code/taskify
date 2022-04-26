@@ -13,11 +13,11 @@ h1, h2, h3 {
 }
 
 :root {
-    --TumbleWeed: #E09F7D;
-    --SizzlingRed: #EF5D60;
-    --ParadisePink: #EC4067;
-    --Flirt: #A01A7D;
-    --RussianViolet: #311847;
-    --NavyBlue: #000937;
-    --TextCyan: rgb(51, 248, 255);
+    --Color1: #ffffff;
+    --Color2: rgb(0, 242, 255);
+    --Color3: #000000;
+}
+
+.App {
+    background: linear-gradient(125deg, rgba(165,177,194,1) 0%, rgba(193,233,241,1) 100%);
 }

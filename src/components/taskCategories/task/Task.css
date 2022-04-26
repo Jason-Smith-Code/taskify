@@ -1,7 +1,7 @@
 .task-item {
     width: 100%;
-    color: white;
-    background-color: var(--NavyBlue);
+    color: var(--Color3);
+    background-color: var(--Color1);
     padding: 15px;
     border-radius: 15px;
     margin: 15px 0;
@@ -35,7 +35,7 @@
 .icon-button {
     border: none;
     background: none;
-    color: white;
+    color: var(--Color3);
 }
 
 .icon-button:hover {

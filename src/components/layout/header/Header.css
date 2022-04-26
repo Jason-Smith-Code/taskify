@@ -2,10 +2,10 @@
     height: 40px;
     width: 100%;
     padding: 0px 20px;
-    background-color: var(--NavyBlue);
+    background-color: var(--Color1);
     display: flex;
     justify-content: space-between;
-    color: var(--TextCyan);
+    color: var(--Color2);
 }
 
 #logo-container {

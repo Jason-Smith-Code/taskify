@@ -1,8 +1,8 @@
 .category-title-container {
-    background-color: var(--NavyBlue);
+    background-color: var(--Color1);
     padding: 25px;
     border-radius: 25px;
-    color: white;
+    color: var(--Color3);
     margin-bottom: 25px;
     display: flex;
     justify-content: space-between;
