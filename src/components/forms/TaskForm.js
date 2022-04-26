@@ -33,9 +33,8 @@ export function TaskForm() {
             show: false
         }))
         clearForm()
-
         console.log(`Submitting Name ${title} & ${description}`);
-        
+   
     }
 
     // clear form data after submitting
@@ -50,7 +49,6 @@ export function TaskForm() {
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size)
         setTitle(e.target.value);
-
     }
 
     return (
@@ -78,7 +76,7 @@ export function TaskForm() {
                 onChange={(e) => setDescription(e.target.value)}
             />
             {/* Disable submit while both input field conditions are not met */}
-            <button className="form-submit" data-testid='adding-task-submit' id="submtButton" type="submit" value="Submit">Add Task</button>
+            <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>
         </form>
     )
 }

@@ -28,6 +28,23 @@ a {
     --Color5: #ff00b1;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .App {
     background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%)
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-top: 1px solid var(--Color1)
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--Color2);
+    border-radius: 5px;
 }

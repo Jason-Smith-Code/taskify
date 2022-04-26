@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Forms.css';
 import { addCategory } from "../../features/categoryListSlice";
 import { useDispatch } from "react-redux";
@@ -34,6 +34,17 @@ export function CategoryForm() {
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size)
         setTitle(e.target.value);
+    }
+
+    // i need to fire off scroll to end when dispatch has been submitted from adding a category
+    useEffect(() => {
+        scrollToEnd()
+    });
+
+    function scrollToEnd() {
+        const element = document.getElementById('category-container');
+        const elementWidth = element.scrollWidth;
+        element.scrollLeft = elementWidth;
     }
 
     return (

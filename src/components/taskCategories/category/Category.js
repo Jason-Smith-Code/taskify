@@ -41,6 +41,16 @@ export const Category = (category) => {
     return(
         <div className="column">
             <div className="category-title-container">
+                {isEditing === false ? 
+                    <div className="category-icon-contanier">
+                        <button className="icon-button" onClick={toggleEditMode}>
+                            <FontAwesomeIcon icon={faPenToSquare} size={iconSize} className="category-icons"/>
+                        </button>
+                        <button className="icon-button" onClick={() => dispatch(deleteCategory(category.id))}>
+                            <FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/>
+                        </button>
+                    </div> :""
+                }
                 {isEditing === true ? 
                 <form onSubmit={handleSubmit}>
                     <input 
@@ -52,16 +62,6 @@ export const Category = (category) => {
                     <button className="form-submit" type="submit" value="Submit">Confirm</button>
                 </form>
                 : <h2>{category.title}</h2> }
-                {isEditing === false ? 
-                <div>
-                    <button className="icon-button" onClick={toggleEditMode}>
-                        <FontAwesomeIcon icon={faPenToSquare} size={iconSize} className="category-icons"/>
-                    </button>
-                    <button className="icon-button" onClick={() => dispatch(deleteCategory(category.id))}>
-                        <FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/>
-                    </button>
-                </div> :""
-                }
             </div>
             {/* map out tasks in this category */}
         </div>

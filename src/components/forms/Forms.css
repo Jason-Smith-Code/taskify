@@ -45,7 +45,7 @@ form {
 }
 
 .form-message {
-    color: #ff00b1;
+    color: var(--Color5);
     margin: 10px 0;
 }
 
@@ -76,7 +76,8 @@ form {
 
 .form-submit:hover {
     cursor: pointer;
-    border: 1px solid var(--Color2);
+    border: 1px solid var(--Color5);
+    color: var(--Color5);
 }
 
 .padded {
