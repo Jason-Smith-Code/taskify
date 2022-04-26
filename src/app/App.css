@@ -12,11 +12,16 @@ h1, h2, h3 {
     font-weight: 100;
 }
 
+a {
+    color: var(--Color5);
+    text-decoration: none;
+}
+
 :root {
     --Color1: #ffffff;
     --Color2: #69009e;
     --Color3: #9E0091;
-    --Color4: black;
+    --Color4: #2b043e;
     --Color5: #ff00b1;
 }
 

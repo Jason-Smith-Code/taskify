@@ -4,11 +4,12 @@ input[type="text"] {
     font-size: 1.2em;
     border-radius: 5px;
     border: 1px solid var(--Color3);
+    color: var(--Color2)
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--Color3);
-    opacity: 1; /* Firefox */
+    opacity: .8; /* Firefox */
 }
 
 textarea:focus, input:focus{
@@ -26,6 +27,7 @@ textarea {
     border: none;
     height: 200px;
     border: 1px solid var(--Color3);
+    color: var(--Color2)
 }
 
 button.task {

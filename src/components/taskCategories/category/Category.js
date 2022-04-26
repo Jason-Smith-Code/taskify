@@ -49,7 +49,7 @@ export const Category = (category) => {
                         value={newTitle}
                         onChange={(e) => onCategoryChange(e)}
                     ></input> 
-                    <button type="submit" value="Submit">Confirm</button>
+                    <button className="form-submit" type="submit" value="Submit">Confirm</button>
                 </form>
                 : <h2>{category.title}</h2> }
                 {isEditing === false ? 
