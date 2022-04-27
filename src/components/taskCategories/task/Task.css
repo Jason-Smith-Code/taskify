@@ -1,6 +1,5 @@
 .task-item {
     width: 100%;
-    color: var(--Color3);
     background-color: var(--Color1);
     padding: 15px;
     border-radius: 15px;
@@ -32,6 +31,7 @@
 
 .task-title {
     margin-bottom: 20px;
+    color: var(--Color2);
 }
 
 .icon-button {
@@ -42,4 +42,8 @@
 
 .icon-button:hover {
     cursor: pointer;
+}
+
+.task-description {
+    color: var(--Color3);
 }

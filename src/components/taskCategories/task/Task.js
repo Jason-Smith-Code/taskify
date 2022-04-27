@@ -19,7 +19,7 @@ export const Task = (task) => {
             </div>
             <div className='task-title-description-container'>
                 <h3 className='task-title'>{task.title}</h3>
-                {task.show === false ? "" : <p>{task.description}</p>}
+                {task.show === false ? "" : <p className='task-description'>{task.description}</p>}
             </div>
         </div>
     )
