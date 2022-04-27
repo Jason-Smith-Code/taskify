@@ -3,8 +3,6 @@ import './Forms.css';
 import { addTask } from "../../features/taskListSlice";
 import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { getGetCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 
@@ -71,7 +69,7 @@ export function TaskForm() {
 
     return (
         <form className="padded" data-testid="adding-task-form" onSubmit={handleSubmit}>
-            <div className="form-header"><h2>Add Task</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>
+            <div className="form-header"><div className="circle-border-contaner"><p>+</p></div><h2>Add Task</h2> </div>
             <input
                 required={true}
                 data-testid='adding-task-form-input-title'
@@ -103,27 +101,16 @@ export function TaskForm() {
             </div>}  */}
 
             {/* Radio option */}
-            <p>{`The current selected category is: ${selectedCatgory}`}</p>
+            
             {selectedCategories < 1 ? <p>Please create a category</p> :
             <div>
-                
                 <label>Select a category</label>
-                <br></br>
-                {selectedCategories.map((item, index) => {
-                    if (index === 0) {
-                        return(
-                        <div className="radio-row">
-                            <input required type="radio" key={item.id} value={item.title} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                {selectedCategories.map((item) => {
+                    return(
+                        <div key={item.id} className="radio-row">
+                            <input required type="radio" value={item.title} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
                         </div>)
-                    } else if (index > 0) {
-                        return(
-                            <div className="radio-row">
-                                <input required type="radio" key={item.id} value={item.title} name="category-radio" onChange={handleChange} className="category-button"/><p>{item.title}</p>
-                            </div>
-                        )
-                    } else return undefined
-                }
-                )
+                    })
                 }
             </div>} 
             {/* Form Submit */}

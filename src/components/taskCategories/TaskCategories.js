@@ -11,7 +11,6 @@ export const TaskCategories = () => {
 
     return (
             <div id="category-container">
-                <Pending />
                 {selectedCategories.map(category => 
                 <Category 
                     title={category.title} 

@@ -3,8 +3,6 @@ import './Forms.css';
 import { addCategory } from "../../features/categoryListSlice";
 import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 export function CategoryForm() {
     const maxTitleSize = 20;
@@ -55,7 +53,7 @@ export function CategoryForm() {
 
     return (
         <form className="padded"id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
-            <div className="form-header"><h2>Add Category</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>    
+            <div className="form-header"><div className="circle-border-contaner"><p>+</p></div><h2>Add Category</h2></div>    
             <input
                 required={true}
                 data-testid='adding-category-form-input-title'
