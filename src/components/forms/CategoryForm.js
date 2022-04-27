@@ -49,7 +49,7 @@ export function CategoryForm() {
 
     return (
         <form className="padded"id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
-            <div className="form-header"><h2>Add category</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>    
+            <div className="form-header"><h2>Add Category</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>    
             <input
                 required={true}
                 data-testid='adding-category-form-input-title'

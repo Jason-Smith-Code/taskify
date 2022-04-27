@@ -1,4 +1,4 @@
-input[type="text"] {
+input {
     padding: 5px;
     width: 100%;
     font-size: 1.2em;
@@ -12,7 +12,7 @@ input[type="text"] {
     opacity: .8; /* Firefox */
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus, select:focus{
     outline-color: var(--Color5);
     outline-style: solid;
     outline-width: thin;
@@ -24,7 +24,6 @@ textarea {
     font-size: 1.2em;
     resize: none;
     border-radius: 5px;
-    border: none;
     height: 200px;
     border: 1px solid var(--Color3);
     color: var(--Color2)
@@ -84,4 +83,13 @@ form {
     padding: 25px;
     -webkit-box-shadow: 0px 5px 10px 0px var(--Color4);
     box-shadow: 0px 5px 10px 0px var(--Color4);
+}
+
+select#select-category {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid var(--Color3);
+    border-radius: 5px;
+    padding: 5px;
+    color:var(--Color3);
 }

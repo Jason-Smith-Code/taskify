@@ -5,18 +5,22 @@ import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-
+import { getGetCategoryList } from "../../features/categoryListSlice";
+import { useSelector } from "react-redux";
 
 export function TaskForm() {
     // we need to monitor the state of the 2 items in the form, title, description.
     // use state will be expecting a string, so we will use an empty string in the useState
+    const selectedCategories = useSelector(getGetCategoryList);
 
     const [title, setTitle] = useState("");
     const [characters, setCharacters] = useState(20);
     const [description, setDescription] = useState("");
+    const [selectedCatgory, setSelectedCategory] = useState(selectedCategories[0].title);
     const maxTitleSize = 20;
 
     const dispatch = useDispatch();
+    
 
     // handle form submit
     const handleSubmit = (event) => {
@@ -30,11 +34,11 @@ export function TaskForm() {
             id: uniqueNumber,
             title: title,
             description: description,
-            show: false
+            show: false,
+            completed: false,
+            category: selectedCatgory 
         }))
-        clearForm()
-        console.log(`Submitting Name ${title} & ${description}`);
-   
+        clearForm()  
     }
 
     // clear form data after submitting
@@ -51,9 +55,15 @@ export function TaskForm() {
         setTitle(e.target.value);
     }
 
+    const onChangeCategory = (e) => {
+        // we want to show the user how many remaining characters available for them to use
+        setSelectedCategory(e.target.value);
+        console.log(e)
+    }
+
     return (
         <form className="padded" data-testid="adding-task-form" onSubmit={handleSubmit}>
-            <div className="form-header"><h2>Add task</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>
+            <div className="form-header"><h2>Add Task</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>
             <input
                 required={true}
                 data-testid='adding-task-form-input-title'
@@ -77,6 +87,19 @@ export function TaskForm() {
             />
             <p className="form-message">{description.length > 0 ? "" : "Description Required"}</p>
             {/* Disable submit while both input field conditions are not met */}
+            {selectedCategories.length < 1 ? <p>Please add a category</p> : 
+                    <label>Select category
+                        <select 
+                        id="select-category"
+                        value={selectedCatgory}
+                        onChange={(e) => onChangeCategory(e)}
+                        >
+                            {selectedCategories.map(item => <option className="text" key={item.id}>{item.title}</option>)}
+                        </select>
+                    </label>
+            }
+
+
             <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>
         </form>
     )

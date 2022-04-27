@@ -3,11 +3,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 import { deleteCategory, editCategoryTitle } from '../../../features/categoryListSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-
+import { getTaskList } from '../../../features/taskListSlice';
+import { Task } from '../task/Task';
 
 export const Category = (category) => {
+
+    const originalTaskList = useSelector(getTaskList)
+
+    // filter category list to only show items that have a category by name
+    function filterCategoryList() {
+       const newList = originalTaskList.filter(task => task.category === category.title);
+       return newList.map(task => 
+        <Task 
+            key={task.id}
+            title={task.title} 
+            id={task.id}
+            description={task.description}
+            show={task.show}
+        />)
+    }
 
     const [newTitle, setNewtitle] = useState("");
     const [isEditing, setEditing] = useState(false);
@@ -27,7 +43,7 @@ export const Category = (category) => {
         event.preventDefault();
         dispatch(editCategoryTitle({
             id: categoryId,
-            title: newTitle
+            title: newTitle,
         }));
         setEditing(false)
     }
@@ -71,6 +87,7 @@ export const Category = (category) => {
                 : <h2>{category.title}</h2> }
             </div>
             {/* map out tasks in this category */}
+            {filterCategoryList()}
         </div>
     )
 }

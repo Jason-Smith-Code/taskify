@@ -10,7 +10,7 @@
 
 #category-container {
     overflow-x: auto;
-    width: calc(100% - 400px);
+    width: calc(100% - 800px);
     display: flex;
 }
 
