@@ -1,2 +1,22 @@
-allow users to add and delete categories
-At the end of the categories, add an add category button
+# Implement Drag and Drop
+https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/#what-is-react-beautiful-dnd
+or
+https://react-dnd.github.io/react-dnd/docs/api/use-drag
+
+# Completed Tasks
+Create a new column to house completed tasks
+Add a new state to task object "completed" set to false by default
+Add a new button on the task, which marks the task as complete
+Once marked as complete the task will move from its current category to completed
+Make the completed column look different from the rest of the columns
+
+# Add "Remaining characters" + "Title required for editng category"
+
+# create better animation for button hover - add icon with transition
+add a click animation aswell?
+
+# Saving state for users?
+
+# What is going in the menu
+
+# change favicon to match the new design

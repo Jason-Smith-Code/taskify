@@ -8,11 +8,23 @@ p, h1, h2, h3, h4, h5, h6, a, input, textarea {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3 {
+p, input, textarea, a  {
+    font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
     font-weight: 100;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+}
+
+h1, h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;  
 }
 
 a {

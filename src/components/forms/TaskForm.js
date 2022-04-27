@@ -53,7 +53,7 @@ export function TaskForm() {
 
     return (
         <form className="padded" data-testid="adding-task-form" onSubmit={handleSubmit}>
-            <div className="form-header"><h3>Add task</h3> <FontAwesomeIcon icon={faCirclePlus} /></div>
+            <div className="form-header"><h2>Add task</h2> <FontAwesomeIcon icon={faCirclePlus} /></div>
             <input
                 required={true}
                 data-testid='adding-task-form-input-title'
@@ -75,6 +75,7 @@ export function TaskForm() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
+            <p className="form-message">{description.length > 0 ? "" : "Description Required"}</p>
             {/* Disable submit while both input field conditions are not met */}
             <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>
         </form>

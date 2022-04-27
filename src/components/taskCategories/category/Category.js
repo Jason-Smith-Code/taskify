@@ -11,6 +11,8 @@ export const Category = (category) => {
 
     const [newTitle, setNewtitle] = useState("");
     const [isEditing, setEditing] = useState(false);
+    const [characters, setCharacters] = useState(20);
+    const maxTitleSize = 20;
 
     const dispatch = useDispatch();
     const iconSize = "xl";
@@ -35,6 +37,8 @@ export const Category = (category) => {
     // clicking the submit button replaces the corrosponding data in the state
 
     const onCategoryChange = (e) => {
+        let size = e.target.value.length;
+        setCharacters(maxTitleSize - size)
         setNewtitle(e.target.value);
     }
 
@@ -57,8 +61,11 @@ export const Category = (category) => {
                         type="text" 
                         placeholder={category.title}
                         value={newTitle}
+                        maxLength={maxTitleSize}
                         onChange={(e) => onCategoryChange(e)}
                     ></input> 
+                    <p className="form-message">{newTitle.length > 0 ? "" : "Title Required"}</p>
+                    <p className="form-message">Remaining characters: {characters}</p>
                     <button className="form-submit" type="submit" value="Submit">Confirm</button>
                 </form>
                 : <h2>{category.title}</h2> }
