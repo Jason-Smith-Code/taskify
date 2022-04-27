@@ -10,16 +10,26 @@ import { useSelector } from "react-redux";
 
 export function TaskForm() {
 
+    const selectedCategories = useSelector(getGetCategoryList);
+
+    function getFirstTitle() {
+        if (selectedCategories.length > 0) {
+            console.log("selectedCategories length is greater than zero")
+            return selectedCategories[0].title
+        } else {
+            console.log("No categories exist")
+            return "No categories exist"
+        }
+    }
 
     const [title, setTitle] = useState("");
     const [characters, setCharacters] = useState(20);
     const [description, setDescription] = useState("");
-    const [selectedCatgory, setSelectedCategory] = useState("");
+    const [selectedCatgory, setSelectedCategory] = useState(getFirstTitle());
     const maxTitleSize = 20;
 
     const dispatch = useDispatch();
 
-    const selectedCategories = useSelector(getGetCategoryList);
 
     // handle form submit
     const handleSubmit = (event) => {
@@ -29,7 +39,7 @@ export function TaskForm() {
             return
         }
         const uniqueNumber = GenerateUniqueId();
-        console.log(`the selected category was ${selectedCatgory}`)
+        // console.log(`the selected category was ${selectedCatgory}`)
         dispatch(addTask({
             id: uniqueNumber,
             title: title,
@@ -53,6 +63,10 @@ export function TaskForm() {
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size)
         setTitle(e.target.value);
+    }
+
+    const handleChange = (e) => {
+        setSelectedCategory(e.target.value);
     }
 
     return (
@@ -81,14 +95,41 @@ export function TaskForm() {
             />
             <p className="form-message">{description.length > 0 ? "" : "Description Required"}</p>
 
-            {selectedCategories < 1 ? <p>Please create a category</p> :
+            {/* {selectedCategories < 1 ? <p>Please create a category</p> :
             <div>
                 <label>Select a category</label>
                 <br></br>
-                {selectedCategories.map(item => <button type="button" value={item.title} onClick={() => setSelectedCategory(item.title)} key={item.id}>{item.title}</button>)}
-            </div>} 
+                {selectedCategories.map(item => <button type="button" required value={item.title} onClick={() => setSelectedCategory(item.title)} className="category-button" key={item.id}>{item.title}</button>)}
+            </div>}  */}
 
-            {(selectedCatgory === "") || (title.length === 0) || (description.length === 0)? "" : <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>}    
+            {/* Radio option */}
+            <p>{`The current selected category is: ${selectedCatgory}`}</p>
+            {selectedCategories < 1 ? <p>Please create a category</p> :
+            <div>
+                
+                <label>Select a category</label>
+                <br></br>
+                {selectedCategories.map((item, index) => {
+                    if (index === 0) {
+                        return(
+                        <div>
+                            <input required type="radio" key={item.id} value={item.title} checked={true} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                        </div>)
+                    } else if (index > 0) {
+                        return(
+                            <div>
+                                <input required type="radio" key={item.id} value={item.title} name="category-radio" onChange={handleChange} className="category-button"/><p>{item.title}</p>
+                            </div>
+                        )
+                    } else return undefined
+                }
+                )
+                }
+            </div>} 
+            {/* Form Submit */}
+
+            {(selectedCategories.length < 1 ) || (title.length === 0) || (description.length === 0)? "" : <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>} 
+
         </form>
     )
 }

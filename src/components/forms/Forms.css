@@ -93,3 +93,22 @@ select#select-category {
     padding: 5px;
     color:var(--Color3);
 }
+
+.category-button {
+    border: 1px solid var(--Color3);
+    color:var(--Color3);
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: var(--Color1);
+    transition: 250ms;
+}
+
+.category-button:hover {
+    cursor: pointer;
+    border: 1px solid var(--Color5);
+}
+
+.category-button:target {
+    background-color: black;
+}

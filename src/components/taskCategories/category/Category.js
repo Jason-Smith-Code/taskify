@@ -58,6 +58,10 @@ export const Category = (category) => {
         setNewtitle(e.target.value);
     }
 
+    const deletingCategory = () => {
+        dispatch(deleteCategory(category.id))
+    }
+
     return(
         <div className="column">
             <div className="category-title-container">
@@ -66,7 +70,7 @@ export const Category = (category) => {
                         <button className="icon-button" onClick={toggleEditMode}>
                             <FontAwesomeIcon icon={faPenToSquare} size={iconSize} className="category-icons"/>
                         </button>
-                        <button className="icon-button" onClick={() => dispatch(deleteCategory(category.id))}>
+                        <button className="icon-button" onClick={deletingCategory}>
                             <FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/>
                         </button>
                     </div> :""
