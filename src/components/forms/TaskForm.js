@@ -9,18 +9,17 @@ import { getGetCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 
 export function TaskForm() {
-    // we need to monitor the state of the 2 items in the form, title, description.
-    // use state will be expecting a string, so we will use an empty string in the useState
-    const selectedCategories = useSelector(getGetCategoryList);
+
 
     const [title, setTitle] = useState("");
     const [characters, setCharacters] = useState(20);
     const [description, setDescription] = useState("");
-    const [selectedCatgory, setSelectedCategory] = useState(selectedCategories[0].title);
+    const [selectedCatgory, setSelectedCategory] = useState("");
     const maxTitleSize = 20;
 
     const dispatch = useDispatch();
-    
+
+    const selectedCategories = useSelector(getGetCategoryList);
 
     // handle form submit
     const handleSubmit = (event) => {
@@ -30,6 +29,7 @@ export function TaskForm() {
             return
         }
         const uniqueNumber = GenerateUniqueId();
+        console.log(`the selected category was ${selectedCatgory}`)
         dispatch(addTask({
             id: uniqueNumber,
             title: title,
@@ -53,12 +53,6 @@ export function TaskForm() {
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size)
         setTitle(e.target.value);
-    }
-
-    const onChangeCategory = (e) => {
-        // we want to show the user how many remaining characters available for them to use
-        setSelectedCategory(e.target.value);
-        console.log(e)
     }
 
     return (
@@ -86,21 +80,15 @@ export function TaskForm() {
                 onChange={(e) => setDescription(e.target.value)}
             />
             <p className="form-message">{description.length > 0 ? "" : "Description Required"}</p>
-            {/* Disable submit while both input field conditions are not met */}
-            {selectedCategories.length < 1 ? <p>Please add a category</p> : 
-                    <label>Select category
-                        <select 
-                        id="select-category"
-                        value={selectedCatgory}
-                        onChange={(e) => onChangeCategory(e)}
-                        >
-                            {selectedCategories.map(item => <option className="text" key={item.id}>{item.title}</option>)}
-                        </select>
-                    </label>
-            }
 
+            {selectedCategories < 1 ? <p>Please create a category</p> :
+            <div>
+                <label>Select a category</label>
+                <br></br>
+                {selectedCategories.map(item => <button type="button" value={item.title} onClick={() => setSelectedCategory(item.title)} key={item.id}>{item.title}</button>)}
+            </div>} 
 
-            <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>
+            {(selectedCatgory === "") || (title.length === 0) || (description.length === 0)? "" : <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>}    
         </form>
     )
 }

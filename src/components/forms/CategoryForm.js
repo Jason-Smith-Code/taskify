@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 export function CategoryForm() {
-    const [title, setTitle] = useState("");
-    const [characters, setCharacters] = useState(20);
     const maxTitleSize = 20;
+    const [title, setTitle] = useState("");
+    const [characters, setCharacters] = useState(maxTitleSize);
 
     const dispatch = useDispatch();
 
@@ -23,7 +23,8 @@ export function CategoryForm() {
             id: GenerateUniqueId(),
             title: title,
         }));
-        clearForm();
+        setCharacters(maxTitleSize);
+        clearForm()
     }
 
     const clearForm = () => {

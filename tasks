@@ -19,4 +19,5 @@ add a click animation aswell?
 
 # What is going in the menu
 
-# change favicon to match the new design
+# When deletiinig a category, delete all tasks in the category too
+Basically if you delete a category now, and create a new category with the same name, all previous tasks re appear.
