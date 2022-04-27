@@ -25,6 +25,7 @@ export function CategoryForm() {
         }));
         setCharacters(maxTitleSize);
         clearForm()
+        refreshPage()
     }
 
     const clearForm = () => {
@@ -35,6 +36,10 @@ export function CategoryForm() {
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size)
         setTitle(e.target.value);
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
     }
 
     // i need to fire off scroll to end when dispatch has been submitted from adding a category

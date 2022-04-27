@@ -60,6 +60,11 @@ export const Category = (category) => {
 
     const deletingCategory = () => {
         dispatch(deleteCategory(category.id))
+        refreshPage()
+    }
+
+    function refreshPage() {
+        window.location.reload(false);
     }
 
     return(

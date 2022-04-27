@@ -112,12 +112,12 @@ export function TaskForm() {
                 {selectedCategories.map((item, index) => {
                     if (index === 0) {
                         return(
-                        <div>
-                            <input required type="radio" key={item.id} value={item.title} checked={true} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                        <div className="radio-row">
+                            <input required type="radio" key={item.id} value={item.title} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
                         </div>)
                     } else if (index > 0) {
                         return(
-                            <div>
+                            <div className="radio-row">
                                 <input required type="radio" key={item.id} value={item.title} name="category-radio" onChange={handleChange} className="category-button"/><p>{item.title}</p>
                             </div>
                         )
@@ -127,7 +127,6 @@ export function TaskForm() {
                 }
             </div>} 
             {/* Form Submit */}
-
             {(selectedCategories.length < 1 ) || (title.length === 0) || (description.length === 0)? "" : <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>} 
 
         </form>
