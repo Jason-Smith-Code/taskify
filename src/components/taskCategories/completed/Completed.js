@@ -12,7 +12,6 @@ export const Completed = () => {
 
     function filterCategoryList() {
         const newList = originalTaskList.filter(task => task.category === "complete");
-        console.log(newList)
         return newList.map(task => 
          <Task 
              key={task.id}
@@ -20,6 +19,7 @@ export const Completed = () => {
              id={task.id}
              description={task.description}
              show={task.show}
+             completed={task.completed}
          />)
     }
 

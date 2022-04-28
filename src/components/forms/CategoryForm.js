@@ -3,6 +3,7 @@ import './Forms.css';
 import { addCategory } from "../../features/categoryListSlice";
 import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
+import { AddIcon } from "../icons/AddIcon";
 
 export function CategoryForm() {
     const maxTitleSize = 20;
@@ -53,7 +54,7 @@ export function CategoryForm() {
 
     return (
         <form className="padded"id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
-            <div className="form-header"><div className="circle-border-contaner"><p>+</p></div><h2>Add Category</h2></div>    
+            <div className="form-header"><AddIcon/><h2 className="form-title">Add Category</h2></div>    
             <input
                 required={true}
                 data-testid='adding-category-form-input-title'

@@ -1,0 +1,16 @@
+.circle-border-contaner {
+    border-radius: 50%;
+    border: 2px solid var(--Color2);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.minus-icon-character {
+    position: absolute;
+    line-height: .9;
+    top: 0;
+}

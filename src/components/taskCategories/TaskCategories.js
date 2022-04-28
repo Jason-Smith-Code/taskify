@@ -1,6 +1,5 @@
 import './TaskCategories.css';
 import { Category } from "./category/Category";
-import { CategoryForm } from "../forms/CategoryForm";
 import { getGetCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 
@@ -16,9 +15,6 @@ export const TaskCategories = () => {
                     key={category.id} 
                     id={category.id}
                 />)}
-                <div className='column center'>
-                    <CategoryForm />
-                </div>
             </div>
     )
 }

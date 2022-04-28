@@ -1,7 +1,6 @@
 import './Category.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
-import { faCircleMinus } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { deleteCategory, editCategoryTitle } from '../../../features/categoryListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -11,12 +10,15 @@ import { deleteTask } from '../../../features/taskListSlice';
 
 export const Category = (category) => {
 
-    const originalTaskList = useSelector(getTaskList)
+    const dispatch = useDispatch();
+    const originalTaskList = useSelector(getTaskList);
+    const iconSize = "xl";
+    const categoryId = category.id;
 
     // filter category list to only show items that have a category by name
     function filterCategoryList() {
        const newList = originalTaskList.filter(task => task.category === category.title);
-       console.log(newList)
+        
        return newList.map(task => 
         <Task 
             key={task.id}
@@ -24,6 +26,8 @@ export const Category = (category) => {
             id={task.id}
             description={task.description}
             show={task.show}
+            completed={task.completed}
+            category={task.category}
         />)
     }
 
@@ -32,10 +36,6 @@ export const Category = (category) => {
     const [characters, setCharacters] = useState(20);
     const maxTitleSize = 20;
 
-    const dispatch = useDispatch();
-    const iconSize = "xl";
-    const categoryId = category.id;
-
     // clicking the edit button toggles edit mode
     const toggleEditMode = () => {
         setEditing(current => !current);
@@ -43,16 +43,13 @@ export const Category = (category) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         dispatch(editCategoryTitle({
             id: categoryId,
             title: newTitle,
         }));
         setEditing(false)
     }
-
-    // when edit mode is true, a submit button appears 
-    // the associated field becomes editable
-    // clicking the submit button replaces the corrosponding data in the state
 
     const onCategoryChange = (e) => {
         let size = e.target.value.length;
@@ -65,8 +62,6 @@ export const Category = (category) => {
         dispatch(deleteCategory(category.id))
         refreshPage()
     }
-
-    // I need to also delete all tasks in category when category is deleted
 
     const deleteAllCategoryTasks = () => {
         // identfy all tasks in category
@@ -91,7 +86,7 @@ export const Category = (category) => {
                             <FontAwesomeIcon icon={faPenToSquare} size={iconSize} className="category-icons"/>
                         </button>
                         <button className="icon-button" onClick={deletingCategory}>
-                            <FontAwesomeIcon icon={faCircleMinus} size={iconSize} className="category-icons"/>
+                            <FontAwesomeIcon icon={faTrashCan} size={iconSize} className="category-icons"/>
                         </button>
                     </div> :""
                 }

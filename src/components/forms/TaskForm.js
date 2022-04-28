@@ -5,17 +5,15 @@ import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
 import { getGetCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
+import { AddIcon } from "../icons/AddIcon";
 
 export function TaskForm() {
-
     const selectedCategories = useSelector(getGetCategoryList);
 
     function getFirstTitle() {
         if (selectedCategories.length > 0) {
-            console.log("selectedCategories length is greater than zero")
             return selectedCategories[0].title
         } else {
-            console.log("No categories exist")
             return "No categories exist"
         }
     }
@@ -33,7 +31,6 @@ export function TaskForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (title === "" || description === "") {
-            console.log("a field is empty, form cannot be submitted")
             return
         }
         const uniqueNumber = GenerateUniqueId();
@@ -69,7 +66,10 @@ export function TaskForm() {
 
     return (
         <form className="padded" data-testid="adding-task-form" onSubmit={handleSubmit}>
-            <div className="form-header"><div className="circle-border-contaner"><p>+</p></div><h2>Add Task</h2> </div>
+            <div className="form-header">
+                <AddIcon/>
+                <h2 className="form-title">Add Task</h2> 
+            </div>
             <input
                 required={true}
                 data-testid='adding-task-form-input-title'
