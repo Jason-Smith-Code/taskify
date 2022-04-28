@@ -1,4 +1,3 @@
-import { Pending } from "./pending/Pending";
 import './TaskCategories.css';
 import { Category } from "./category/Category";
 import { CategoryForm } from "../forms/CategoryForm";

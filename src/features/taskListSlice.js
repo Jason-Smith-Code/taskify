@@ -21,11 +21,20 @@ export const taskListSlice = createSlice({
             if (task) {
                 task.show = !task.show
             }
+        },
+        isComplete: (state, action) => {
+            const task = state.taskList.find((task) => task.id === action.payload);
+            task.completed = true;
+            task.category = "complete"
+        },
+        getCompletedSize: (state) => {
+            const tasks = state.taskList.find((task) => task.category === "complete");
+            return tasks.length
         }
     }
 })
 
-export const { addTask, deleteTask, showDescription} = taskListSlice.actions;
+export const { addTask, deleteTask, showDescription, isComplete, getCompletedSize} = taskListSlice.actions;
 
 
 export const getTaskList = state => state.tasks.taskList;

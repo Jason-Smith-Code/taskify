@@ -1,12 +1,13 @@
 import './Category.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 import { deleteCategory, editCategoryTitle } from '../../../features/categoryListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { getTaskList } from '../../../features/taskListSlice';
 import { Task } from '../task/Task';
+import { deleteTask } from '../../../features/taskListSlice';
 
 export const Category = (category) => {
 
@@ -15,6 +16,7 @@ export const Category = (category) => {
     // filter category list to only show items that have a category by name
     function filterCategoryList() {
        const newList = originalTaskList.filter(task => task.category === category.title);
+       console.log(newList)
        return newList.map(task => 
         <Task 
             key={task.id}
@@ -59,8 +61,21 @@ export const Category = (category) => {
     }
 
     const deletingCategory = () => {
+        deleteAllCategoryTasks()
         dispatch(deleteCategory(category.id))
         refreshPage()
+    }
+
+    // I need to also delete all tasks in category when category is deleted
+
+    const deleteAllCategoryTasks = () => {
+        // identfy all tasks in category
+        const itemsToBeDeleted = originalTaskList.filter(task => task.category === category.title);
+        console.log(`items to be deleted ${itemsToBeDeleted}`)
+        // loop through each one dispatching delete task as we go
+        for (let i = 0; i < itemsToBeDeleted.length; i++ ) {
+            dispatch(deleteTask(itemsToBeDeleted[i].id));
+        }
     }
 
     function refreshPage() {
