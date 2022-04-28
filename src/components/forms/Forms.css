@@ -12,8 +12,29 @@ input[type=text] {
     opacity: .8; /* Firefox */
 }
 
-textarea:focus, input:focus, select:focus{
-    outline-color: var(--Color5);
+input[type="radio"] {
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 1px solid var(--Color2);
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    background-color:var(--Color2);
+}
+
+
+textarea:focus, input[type=text]:focus, select:focus{
+    outline-color: var(--Color4);
     outline-style: solid;
     outline-width: thin;
 }
@@ -43,6 +64,9 @@ form {
     border-radius: 25px;
 }
 
+.form-group {
+    margin-bottom: 25px;
+}
 .form-message {
     color: var(--Color5);
     margin: 10px 0;

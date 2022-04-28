@@ -1,31 +1,74 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Task.css';
-import { deleteTask, showDescription, isComplete } from '../../../features/taskListSlice';
-import { useDispatch } from 'react-redux';
+import { deleteTask, showDescription, isComplete, editTask } from '../../../features/taskListSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { getGetCategoryList } from '../../../features/categoryListSlice';
 
 export const Task = (task) => {
-
+    const selectedCategories = useSelector(getGetCategoryList);
+    
     const iconSize = "xl";
     const dispatch = useDispatch();
 
+    const taskId = task.id;
     // Edit task
+    const [newTitle, setNewtitle] = useState("");
+    const [newCategory, setNewCategory] = useState("");
+    const [newDescription, setNewDescription] = useState("");
+    const [isEditing, setEditing] = useState(false);
+    const [characters, setCharacters] = useState(20);
+    const maxTitleSize = 20;
+
+    const toggleEditMode = () => {
+        setEditing(current => !current);
+    }
+
 
     // Complete Task
     const completeTask = () => {
         dispatch(isComplete(task.id))
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        dispatch(editTask({
+            id: taskId,
+            title: newTitle,
+            description: newDescription,
+            category: parseInt(newCategory)
+        }));
+        setEditing(false)
+    }
+    
+    const onTaskTitleChange = (e) => {
+        let size = e.target.value.length;
+        setCharacters(maxTitleSize - size)
+        setNewtitle(e.target.value);
+    }
+
+    const handleChange = (e) => {
+        setNewCategory(e.target.value);
+    }
 
     return(
         <div className="task-item">
-            <div className="task-row-edit-delete">
-                {/* Edit button */}
-                <button className="icon-button" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
+            {isEditing === false ? 
+            <>
+            <div className="task-top-row">
+                <div className="task-top-left-icons">
+                    {/* View button */}
+                    <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
+                    {/* Edit button */}
+                    <button className="icon-button" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
+                </div>
                 {/* delete task button */}
                 <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
-            </div>
+            </div> 
+
             <div className='task-title-description-container'>
                 <h3 className='task-title'>{task.title}</h3>
                 {task.show === false ? "" : 
@@ -35,6 +78,48 @@ export const Task = (task) => {
                 </div>
                 }
             </div>
+            </> : ""}
+            {isEditing === true ? 
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        type="text" 
+                        placeholder={task.title}
+                        value={newTitle}
+                        maxLength={maxTitleSize}
+                        onChange={(e) => onTaskTitleChange(e)}
+                    ></input> 
+                    <p className="form-message">{newTitle.length > 0 ? "" : "Title Required"}</p>
+                    <p className="form-message">Remaining characters: {characters}</p>
+
+                    <div className="form-group">
+                        <textarea
+                            required={true}
+                            data-testid='adding-task-form-input-description'
+                            type="text"
+                            placeholder={task.description}
+                            value={newDescription}
+                            onChange={(e) => setNewDescription(e.target.value)}
+                        />
+                        <p className="form-message">{task.description.length > 0 ? "" : "Description Required"}</p>
+                    </div>
+
+                    {selectedCategories < 1 ? <p>Please create a category</p> :
+                    <div>
+                        <label>Select a category</label>
+                        {selectedCategories.map((item) => {
+                            return(
+                                <div key={item.id} className="radio-row">
+                                    <input required type="radio" value={item.id} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                                </div>)
+                            })
+                        }
+                    </div>}
+
+
+                    <button className="form-submit" type="submit" value="Submit">Confirm</button>
+                </form>
+                : "" }
+
         </div>
     )
 }

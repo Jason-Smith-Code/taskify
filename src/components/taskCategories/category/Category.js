@@ -17,7 +17,7 @@ export const Category = (category) => {
 
     // filter category list to only show items that have a category by name
     function filterCategoryList() {
-       const newList = originalTaskList.filter(task => task.category === category.title);
+       const newList = originalTaskList.filter(task => task.category === category.id);
         
        return newList.map(task => 
         <Task 

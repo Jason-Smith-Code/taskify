@@ -11,7 +11,7 @@
 .task-item:hover {
     cursor: grab;
 }
-.task-row-edit-delete {
+.task-top-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -45,4 +45,8 @@
 
 .task-description {
     color: var(--Color3);
+}
+
+.icon-margin-right {
+    margin-right: 10px
 }
