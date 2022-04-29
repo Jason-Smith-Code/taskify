@@ -1,8 +1,21 @@
-#Footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    background-color: var(--Color1);
-    color: var(--Color2);
+@media (min-width: 0px) { 
+    #Footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        background-color: var(--Color1);
+        color: var(--Color2);
+    }
+    
+    #foot-text {
+        padding: 0px 20px;
+    }
+}
+
+@media (min-width: 768px) { 
+    #Footer {
+        height: 40px;
+        padding: 0;
+    }
 }
