@@ -72,7 +72,7 @@ export const Task = (task) => {
             <div className='task-title-description-container'>
                 <h3 className='task-title'>{task.title}</h3>
                 {task.show === false ? "" : 
-                <div>
+                <div className="task-hidden-contents-container">
                     <p className='task-description'>{task.description}</p>
                     {task.completed === true ? "" : <button type="button" onClick={completeTask} className='form-submit'>Complete</button>}
                 </div>

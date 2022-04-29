@@ -29,7 +29,6 @@
 }
 
 .task-title {
-    margin-bottom: 20px;
     color: var(--Color2);
 }
 
@@ -49,4 +48,8 @@
 
 .icon-margin-right {
     margin-right: 10px
+}
+
+.task-hidden-contents-container {
+    margin-top: 10px;
 }
