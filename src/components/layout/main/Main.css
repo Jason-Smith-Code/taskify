@@ -1,5 +1,23 @@
-#main {
-    height: calc(100vh - 80px);
-    width: 100%;
-    display: flex;
+@media (min-width: 0px) {
+    #main {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }
+}
+
+@media (min-width: 500px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1200px) {
+    #main {
+        height: calc(100vh - 80px);
+        width: 100%;
+        flex-direction: row;
+    }
 }
