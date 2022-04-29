@@ -11,11 +11,16 @@ export const Menu = () => {
     return (
         <div id="menu" className='hidden-menu'>
             <div id="close-menu-container">
-                <button onClick={closeMenu} type="button">Close menu</button>
+                <button className="clickable" onClick={closeMenu} type="button">Close menu</button>
             </div>
             {/* List out menu items */}
-            <p className="menu-item">Icon Guide</p>
-            <p className="menu-item">Tutorial</p>
+            <p className="menu-item clickable">Maiin View</p>
+            <p className="menu-item clickable">Add Task</p>
+            <p className="menu-item clickable">Add Category</p>
+            <p className="menu-item clickable">Register</p>
+            <p className="menu-item clickable">Icon Guide</p>
+            <p className="menu-item clickable">Tutorial</p>
+            <p className="menu-item clickable">View account</p>
         </div>
     )
 }

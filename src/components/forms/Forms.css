@@ -119,7 +119,6 @@
     }
     
     .form-submit:hover {
-        cursor: pointer;
         border: 1px solid var(--Color5);
         color: var(--Color5);
     }
@@ -150,7 +149,6 @@
     }
     
     .category-button:hover {
-        cursor: pointer;
         border: 1px solid var(--Color5);
     }
     

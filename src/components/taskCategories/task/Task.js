@@ -78,7 +78,7 @@ export const Task = (task) => {
                 {task.show === false ? "" : 
                 <div className="task-hidden-contents-container">
                     <p className='task-description'>{task.description}</p>
-                    {task.completed === true ? "" : <button type="button" onClick={completeTask} className='form-submit'>Complete</button>}
+                    {task.completed === true ? "" : <button type="button" onClick={completeTask} className='form-submit clickable'>Complete</button>}
                 </div>
                 }
             </div>
@@ -122,7 +122,7 @@ export const Task = (task) => {
                     </div>}
 
 
-                    <button className="form-submit" type="submit" value="Submit">Confirm</button>
+                    <button className="form-submit clickable" type="submit" value="Submit">Confirm</button>
                 </form>
                 : "" }
 

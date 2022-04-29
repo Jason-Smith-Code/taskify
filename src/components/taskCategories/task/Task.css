@@ -10,6 +10,7 @@
 .task-item:hover {
     cursor: grab;
 }
+
 .task-top-row {
     display: flex;
     flex-direction: row;
@@ -35,10 +36,6 @@
     border: none;
     background: none;
     color: var(--Color2);
-}
-
-.icon-button:hover {
-    cursor: pointer;
 }
 
 .task-description {

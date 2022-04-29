@@ -46,10 +46,6 @@
         background: none;
         color: var(--Color2)
     }
-
-    #menu-button-container:hover {
-        cursor: pointer;
-    }
 }
 
 @media (min-width: 768px) {

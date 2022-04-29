@@ -1,16 +1,17 @@
 #menu {
     width: 200px;
-    height: 100vh;
     padding: 25px;
-    background-color: rgb(215, 196, 230);
-    transition: 1s;
-    position:absolute;
+    background-color: var(--Color1);
+    transition: 250ms ease-in-out;
+    position:fixed;
     top: 0px;
     right:0px;
     display: flex;
     flex-direction: column;
     color: rgb(0, 0, 0);
     z-index: 1;
+    border-radius: 25px 0 0 25px;
+    box-shadow: 0px 5px 10px 0px var(--Color4);
 }
 
 .hidden-menu {
@@ -19,4 +20,12 @@
 
 .visible-menu {
     transform: translate(0,0);
+}
+
+#close-menu-container {
+    margin-bottom: 25px;
+}
+
+.menu-item {
+    margin-bottom: 10px;
 }
