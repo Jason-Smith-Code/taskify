@@ -71,7 +71,7 @@ export function TaskForm() {
         <form className="padded" id="task-form" data-testid="adding-task-form" onSubmit={handleSubmit}>
         <div className="form-header">
             <AddIcon/>
-            <h2 className="form-title">Add Task</h2> 
+            <h2 className="form-title">Add a Task</h2> 
         </div>
         <div className="form-group">
             <input

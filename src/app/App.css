@@ -55,6 +55,6 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--Color2);
+    background: linear-gradient(125deg, rgb(255 0 194) 0%, #8500ff 100%);
     border-radius: 10px;
 }
