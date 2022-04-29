@@ -26,6 +26,10 @@ export const Task = (task) => {
         setEditing(current => !current);
     }
 
+    // Currently when a user edits a task, all field values have no value, I want a default value in place
+    // This will help if the user acidently clicks edit, it will also help if the user wants to add to the existing edit
+    // Possible solution :
+    // https://react-hook-form.com/get-started
 
     // Complete Task
     const completeTask = () => {
@@ -63,7 +67,7 @@ export const Task = (task) => {
                     {/* View button */}
                     <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
                     {/* Edit button */}
-                    <button className="icon-button" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
+                    <button className="icon-button tooltip" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
                 </div>
                 {/* delete task button */}
                 <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
@@ -83,6 +87,7 @@ export const Task = (task) => {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text" 
+                        name="editTitle"
                         placeholder={task.title}
                         value={newTitle}
                         maxLength={maxTitleSize}
@@ -93,6 +98,7 @@ export const Task = (task) => {
 
                     <div className="form-group">
                         <textarea
+                            name="editDescription"
                             required={true}
                             data-testid='adding-task-form-input-description'
                             type="text"
@@ -109,7 +115,7 @@ export const Task = (task) => {
                         {selectedCategories.map((item) => {
                             return(
                                 <div key={item.id} className="radio-row">
-                                    <input required type="radio" value={item.id} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                                    <input required type="radio" value={item.id} name="editCategory" onChange={handleChange} className="category-button" /><p>{item.title}</p>
                                 </div>)
                             })
                         }
