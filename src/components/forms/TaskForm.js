@@ -110,6 +110,7 @@ export function TaskForm() {
         {selectedCategories < 1 ? <p>Please create a category</p> :
         <div>
             <label>Select a category</label>
+            <div className="radio-options-container">
             {selectedCategories.map((item) => {
                 return(
                     <div key={item.id} className="radio-row">
@@ -117,6 +118,7 @@ export function TaskForm() {
                     </div>)
                 })
             }
+            </div>
         </div>} 
         {/* Form Submit */}
         {(selectedCategories.length < 1 ) || (selectedCatgory === "") || (selectedCatgory === null) || (selectedCatgory === undefined) ||(title.length === 0) || (description.length === 0)? "" : <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>} 

@@ -6,7 +6,6 @@ import { deleteTask, showDescription, isComplete, editTask } from '../../../feat
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { getGetCategoryList } from '../../../features/categoryListSlice';
-import { useForm } from 'react-hook-form';
 
 export const Task = (task) => {
     const selectedCategories = useSelector(getGetCategoryList);
@@ -23,20 +22,14 @@ export const Task = (task) => {
     const [characters, setCharacters] = useState(20);
     const maxTitleSize = 20;
 
-    const preloadedFormValues = {
-        editTitle: "title",
-        editDescription: "description",
-        editCategory: "category"
-    }
-
-    const {register} = useForm({
-        defaultValues: preloadedFormValues
-    })
-
     const toggleEditMode = () => {
         setEditing(current => !current);
     }
 
+    // Currently when a user edits a task, all field values have no value, I want a default value in place
+    // This will help if the user acidently clicks edit, it will also help if the user wants to add to the existing edit
+    // Possible solution :
+    // https://react-hook-form.com/get-started
 
     // Complete Task
     const completeTask = () => {
@@ -74,7 +67,7 @@ export const Task = (task) => {
                     {/* View button */}
                     <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
                     {/* Edit button */}
-                    <button className="icon-button" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
+                    <button className="icon-button tooltip" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
                 </div>
                 {/* delete task button */}
                 <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
@@ -93,7 +86,6 @@ export const Task = (task) => {
             {isEditing === true ? 
                 <form onSubmit={handleSubmit}>
                     <input 
-                        ref={register}
                         type="text" 
                         name="editTitle"
                         placeholder={task.title}
@@ -106,7 +98,6 @@ export const Task = (task) => {
 
                     <div className="form-group">
                         <textarea
-                            ref={register}
                             name="editDescription"
                             required={true}
                             data-testid='adding-task-form-input-description'
