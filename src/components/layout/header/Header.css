@@ -33,15 +33,22 @@
         flex-direction: row;
         align-items: center;
     }
-    
-    .menu-container {
+      
+    .top-menu-text {
+        margin-left:5px;
+    }
+
+    #menu-button-container {
         display: flex;
         flex-direction: row;
         align-items: center;
+        border:none;
+        background: none;
+        color: var(--Color2)
     }
-    
-    .top-menu-text {
-        margin-left:5px;
+
+    #menu-button-container:hover {
+        cursor: pointer;
     }
 }
 
@@ -68,12 +75,6 @@
     
     #login-register-menu-container {
         justify-content:end
-    }
-    
-    .menu-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
     }
     
     .top-menu-text {

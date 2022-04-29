@@ -1,0 +1,22 @@
+#menu {
+    width: 200px;
+    height: 100vh;
+    padding: 25px;
+    background-color: rgb(215, 196, 230);
+    transition: 1s;
+    position:absolute;
+    top: 0px;
+    right:0px;
+    display: flex;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    z-index: 1;
+}
+
+.hidden-menu {
+    transform: translate(100%,0);
+}
+
+.visible-menu {
+    transform: translate(0,0);
+}

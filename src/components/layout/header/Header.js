@@ -1,7 +1,7 @@
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { MenuContainer } from '../../menu/MenuContainer';
 
 export function Header() {
     return(
@@ -12,10 +12,7 @@ export function Header() {
             </div>
             <div id="login-register-menu-container">
                     <p className="spacing-right">Login / Register</p>
-                <div className="menu-container">
-                    <FontAwesomeIcon icon={faBars} size="lg" />
-                    <p className="top-menu-text">Menu</p>
-                </div>
+                    <MenuContainer/>
             </div>
         </div>
     )

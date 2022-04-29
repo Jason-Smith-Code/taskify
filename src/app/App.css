@@ -46,7 +46,9 @@ a {
 }
 
 .App {
-    background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%)
+    background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%);
+    position: relative;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
