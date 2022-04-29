@@ -106,7 +106,9 @@ export const Category = (category) => {
                 : <h2>{category.title}</h2> }
             </div>
             {/* map out tasks in this category */}
-            {filterCategoryList()}
+            <div className="tasks-container">
+                {filterCategoryList()}
+            </div>
         </div>
     )
 }

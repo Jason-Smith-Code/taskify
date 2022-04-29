@@ -8,7 +8,7 @@ import { CategoryForm } from '../../forms/CategoryForm';
 export function Main() {
     return(
         <div id="main">
-            <div className="column">
+            <div id="forms-column" className="column">
                 <CategoryForm />
                 <TaskForm />  
             </div>

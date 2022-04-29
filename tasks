@@ -3,21 +3,9 @@ https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-b
 or
 https://react-dnd.github.io/react-dnd/docs/api/use-drag
 
-# Completed Tasks
-Create a new column to house completed tasks
-Add a new state to task object "completed" set to false by default
-Add a new button on the task, which marks the task as complete
-Once marked as complete the task will move from its current category to completed
-Make the completed column look different from the rest of the columns
-
-# Add "Remaining characters" + "Title required for editng category"
-
 # create better animation for button hover - add icon with transition
 add a click animation aswell?
 
 # Saving state for users?
 
 # What is going in the menu
-
-# When deletiinig a category, delete all tasks in the category too
-Basically if you delete a category now, and create a new category with the same name, all previous tasks re appear.

@@ -26,7 +26,9 @@ export const Completed = () => {
     return (
         <div className="column full-height">
             <div className="category-title-container"><h2>Completed Tasks ( {getCompletedSize()} )</h2></div>
-            {filterCategoryList()}
+            <div className="tasks-container">
+                {filterCategoryList()}
+            </div>
         </div>
     )
 }
