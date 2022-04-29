@@ -44,15 +44,7 @@
     }
 }
 
-@media (min-width: 500px) {
-
-}
-
 @media (min-width: 768px) {
-
-}
-
-@media (min-width: 1200px) {
     #header {
         height: 40px;
         padding: 0px 20px;

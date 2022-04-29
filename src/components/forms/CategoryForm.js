@@ -53,7 +53,7 @@ export function CategoryForm() {
     }
 
     return (
-        <form className="padded"id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
+        <form className="padded" id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
             <div className="form-header"><AddIcon/><h2 className="form-title">Add Category</h2></div>    
             <input
                 required={true}

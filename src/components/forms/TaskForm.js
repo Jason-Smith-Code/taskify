@@ -68,7 +68,7 @@ export function TaskForm() {
         // {categories length < 1}
         <>
         {selectedCategories < 1 ? "" :
-        <form className="padded" data-testid="adding-task-form" onSubmit={handleSubmit}>
+        <form className="padded" id="task-form" data-testid="adding-task-form" onSubmit={handleSubmit}>
         <div className="form-header">
             <AddIcon/>
             <h2 className="form-title">Add Task</h2> 
