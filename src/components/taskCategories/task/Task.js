@@ -6,6 +6,7 @@ import { deleteTask, showDescription, isComplete, editTask } from '../../../feat
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { getGetCategoryList } from '../../../features/categoryListSlice';
+import { useForm } from 'react-hook-form';
 
 export const Task = (task) => {
     const selectedCategories = useSelector(getGetCategoryList);
@@ -21,6 +22,16 @@ export const Task = (task) => {
     const [isEditing, setEditing] = useState(false);
     const [characters, setCharacters] = useState(20);
     const maxTitleSize = 20;
+
+    const preloadedFormValues = {
+        editTitle: "title",
+        editDescription: "description",
+        editCategory: "category"
+    }
+
+    const {register} = useForm({
+        defaultValues: preloadedFormValues
+    })
 
     const toggleEditMode = () => {
         setEditing(current => !current);
@@ -82,7 +93,9 @@ export const Task = (task) => {
             {isEditing === true ? 
                 <form onSubmit={handleSubmit}>
                     <input 
+                        ref={register}
                         type="text" 
+                        name="editTitle"
                         placeholder={task.title}
                         value={newTitle}
                         maxLength={maxTitleSize}
@@ -93,6 +106,8 @@ export const Task = (task) => {
 
                     <div className="form-group">
                         <textarea
+                            ref={register}
+                            name="editDescription"
                             required={true}
                             data-testid='adding-task-form-input-description'
                             type="text"
@@ -109,7 +124,7 @@ export const Task = (task) => {
                         {selectedCategories.map((item) => {
                             return(
                                 <div key={item.id} className="radio-row">
-                                    <input required type="radio" value={item.id} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                                    <input required type="radio" value={item.id} name="editCategory" onChange={handleChange} className="category-button" /><p>{item.title}</p>
                                 </div>)
                             })
                         }
