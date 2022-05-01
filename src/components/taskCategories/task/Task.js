@@ -65,12 +65,12 @@ export const Task = (task) => {
             <div className="task-top-row">
                 <div className="task-top-left-icons">
                     {/* View button */}
-                    <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
+                    <button className="icon-button icon-margin-right clickable" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
                     {/* Edit button */}
-                    <button className="icon-button tooltip" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
+                    <button className="icon-button clickable" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
                 </div>
                 {/* delete task button */}
-                <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
+                <button className="icon-button clickable" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
             </div> 
 
             <div className='task-title-description-container'>
