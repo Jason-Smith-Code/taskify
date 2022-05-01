@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 export const ToggleSwitch = () => {
-    const size = "xs"
+    const size = "2xs"
     return (
         <div className='spacing-right'>
             <label className="switch">

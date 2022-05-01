@@ -43,7 +43,17 @@ a {
     --Color3: #9E0091;
     --Color4: #2b043e;
     --Color5: #ff00b1;
+
+    /* Dark mode */
+/* 
+    --Color1: #2a1c5a;
+    --Color2: #ffffff;
+    --Color3: #ffa1f7;
+    --Color4: #2b043e;
+    --Color5: #ff00b1; */
 }
+
+
 
 .App {
     background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%);
