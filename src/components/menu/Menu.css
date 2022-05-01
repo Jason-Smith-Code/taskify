@@ -29,3 +29,16 @@
 .menu-item {
     margin-bottom: 10px;
 }
+
+#close-menu-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: none;
+    border: 1px solid var(--Color3);
+    border-radius: 10px 0px 0px 0px;
+    color: var(--Color3);
+    transition: 250ms;
+}
+
+

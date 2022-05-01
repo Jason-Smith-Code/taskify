@@ -120,8 +120,7 @@ export const Task = (task) => {
                             })
                         }
                     </div>}
-
-
+                    
                     <button className="form-submit clickable" type="submit" value="Submit">Confirm</button>
                 </form>
                 : "" }

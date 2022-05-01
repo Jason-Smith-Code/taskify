@@ -11,7 +11,7 @@ export const Menu = () => {
     return (
         <div id="menu" className='hidden-menu'>
             <div id="close-menu-container">
-                <button className="clickable" onClick={closeMenu} type="button">Close menu</button>
+                <button className="clickable" id="close-menu-button" onClick={closeMenu} type="button">Close menu</button>
             </div>
             {/* List out menu items */}
             <p className="menu-item clickable">Maiin View</p>
