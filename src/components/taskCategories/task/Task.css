@@ -3,8 +3,8 @@
     background-color: var(--Color1);
     padding: 25px;
     border-radius: 25px;
-    -webkit-box-shadow: 0px 5px 10px 0px var(--Color4);
-    box-shadow: 0px 5px 10px 0px var(--Color4);
+    -webkit-box-shadow: 0px 5px 10px 0px var(--Black);
+    box-shadow: 0px 5px 10px 0px var(--Black);
 }
 
 .task-item:hover {

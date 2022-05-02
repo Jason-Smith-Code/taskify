@@ -9,7 +9,8 @@ import { AddIcon } from "../icons/AddIcon";
 
 export function TaskForm() {
     const selectedCategories = useSelector(getGetCategoryList);
-    
+    const maxTitleSize = 40;
+
     function getFirstTitle() {
         if (selectedCategories.length > 0) {
             return selectedCategories[0].title
@@ -19,10 +20,9 @@ export function TaskForm() {
     }
 
     const [title, setTitle] = useState("");
-    const [characters, setCharacters] = useState(20);
+    const [characters, setCharacters] = useState(maxTitleSize);
     const [description, setDescription] = useState("");
     const [selectedCatgory, setSelectedCategory] = useState(getFirstTitle());
-    const maxTitleSize = 20;
 
     const dispatch = useDispatch();
 
@@ -60,7 +60,7 @@ export function TaskForm() {
         setTitle(e.target.value);
     }
 
-    const handleChange = (e) => {
+    const onCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
     }
 
@@ -98,30 +98,23 @@ export function TaskForm() {
             />
             <p className="form-message">{description.length > 0 ? "" : "Description Required"}</p>
         </div>
-        {/* {selectedCategories < 1 ? <p>Please create a category</p> :
-        <div>
-            <label>Select a category</label>
-            <br></br>
-            {selectedCategories.map(item => <button type="button" required value={item.title} onClick={() => setSelectedCategory(item.title)} className="category-button" key={item.id}>{item.title}</button>)}
-        </div>}  */}
 
-            {/* Radio option */}
-            
-            {selectedCategories < 1 ? <p>Please create a category</p> :
-            <div>
-                <label>Select a category</label>
-                <div className="options-container">
-                    {selectedCategories.map((item) => {
-                        return(
-                            <div key={item.id} className="radio-row">
-                                <input required type="radio" value={item.id} name="category-radio" onChange={handleChange} className="category-button" /><p>{item.title}</p>
-                            </div>)
-                        })
-                    }
-                </div>
-            </div>} 
+        {selectedCategories < 1 ? <p>Please create a category</p> :
+        <div className="form-group">
+            <label>Select a category</label>
+            <div className="options-container">
+                {selectedCategories.map((item) => {
+                    return(
+                        <div key={item.id} className="radio-row">
+                            <input required type="radio" value={item.id} name="category-radio" onChange={onCategoryChange} className="category-button" /><p>{item.title}</p>
+                        </div>)
+                    })
+                }
+            </div>
+        </div>}        
+                    
             {/* Form Submit */}
-            {(selectedCategories.length < 1 ) || (selectedCatgory === "") || (selectedCatgory === null) || (selectedCatgory === undefined) ||(title.length === 0) || (description.length === 0)? "" : <button className="form-submit clickable" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>} 
+            {(selectedCategories.length < 1 ) || (selectedCatgory === "") || (selectedCatgory === null) || (selectedCatgory === undefined) ||(title.length === 0) || (description.length === 0)? "" : <button className="form-submit" data-testid='adding-task-submit' id="submitButton" type="submit" value="Submit">Add Task</button>} 
 
     </form>
         }

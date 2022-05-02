@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { getGetCategoryList } from '../../../features/categoryListSlice';
 
+import { useForm } from 'react-hook-form';
+
 export const Task = (task) => {
     const selectedCategories = useSelector(getGetCategoryList);
-    
+    const maxTitleSize = 40;
     const iconSize = "xl";
     const dispatch = useDispatch();
 
@@ -19,19 +21,22 @@ export const Task = (task) => {
     const [newCategory, setNewCategory] = useState("");
     const [newDescription, setNewDescription] = useState("");
     const [isEditing, setEditing] = useState(false);
-    const [characters, setCharacters] = useState(20);
-    const maxTitleSize = 20;
+    const [characters, setCharacters] = useState(maxTitleSize);
 
-    const toggleEditMode = () => {
-        setEditing(current => !current);
+    const preloadedValues = {
+        Title: task.title,
+        Description: task.description
     }
 
-    // Currently when a user edits a task, all field values have no value, I want a default value in place
-    // This will help if the user acidently clicks edit, it will also help if the user wants to add to the existing edit
-    // Possible solution :
-    // https://react-hook-form.com/get-started
+    const {register} = useForm({
+        defaultValues: preloadedValues
+    })
+    const toggleEditMode = () => {
+        setEditing(current => !current);
+        const oldTitle = task.title;   
 
-    // Complete Task
+    }
+
     const completeTask = () => {
         dispatch(isComplete(task.id))
     }
@@ -65,12 +70,12 @@ export const Task = (task) => {
             <div className="task-top-row">
                 <div className="task-top-left-icons">
                     {/* View button */}
-                    <button className="icon-button icon-margin-right clickable" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
+                    <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
                     {/* Edit button */}
-                    <button className="icon-button clickable" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
+                    <button className="icon-button" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
                 </div>
                 {/* delete task button */}
-                <button className="icon-button clickable" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
+                <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
             </div> 
 
             <div className='task-title-description-container'>
@@ -78,7 +83,7 @@ export const Task = (task) => {
                 {task.show === false ? "" : 
                 <div className="task-hidden-contents-container">
                     <p className='task-description'>{task.description}</p>
-                    {task.completed === true ? "" : <button type="button" onClick={completeTask} className='form-submit clickable'>Complete</button>}
+                    {task.completed === true ? "" : <button type="button" onClick={completeTask} className='form-submit'>Complete</button>}
                 </div>
                 }
             </div>
@@ -86,6 +91,7 @@ export const Task = (task) => {
             {isEditing === true ? 
                 <form onSubmit={handleSubmit}>
                     <input 
+                        {...register('Title')}
                         type="text" 
                         name="editTitle"
                         placeholder={task.title}
@@ -98,6 +104,7 @@ export const Task = (task) => {
 
                     <div className="form-group">
                         <textarea
+                            {...register('Description')}
                             name="editDescription"
                             required={true}
                             data-testid='adding-task-form-input-description'
@@ -112,6 +119,7 @@ export const Task = (task) => {
                     {selectedCategories < 1 ? <p>Please create a category</p> :
                     <div>
                         <label>Select a category</label>
+                        <div className="options-container"></div>
                         {selectedCategories.map((item) => {
                             return(
                                 <div key={item.id} className="radio-row">
@@ -119,9 +127,10 @@ export const Task = (task) => {
                                 </div>)
                             })
                         }
+                        
                     </div>}
                     
-                    <button className="form-submit clickable" type="submit" value="Submit">Confirm</button>
+                    <button className="form-submit" type="submit" value="Submit">Confirm</button>
                 </form>
                 : "" }
 

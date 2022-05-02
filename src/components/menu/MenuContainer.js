@@ -13,7 +13,7 @@ export const MenuContainer = () => {
 
     return (
         <div>
-            <button type="button" className="clickable" onClick={openMenu} id="menu-button-container">
+            <button type="button" onClick={openMenu} id="menu-button-container">
                 <FontAwesomeIcon icon={faBars} size="lg" />
                 <p className="top-menu-text">Menu</p>
             </button>

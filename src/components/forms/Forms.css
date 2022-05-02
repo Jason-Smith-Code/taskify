@@ -17,7 +17,6 @@
         color: var(--Color2);
         background: var(--Color1);
     }
-    
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: var(--Color3);
         opacity: .8; /* Firefox */
@@ -125,8 +124,8 @@
     .padded {
         width: 100%;
         padding: 25px;
-        -webkit-box-shadow: 0px 5px 10px 0px var(--Color4);
-        box-shadow: 0px 5px 10px 0px var(--Color4);
+        -webkit-box-shadow: 0px 5px 10px 0px var(--Black);
+        box-shadow: 0px 5px 10px 0px var(--Black);
     }
     
     select#select-category {
