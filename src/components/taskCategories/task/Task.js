@@ -15,26 +15,27 @@ export const Task = (task) => {
     const iconSize = "xl";
     const dispatch = useDispatch();
 
-    const taskId = task.id;
-    // Edit task
-    const [newTitle, setNewtitle] = useState("");
-    const [newCategory, setNewCategory] = useState("");
-    const [newDescription, setNewDescription] = useState("");
-    const [isEditing, setEditing] = useState(false);
-    const [characters, setCharacters] = useState(maxTitleSize);
-
     const preloadedValues = {
-        Title: task.title,
-        Description: task.description
+        editTitle: task.title,
+        editDescription: task.description,
+        editCategory: task.category
     }
 
     const {register} = useForm({
         defaultValues: preloadedValues
-    })
+    });
+
+    const taskId = task.id;
+    // Edit task
+    const [newTitle, setNewtitle] = useState(preloadedValues.editTitle);
+    const [newCategory, setNewCategory] = useState(preloadedValues.editCategory);
+    const [newDescription, setNewDescription] = useState(preloadedValues.editDescription);
+    const [isEditing, setEditing] = useState(false);
+    const [characters, setCharacters] = useState(maxTitleSize);
+
+
     const toggleEditMode = () => {
         setEditing(current => !current);
-        const oldTitle = task.title;   
-
     }
 
     const completeTask = () => {
@@ -59,7 +60,7 @@ export const Task = (task) => {
         setNewtitle(e.target.value);
     }
 
-    const handleChange = (e) => {
+    const changeCategory = (e) => {
         setNewCategory(e.target.value);
     }
 
@@ -91,10 +92,9 @@ export const Task = (task) => {
             {isEditing === true ? 
                 <form onSubmit={handleSubmit}>
                     <input 
-                        {...register('Title')}
+                        {...register('editTitle')}
                         type="text" 
                         name="editTitle"
-                        placeholder={task.title}
                         value={newTitle}
                         maxLength={maxTitleSize}
                         onChange={(e) => onTaskTitleChange(e)}
@@ -104,14 +104,13 @@ export const Task = (task) => {
 
                     <div className="form-group">
                         <textarea
-                            {...register('Description')}
+                            {...register('editDescription')}
                             name="editDescription"
                             required={true}
                             data-testid='adding-task-form-input-description'
                             type="text"
-                            placeholder={task.description}
                             value={newDescription}
-                            onChange={(e) => setNewDescription(e.target.value)}
+                            onChange={(event) => setNewDescription(event.target.value)}
                         />
                         <p className="form-message">{task.description.length > 0 ? "" : "Description Required"}</p>
                     </div>
@@ -123,7 +122,17 @@ export const Task = (task) => {
                         {selectedCategories.map((item) => {
                             return(
                                 <div key={item.id} className="radio-row">
-                                    <input required type="radio" value={item.id} name="editCategory" onChange={handleChange} className="category-button" /><p>{item.title}</p>
+                                    <input 
+                                        {...register('editCategory')} 
+                                        name="editCategory" 
+                                        type="radio" 
+                                        value={parseInt(item.id)} 
+                                        checked={item.id === task.category}
+                                        onChange={changeCategory} 
+                                        className="category-button" 
+                                        />
+                                        <p>{item.title}</p>
+                                        
                                 </div>)
                             })
                         }
