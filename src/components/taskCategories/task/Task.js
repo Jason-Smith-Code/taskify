@@ -126,8 +126,8 @@ export const Task = (task) => {
                                         {...register('editCategory')} 
                                         name="editCategory" 
                                         type="radio" 
-                                        value={parseInt(item.id)} 
-                                        checked={item.id === task.category}
+                                        value={item.id} 
+                                        defaultChecked={task.category === item.id}
                                         onChange={changeCategory} 
                                         className="category-button" 
                                         />
