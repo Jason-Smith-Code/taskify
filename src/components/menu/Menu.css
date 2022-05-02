@@ -2,7 +2,6 @@
     width: 200px;
     padding: 25px;
     background-color: var(--Color1);
-    transition: 250ms ease-in-out;
     position:fixed;
     top: 0px;
     right:0px;
@@ -38,7 +37,6 @@
     border: 1px solid var(--Color3);
     border-radius: 10px 0px 0px 0px;
     color: var(--Color3);
-    transition: 250ms;
 }
 
 

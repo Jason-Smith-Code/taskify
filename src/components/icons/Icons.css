@@ -38,8 +38,6 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%);
-    -webkit-transition: .4s;
-    transition: .4s;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -54,8 +52,8 @@
     left: 3px;
     bottom: 3px;
     background-color: var(--Color1);
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition:250ms ease-in-out; 
+    transition: 250ms ease-in-out;
 }
   
 input:checked + .slider {
