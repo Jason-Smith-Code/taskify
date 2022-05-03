@@ -1,7 +1,7 @@
 .text-container {
     background-color: var(--Color1);
     padding: 50px;
-    max-width: 1000px;
+    max-width:1200px;
     margin: 25px;
     border-radius: 50px;
 }
@@ -55,4 +55,9 @@
 
 .icon-guide-padding {
     padding: 10px;
+}
+
+.guide-image {
+    margin-top: 25px;
+    border-radius: 25px;
 }

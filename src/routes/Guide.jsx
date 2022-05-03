@@ -2,8 +2,10 @@ import './Guide.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { Link } from 'react-router-dom';
 
 export const Guide = () => {
+    const addCategoryFormImage = require('../assets/images/add-category-form.jpg')
     const iconSize = "2xl"
     return (
         <div className='centered'>
@@ -32,8 +34,10 @@ export const Guide = () => {
                     <h2 className='guide-title'>Adding a Category</h2>
                     <p>The first thing you must do is add a category, 
                         think of a category as the name of group for your tasks, examples:<br /> "Work", "Home", or "Garden" <br /> If you change your mind on the title, 
-                        don't worry you can alter it.
+                        don't worry you can alter it. To add a cateogry simply fill the category form, it only needs a title. <Link to="/">Can be found here</Link>.
                     </p>
+                    
+                    <img className="guide-image" src={addCategoryFormImage} alt="add category form"></img>
                 </div>
                 <div className='text-group'>
                     <h2 className='guide-title'>Deleting a Category</h2>
