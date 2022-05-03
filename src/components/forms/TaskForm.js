@@ -50,7 +50,7 @@ export function TaskForm() {
     const clearForm = () => {
         setTitle("");
         setDescription("");
-        setCharacters(20);
+        setCharacters(maxTitleSize);
     }
 
     const onChangeTitle = (e) => {
