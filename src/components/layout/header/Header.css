@@ -16,6 +16,7 @@
         font-size: 2rem;
         margin: 10px 0;
         justify-content: center;
+        color: var(--Color2)
     }
     
     #logo-text {

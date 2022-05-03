@@ -3,12 +3,12 @@ import './Forms.css';
 import { addTask } from "../../features/taskListSlice";
 import { useDispatch } from "react-redux";
 import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
-import { getGetCategoryList } from "../../features/categoryListSlice";
+import { getCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 import { AddIcon } from "../icons/AddIcon";
 
 export function TaskForm() {
-    const selectedCategories = useSelector(getGetCategoryList);
+    const selectedCategories = useSelector(getCategoryList);
     const maxTitleSize = 40;
 
     function getFirstTitle() {

@@ -1,4 +1,4 @@
-export default function Register() {
+export const Register = () => {
     return (
           <p>Register page</p>
       );

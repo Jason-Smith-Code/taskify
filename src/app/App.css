@@ -9,7 +9,8 @@ p, h1, h2, h3, h4, h5, h6, a, input, textarea, label, #datePicker-1 {
 }
 
 p, input, textarea, a, label  {
-    font-size: 1rem;    
+    font-size: 1rem; 
+    color: var(--Color2)   
 }
 
 label {
@@ -22,6 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+    color: var(--Color2)
 }
 
 h1, h2 {
@@ -37,6 +39,7 @@ a {
     text-decoration: none;
 }
 
+/* Change to include light in name */
 :root {
     --Color1: #ffffff;
     --Color2: #69009e;
@@ -47,6 +50,9 @@ a {
     --Background2: #C1E9F1;
     --Black: #000000;
 }
+
+/*  Add dark version here*/
+
 
 .App {
     background: linear-gradient(125deg, var(--Background1), var(--Background2) 100%);
@@ -78,4 +84,8 @@ button:hover {
 
 .erarAc {
     color: #9e0091;
+}
+
+.fit-content {
+    width: fit-content;
 }

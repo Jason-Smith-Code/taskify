@@ -1,11 +1,11 @@
 import './TaskCategories.css';
 import { Category } from "./category/Category";
-import { getGetCategoryList } from "../../features/categoryListSlice";
+import { getCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 
 export const TaskCategories = () => {
 
-    const selectedCategories = useSelector(getGetCategoryList);
+    const selectedCategories = useSelector(getCategoryList);
 
     return (
             <div id="category-container">

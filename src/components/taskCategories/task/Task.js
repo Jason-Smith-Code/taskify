@@ -5,12 +5,12 @@ import './Task.css';
 import { deleteTask, showDescription, isComplete, editTask } from '../../../features/taskListSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { getGetCategoryList } from '../../../features/categoryListSlice';
+import { getCategoryList } from '../../../features/categoryListSlice';
 
 import { useForm } from 'react-hook-form';
 
 export const Task = (task) => {
-    const selectedCategories = useSelector(getGetCategoryList);
+    const selectedCategories = useSelector(getCategoryList);
     const maxTitleSize = 40;
     const iconSize = "xl";
     const dispatch = useDispatch();
@@ -71,12 +71,18 @@ export const Task = (task) => {
             <div className="task-top-row">
                 <div className="task-top-left-icons">
                     {/* View button */}
-                    <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}><FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/></button>
+                    <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/>
+                    </button>
                     {/* Edit button */}
-                    <button className="icon-button" onClick={toggleEditMode}><FontAwesomeIcon icon={faPenToSquare} size={iconSize}/></button>
+                    <button className="icon-button" onClick={toggleEditMode}>
+                            <FontAwesomeIcon icon={faPenToSquare} size={iconSize}/>
+                    </button>
                 </div>
                 {/* delete task button */}
-                <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}><FontAwesomeIcon icon={faTrashCan} size={iconSize}/></button>         
+                <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}>
+                    <FontAwesomeIcon icon={faTrashCan} size={iconSize}/>
+                </button>         
             </div> 
 
             <div className='task-title-description-container'>
@@ -131,18 +137,14 @@ export const Task = (task) => {
                                         onChange={changeCategory} 
                                         className="category-button" 
                                         />
-                                        <p>{item.title}</p>
-                                        
+                                        <p>{item.title}</p>    
                                 </div>)
                             })
                         }
-                        
                     </div>}
-                    
                     <button className="form-submit" type="submit" value="Submit">Confirm</button>
                 </form>
                 : "" }
-
         </div>
     )
 }

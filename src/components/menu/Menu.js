@@ -1,11 +1,11 @@
 import './Menu.css';
 import { Link } from "react-router-dom";
-import { getGetCategoryList } from "../../features/categoryListSlice";
+import { getCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 import { RemoveSpaces } from '../../utilities/RemoveSpaces'
 
 export const Menu = () => {
-    const selectedCategories = useSelector(getGetCategoryList);
+    const selectedCategories = useSelector(getCategoryList);
 
     function closeMenu() {
         const menu = document.getElementById("menu"); 
@@ -35,8 +35,7 @@ export const Menu = () => {
             <Link to="/">Main</Link>
             <Link to="/print">Print Tasks</Link>
             <Link to="/register">Register</Link>
-            <Link to="/icon-guide">Icon Guide</Link>
-            <Link to="/tutorial">Tutorial</Link>
+            <Link to="/guide">Guide</Link>
             <Link to="/account">Account</Link>
         </div>
     )
