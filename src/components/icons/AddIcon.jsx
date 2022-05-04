@@ -1,5 +1,7 @@
 import './Icons.css';
 
 export const AddIcon = () => {
-    return <div className="circle-border-contaner"><p>+</p></div>
+    return  <div data-testid='add-icon-container' className="circle-border-contaner">
+                <p data-testid='add-icon'>+</p>
+            </div>
 }

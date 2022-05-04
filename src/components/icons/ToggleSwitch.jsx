@@ -11,8 +11,6 @@ export const ToggleSwitch = () => {
         setDarkmode(!darkMode)
     }
 
-    // change the background colour
-    // .App {background: linear-gradient(125deg, rgb(194 165 188) 0%, rgba(193,233,241,1) 100%)}
     if (darkMode === true) {
         document.documentElement.style.setProperty("--Color1", '#2b043e');
         document.documentElement.style.setProperty("--Color2", '#ffffff');
