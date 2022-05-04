@@ -9,15 +9,19 @@ import { Task } from '../task/Task';
 import { deleteTask } from '../../../features/taskListSlice';
 
 export const Category = (category) => {
-
-    const dispatch = useDispatch();
-    const originalTaskList = useSelector(getTaskList);
     const iconSize = "xl";
     const categoryId = category.id;
+    const dispatch = useDispatch();
+    const originalTaskList = useSelector(getTaskList);
+    const newList = originalTaskList.filter(task => task.category === category.id);
+
+    const [newTitle, setNewtitle] = useState("");
+    const [isEditing, setEditing] = useState(false);
+    const [characters, setCharacters] = useState(20);
+    const maxTitleSize = 20;
 
     // filter category list to only show items that have a category by name
     function filterCategoryList() {
-       const newList = originalTaskList.filter(task => task.category === category.id);
        return newList.map(task => 
         <Task 
             key={task.id}
@@ -29,11 +33,6 @@ export const Category = (category) => {
             category={task.category}
         />)
     }
-
-    const [newTitle, setNewtitle] = useState("");
-    const [isEditing, setEditing] = useState(false);
-    const [characters, setCharacters] = useState(20);
-    const maxTitleSize = 20;
 
     // clicking the edit button toggles edit mode
     const toggleEditMode = () => {
@@ -96,7 +95,7 @@ export const Category = (category) => {
                     <p className="form-message">Remaining characters: {characters}</p>
                     <button className="form-submit" type="submit" value="Submit">Confirm</button>
                 </form>
-                : <h2>{category.title}</h2> }
+                : <h2>{category.title} ( {newList.length} )</h2> }
             </div>
             {/* map out tasks in this category */}
             <div className="tasks-container">

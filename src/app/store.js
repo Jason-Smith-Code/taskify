@@ -8,7 +8,7 @@ const preloadedState = loadState()
 
 const reducer = {
   tasks: taskListSlice,
-  categories: categoryListSlice
+  categories: categoryListSlice,
 }
 
 export const store = configureStore({

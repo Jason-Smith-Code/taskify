@@ -7,7 +7,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Register } from '../routes/Register';
 import CategoryTemplate from '../routes/CategoryTemplate'
 import { useSelector } from "react-redux";
 import { getCategoryList } from '../features/categoryListSlice';
@@ -38,7 +37,6 @@ function App() {
       <Header />
       <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="register" element={<Register />} />
           <Route path="guide" element={<Guide />} />
           {createCategoryRoutes()}
       </Routes>
