@@ -2,37 +2,23 @@ import { TaskForm } from "../components/forms/TaskForm";
 import { getTaskList } from "../features/taskListSlice";
 import { useSelector } from "react-redux";
 import './CategoryTemplates.css';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Task } from "../components/taskCategories/task/Task";
 
 export default function CategoryTemplate(category) {
-    const taskList = useSelector(getTaskList);
-    const iconSize = "xl";
-
+    const originalTaskList = useSelector(getTaskList);
     function filterCategoryList() {
-        const newList = taskList.filter(task => task.category === category.id);
-         
+        const newList = originalTaskList.filter(task => task.category === category.id);
         return newList.map(task => 
-            <div key={task.id} className="task-strip">
-             <div className="task-strip-title-container"><h3>{task.title}</h3></div>
-             <div>
-                {/* View button */}
-                <button className="icon-button icon-margin-right">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/>
-                </button>
-                {/* Edit button */}
-                <button className="icon-button icon-margin-right">
-                    <FontAwesomeIcon icon={faPenToSquare} size={iconSize}/>
-                </button>
-                {/* delete task button */}
-                <button className="icon-button" >
-                    <FontAwesomeIcon icon={faTrashCan} size={iconSize}/>
-                </button>
-             </div>
-            </div>
-            )
-    }
+         <Task 
+             key={task.id}
+             title={task.title} 
+             id={task.id}
+             description={task.description}
+             show={task.show}
+             completed={task.completed}
+             category={task.category}
+         />)
+     }
 
     return (
         <div id="main">

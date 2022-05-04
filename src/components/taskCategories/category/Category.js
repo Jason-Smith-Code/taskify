@@ -70,10 +70,6 @@ export const Category = (category) => {
         }
     }
 
-    function refreshPage() {
-        window.location.reload(false);
-    }
-
     return(
         <div className="column">
             <div className="category-title-container">

@@ -16,6 +16,7 @@ export const Guide = () => {
     const completed = require('../assets/images/completed.jpg');
     const mainLight = require('../assets/images/main-light.jpg');
     const MainDark = require('../assets/images/main-dark.jpg');
+    const mainCategory = require('../assets/images/category.jpg');
 
     const iconSize = "2xl"
     return (
@@ -136,7 +137,7 @@ export const Guide = () => {
 
                     <img className="guide-image full-width" src={mainLight} alt="Main View"></img>
                     <p>Main View</p>
-                    <img className="guide-image full-width" src={mainLight} alt="Main View"></img>
+                    <img className="guide-image full-width" src={mainCategory} alt="Main View"></img>
                     <p>Category View</p>
                 </div>
             </div>
