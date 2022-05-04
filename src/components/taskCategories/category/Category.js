@@ -18,7 +18,7 @@ export const Category = (category) => {
     // filter category list to only show items that have a category by name
     function filterCategoryList() {
        const newList = originalTaskList.filter(task => task.category === category.id);
-        
+    console.log(newList)
        return newList.map(task => 
         <Task 
             key={task.id}
@@ -60,16 +60,14 @@ export const Category = (category) => {
     const deletingCategory = () => {
         deleteAllCategoryTasks()
         dispatch(deleteCategory(category.id))
-        refreshPage()
     }
 
     const deleteAllCategoryTasks = () => {
         // identfy all tasks in category
-        const itemsToBeDeleted = originalTaskList.filter(task => task.category === category.title);
-        console.log(`items to be deleted ${itemsToBeDeleted}`)
+        const newList = originalTaskList.filter(task => task.category === category.id);
         // loop through each one dispatching delete task as we go
-        for (let i = 0; i < itemsToBeDeleted.length; i++ ) {
-            dispatch(deleteTask(itemsToBeDeleted[i].id));
+        for (let i = 0; i < newList.length; i++ ) {
+            dispatch(deleteTask(newList[i].id))
         }
     }
 

@@ -16,7 +16,6 @@ import { Guide } from '../routes/Guide';
 
 function App() {
   const selectedCategories = useSelector(getCategoryList);
-
   function createCategoryRoutes() {
     return(
       selectedCategories.map(category => 
