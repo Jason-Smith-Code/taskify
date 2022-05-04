@@ -35,8 +35,12 @@ h3 {
 }
 
 a {
-    color: var(--Color5);
+    color: var(--Color2);
     text-decoration: none;
+}
+
+a:hover {
+    color: var(--Color5);
 }
 
 /* Change to include light in name */

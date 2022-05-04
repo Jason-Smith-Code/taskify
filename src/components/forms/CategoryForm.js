@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import './Forms.css';
 import { addCategory } from "../../features/categoryListSlice";
 import { useDispatch } from "react-redux";
-import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
 import { AddIcon } from "../icons/AddIcon";
 
 export function CategoryForm() {
@@ -19,7 +18,7 @@ export function CategoryForm() {
             return
         }
         dispatch(addCategory({
-            id: GenerateUniqueId(),
+            id: Date.now(),
             title: title,
         }));
         setCharacters(maxTitleSize);

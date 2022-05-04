@@ -1,5 +1,5 @@
 #menu {
-    width: 200px;
+    width: 300px;
     padding: 25px;
     background-color: var(--Color1);
     position:fixed;
@@ -37,9 +37,20 @@
     padding: 10px 20px;
     font-size: 1.2em;
     background: none;
-    border: 1px solid var(--Color3);
+    border: 1px solid var(--Color2);
     border-radius: 10px 0px 0px 0px;
-    color: var(--Color3);
+    color: var(--Color2);
 }
 
+#close-menu-button:hover {
+    border: 1px solid var(--Color5);
+    color: var(--Color5); 
+}
 
+.menu-heading {
+    margin: 10px 0;
+}
+
+.menu-link {
+    padding: 10px;
+}

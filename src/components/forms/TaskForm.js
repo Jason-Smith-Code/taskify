@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import './Forms.css';
 import { addTask } from "../../features/taskListSlice";
 import { useDispatch } from "react-redux";
-import {GenerateUniqueId} from "../../utilities/GenerateUniqueId";
 import { getCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
 import { AddIcon } from "../icons/AddIcon";
@@ -33,10 +32,9 @@ export function TaskForm() {
         if (title === "" || description === "") {
             return
         }
-        const uniqueNumber = GenerateUniqueId();
 
         dispatch(addTask({
-            id: uniqueNumber,
+            id: Date.now(),
             title: title,
             description: description,
             show: false,

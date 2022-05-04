@@ -16,8 +16,7 @@ export function Header() {
             </Link>         
             <div id="login-register-menu-container">
                 <ToggleSwitch />
-                    <p className="spacing-right">Login / Register</p>
-                    <MenuContainer/>
+                <MenuContainer/>
             </div>
         </div>
     )

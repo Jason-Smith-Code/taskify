@@ -2,7 +2,10 @@ import './Menu.css';
 import { Link } from "react-router-dom";
 import { getCategoryList } from "../../features/categoryListSlice";
 import { useSelector } from "react-redux";
-import { RemoveSpaces } from '../../utilities/RemoveSpaces'
+import { RemoveSpaces } from '../../utilities/RemoveSpaces';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck, faFolder } from '@fortawesome/free-regular-svg-icons';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 export const Menu = () => {
     const selectedCategories = useSelector(getCategoryList);
@@ -16,11 +19,15 @@ export const Menu = () => {
     function printCategoryLinks() {
         return (
             selectedCategories.map(category => 
-                <Link 
-                    key={category.id} 
-                    title={category.title} 
-                    to={`/${RemoveSpaces(category.title)}`}>{category.title}</Link>
-        )
+                    <Link 
+                        key={category.id} 
+                        title={category.title} 
+                        className="menu-link"
+                        to={`/${RemoveSpaces(category.title)}`}>
+                            <FontAwesomeIcon className="icon-margin-right" icon={faFolder} />
+                            {category.title}
+                    </Link>
+            )   
         )
     }
 
@@ -29,14 +36,11 @@ export const Menu = () => {
             <div id="close-menu-container">
                 <button id="close-menu-button" onClick={closeMenu} type="button">Close menu</button>
             </div>
-            <p>Categories</p>
+            <Link className="menu-link" to="/"><FontAwesomeIcon className="icon-margin-right" icon={faCircleCheck} />Taskify</Link>
+            <Link className="menu-link" to="/guide"><FontAwesomeIcon className="icon-margin-right" icon={faCircleInfo} />Guide</Link>
+            <p className='menu-heading'>Categories</p>
             {printCategoryLinks()}
-            <p>Other</p>
-            <Link to="/">Main</Link>
-            <Link to="/print">Print Tasks</Link>
-            <Link to="/register">Register</Link>
-            <Link to="/guide">Guide</Link>
-            <Link to="/account">Account</Link>
+            
         </div>
     )
 }
