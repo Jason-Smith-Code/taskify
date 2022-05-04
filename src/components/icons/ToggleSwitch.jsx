@@ -9,7 +9,6 @@ export const ToggleSwitch = () => {
 
     const toggleDarkMode = () => {
         setDarkmode(!darkMode)
-        console.log(darkMode)
     }
 
     // change the background colour

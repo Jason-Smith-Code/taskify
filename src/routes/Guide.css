@@ -58,6 +58,10 @@
 }
 
 .guide-image {
-    margin-top: 25px;
+    margin: 25px 0;
     border-radius: 25px;
+}
+
+.full-width {
+    width: 100%
 }
