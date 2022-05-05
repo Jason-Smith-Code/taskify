@@ -13,12 +13,12 @@
         width: 100%;
         font-size: 1.2em;
         border-radius: 5px;
-        border: 1px solid var(--Color3);
-        color: var(--Color2);
-        background: var(--Color1);
+        border: 1px solid var(--Color3Light);
+        color: var(--Color2Light);
+        background: var(--Color1Light);
     }
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: var(--Color3);
+        color: var(--Color3Light);
         opacity: .8; /* Firefox */
     }
     
@@ -32,24 +32,24 @@
         height: 20px;
         padding: 2px;
         background-clip: content-box;
-        border: 1px solid var(--Color2);
+        border: 1px solid var(--Color2Light);
         border-radius: 50%;
 
     }
     
     input[type="radio"]:checked {
-        background-color:var(--Color2);
+        background-color:var(--Color2Light);
     }
     
     
     textarea:focus, input[type=text]:focus, select:focus{
-        outline-color: var(--Color4);
+        outline-color: var(--Color4Light);
         outline-style: solid;
         outline-width: thin;
     }
     
     label {
-        color: var(--Color3);
+        color: var(--Color3Light);
         font-size: 1.2rem;
     }
     
@@ -60,9 +60,9 @@
         resize: none;
         border-radius: 5px;
         height: 200px;
-        border: 1px solid var(--Color3);
-        color: var(--Color2);
-        background: var(--Color1);
+        border: 1px solid var(--Color3Light);
+        color: var(--Color2Light);
+        background: var(--Color1Light);
     }
     
     button.task {
@@ -75,7 +75,7 @@
     }
     
     form {
-        background-color: var(--Color1);
+        background-color: var(--Color1Light);
         border-radius: 25px;
     }
     
@@ -83,7 +83,7 @@
         margin-bottom: 25px;
     }
     .form-message {
-        color: var(--Color5);
+        color: var(--Color5Light);
         margin: 10px 0;
     }
     
@@ -94,7 +94,7 @@
     .form-header {
         width: 100%;
         display: flex;
-        color: var(--Color2);
+        color: var(--Color2Light);
         margin-bottom: 25px;
         font-size: 1.5em;
         align-items: center;
@@ -111,14 +111,14 @@
         padding: 10px 20px;
         font-size: 1.2em;
         background: none;
-        border: 1px solid var(--Color3);
+        border: 1px solid var(--Color3Light);
         border-radius: 0px 0px 10px 10px;
-        color: var(--Color3);
+        color: var(--Color3Light);
     }
     
     .form-submit:hover {
-        border: 1px solid var(--Color5);
-        color: var(--Color5);
+        border: 1px solid var(--Color5Light);
+        color: var(--Color5Light);
     }
     
     .padded {
@@ -131,22 +131,22 @@
     select#select-category {
         width: 100%;
         margin-top: 10px;
-        border: 1px solid var(--Color3);
+        border: 1px solid var(--Color3Light);
         border-radius: 5px;
         padding: 5px;
-        color:var(--Color3);
+        color:var(--Color3Light);
     }
     
     .category-button {
-        border: 1px solid var(--Color3);
-        color:var(--Color3);
+        border: 1px solid var(--Color3Light);
+        color:var(--Color3Light);
         padding: 10px 20px;
         border-radius: 5px;
-        background-color: var(--Color1);
+        background-color: var(--Color1Light);
     }
     
     .category-button:hover {
-        border: 1px solid var(--Color5);
+        border: 1px solid var(--Color5Light);
     }
     
     .category-button:target {
@@ -156,7 +156,7 @@
     .radio-row {
         display: flex;
         align-items: center;
-        color: var(--Color3);
+        color: var(--Color3Light);
         margin-bottom: 5px;
     }
     

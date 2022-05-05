@@ -14,8 +14,8 @@
     .column {
         width: 400px;
         flex: none;
-        border-left: 1px solid var(--Color1);
-        border-right: 1px solid var(--Color1);
+        border-left: 1px solid var(--Color1Light);
+        border-right: 1px solid var(--Color1Light);
         height: 100%;
         overflow-y: auto;
     }

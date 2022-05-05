@@ -1,5 +1,5 @@
 .text-container {
-    background-color: var(--Color1);
+    background-color: var(--Color1Light);
     padding: 50px;
     max-width:1200px;
     margin: 25px;
@@ -26,9 +26,9 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: var(--Color2);
+    color: var(--Color2Light);
     align-items:stretch;
-    border:1px solid var(--Color2);
+    border:1px solid var(--Color2Light);
     border-radius: 25px;
     padding: 25px;
     width: fit-content;

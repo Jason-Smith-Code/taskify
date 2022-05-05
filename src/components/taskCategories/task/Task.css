@@ -1,7 +1,7 @@
 .task-item {
     width: 100%;
     max-width: 500px;
-    background-color: var(--Color1);
+    background-color: var(--Color1Light);
     padding: 25px;
     border-radius: 25px;
     -webkit-box-shadow: 0px 5px 10px 0px var(--Black);
@@ -30,17 +30,17 @@
 }
 
 .task-title {
-    color: var(--Color2);
+    color: var(--Color2Light);
 }
 
 .icon-button {
     border: none;
     background: none;
-    color: var(--Color2);
+    color: var(--Color2Light);
 }
 
 .task-description {
-    color: var(--Color3);
+    color: var(--Color3Light);
 }
 
 .icon-margin-right {

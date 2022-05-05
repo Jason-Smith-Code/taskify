@@ -2,11 +2,11 @@
     #header {
         width: 100%;
         padding: 10px;
-        background-color: var(--Color1);
+        background-color: var(--Color1Light);
         display: flex;
         flex-direction: column;        
         justify-content: space-between;
-        color: var(--Color2);
+        color: var(--Color2Light);
     }
     
     #logo-container {
@@ -16,7 +16,7 @@
         font-size: 2rem;
         margin: 10px 0;
         justify-content: center;
-        color: var(--Color2)
+        color: var(--Color2Light)
     }
     
     #logo-text {
@@ -45,7 +45,7 @@
         align-items: center;
         border:none;
         background: none;
-        color: var(--Color2)
+        color: var(--Color2Light)
     }
 }
 

@@ -1,6 +1,6 @@
 .circle-border-contaner {
     border-radius: 50%;
-    border: 2px solid var(--Color2);
+    border: 2px solid var(--Color2Light);
     width: 20px;
     height: 20px;
     display: flex;
@@ -51,7 +51,7 @@
     width: 14px;
     left: 3px;
     bottom: 3px;
-    background-color: var(--Color1);
+    background-color: var(--Color1Light);
     -webkit-transition:250ms ease-in-out; 
     transition: 250ms ease-in-out;
 }

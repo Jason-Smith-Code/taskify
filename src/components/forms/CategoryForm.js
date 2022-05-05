@@ -47,13 +47,15 @@ export function CategoryForm() {
 
     function scrollToEnd() {
         const element = document.getElementById('category-container');
+        // console.log(`the element container is ${element}`);
         const elementWidth = element.scrollWidth;
+        // console.log(`the element width is ${elementWidth}`);
         element.scrollLeft = elementWidth;
     }
 
     return (
         <form className="padded" id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
-            <div className="form-header"><AddIcon/><h2 className="form-title">Add a Category</h2></div>    
+            <div className="form-header"><AddIcon/><h2 data-testid="title-element" className="form-title">Add a Category</h2></div>    
             <input
                 required={true}
                 data-testid='adding-category-form-input-title'

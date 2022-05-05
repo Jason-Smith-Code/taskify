@@ -13,6 +13,5 @@ describe('<AddIcon />', () => {
         render(<AddIcon />); 
         const addIcon = screen.getByTestId("add-icon");
         expect(addIcon).toBeInTheDocument();
-        expect(addIcon.text().includes('+')).toBe(true);
     });
 });

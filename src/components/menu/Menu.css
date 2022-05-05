@@ -1,7 +1,7 @@
 #menu {
     width: 300px;
     padding: 25px;
-    background-color: var(--Color1);
+    background-color: var(--Color1Light);
     position:fixed;
     top: 0px;
     right:0px;
@@ -37,14 +37,14 @@
     padding: 10px 20px;
     font-size: 1.2em;
     background: none;
-    border: 1px solid var(--Color2);
+    border: 1px solid var(--Color2Light);
     border-radius: 10px 0px 0px 0px;
-    color: var(--Color2);
+    color: var(--Color2Light);
 }
 
 #close-menu-button:hover {
-    border: 1px solid var(--Color5);
-    color: var(--Color5); 
+    border: 1px solid var(--Color5Light);
+    color: var(--Color5Light); 
 }
 
 .menu-heading {
