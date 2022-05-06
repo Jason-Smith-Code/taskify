@@ -5,13 +5,19 @@ import React, { useState } from 'react';
 
 export const ToggleSwitch = () => {
     const size = "2xs"
-    const [darkMode, setDarkmode] = useState(false);
-
-    const toggleDarkMode = () => {
-        setDarkmode(!darkMode)
+    const [theme, setTheme] = useState("light");
+    console.log(`theme: ${theme}`)
+    
+    const toggleTheme = () => {
+        console.log("clicked")
+        if(theme === "dark"){
+            setTheme("light")
+        } else {
+            setTheme("dark")
+        }
     }
 
-    if (darkMode === true) {
+    if (theme === "dark") {
         document.documentElement.style.setProperty("--Color1Light", '#2b043e');
         document.documentElement.style.setProperty("--Color2Light", '#ffffff');
         document.documentElement.style.setProperty("--Color3Light", '#ffffff');
@@ -23,17 +29,17 @@ export const ToggleSwitch = () => {
         document.documentElement.style.setProperty("--Color3Light", '#9E0091');
         document.documentElement.style.setProperty("--Background1Light", '#C2A5BC');
         document.documentElement.style.setProperty("--Background2Light", '#C1E9F1');
-    }
+    }   
 
     return (
         <div data-testid='light-dark-switch' className='spacing-right'>
             <label className="switch" id="theme-toggle">
-                <input 
-                    data-testid='light-dark-toggle'
+                <input
+                    data-testid='theme-toggle'
                     type="checkbox"
                     name="lightDarkToggle"
                     id="lightDarkToggle" 
-                    onClick={toggleDarkMode}>
+                    onClick={toggleTheme}>
                 </input>
                 <span className="slider round">
                     <FontAwesomeIcon icon={faSun} size={size} />

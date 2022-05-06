@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6, a, input, textarea, label, #datePicker-1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p, input, textarea, a, label  {
+    font-size: 1rem; 
+    color: var(--Color2Light)   
+}
+
+label {
+    color: var(--Color3Light);
+    font-size: 1.2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    color: var(--Color2Light)
+}
+
+h1, h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;  
+}
+
+a {
+    color: var(--Color2Light);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--Color5Light);
+}
+
+/* Change to include light in name */
+:root {
+    --Color1Light: #ffffff;
+    --Color2Light: #69009e;
+    --Color3Light: #9E0091;
+    --Color4Light: #2b043e;
+    --Color5Light: #ff00b1;
+    --Background1Light: #C2A5BC;
+    --Background2Light: #C1E9F1;
+    --Black: #000000;
+}
+
+.App {
+    background: linear-gradient(125deg, var(--Background1Light), var(--Background2Light) 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--Color3Light);
+    border-radius: 10px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.gXjtHS svg {
+    filter: sepia(100%) saturate(2176%) hue-rotate(221deg) brightness(100%) contrast(200%)
+}
+
+.erarAc {
+    color: #9e0091;
+}
+
+.fit-content {
+    width: fit-content;
+}

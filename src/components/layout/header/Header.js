@@ -4,6 +4,7 @@ import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { MenuContainer } from "../../menu/MenuContainer";
 import { ToggleSwitch } from "../../icons/ToggleSwitch";
 import { Link } from "react-router-dom";
+import React from "react";
 
 export function Header() {
     return (
