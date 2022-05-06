@@ -27,7 +27,7 @@ export const ToggleSwitch = () => {
 
     return (
         <div data-testid='light-dark-switch' className='spacing-right'>
-            <label role="light-switch" className="switch" id="theme-toggle">
+            <label className="switch" id="theme-toggle">
                 <input 
                     data-testid='light-dark-toggle'
                     type="checkbox"
