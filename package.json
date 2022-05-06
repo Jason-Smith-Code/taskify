@@ -31,7 +31,11 @@
     "eject": "react-scripts eject",
     "clear_jest": "jest --clearCache"
   },
+  "prettier": {
+    "tabWidth": 4
+  },
   "jest": {
+    "testEnvironment": "jsdom",
     "collectCoverage": true,
     "setupFilesAfterEnv": [
       "<rootDir>src/setupTests.js"

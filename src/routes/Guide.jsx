@@ -43,7 +43,7 @@ export const Guide = () => {
                     </div>
                 </div>
                 <div className='text-group'>
-                    <h2 className='guide-title'>Adding a Category</h2>
+                    <h2 data-testid="title-element" className='guide-title'>Adding a Category</h2>
                     <p>
                         When using this application for the first time, the only element on the screen should be the "add category" form, as a category is required before adding a task.
                         Think of a category as the name of group for your tasks.<br /> examples: "Work", "Home", or "Garden" <br /> Give your category a title, if you change your mind on the title, 

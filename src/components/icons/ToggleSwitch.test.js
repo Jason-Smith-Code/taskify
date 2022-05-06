@@ -1,33 +1,40 @@
-import {render, screen, fireEvent} from '@testing-library/react';
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { ToggleSwitch } from "./ToggleSwitch";
-import { CategoryForm } from '../forms/CategoryForm';
-import React from 'react';
-import '@testing-library/jest-dom';
+import React from "react";
+import "@testing-library/jest-dom";
 
-describe('<ToggleSwitch />', () => {
+test("Test theme button toggle", () => {
+    render(<ToggleSwitch />);
+    const toggleSwitch = screen.getByTestId("light-dark-toggle");
+    expect(toggleSwitch).toBeInTheDocument();
 
-    // check the parent container of the switch is rendered
-    test('Renders the switch', () => {
-        render(<ToggleSwitch />);
-        const lightDarkSwitch = screen.getByTestId("light-dark-switch");
-        expect(lightDarkSwitch).toBeInTheDocument();
-    })
+    //  Expect current theme to be light
+    const labelElement = document.getElementById("theme-toggle");
+    console.log(`switch label : ${labelElement}`);
 
-    // Check css colors actualy change
-    test('The colour changes when the user clicks the toggle', () => {
-        // Render a h2 title to test colour difference
-        render(<h2 data-testid="title-element">Test Title</h2>)
-        // Render the toggle switch to toggle the change
-        render(<ToggleSwitch />);
+    const element = window
+        .getComputedStyle(labelElement, null)
+        .getPropertyValue("color");
+    console.log(`style : ${element}`);
 
-        // store the title element
-        const titleText = screen.getByTestId("title-element");
-        // check the stored titles color
-        expect(titleText).toHaveStyle(`color: var(--Color2Light)`)
-        // click even on the toggle
-        fireEvent.click(screen.getByTestId('light-dark-toggle'));
-        // check that the colour has changed
-        expect(titleText).toHaveStyle(`color: #ffffff`)
-    })
+    const elementStyle = element.style;
+    var out = "";
 
-})
+    for (prop in elementStyle) {
+        if (elementStyle.hasOwnProperty(prop)) {
+            out +=
+                "  " +
+                prop +
+                " = '" +
+                elementStyle[prop] +
+                "' > '" +
+                computedStyle[prop] +
+                "'\n";
+        }
+    }
+    console.log(out);
+
+    fireEvent.click(toggleSwitch);
+
+    // expect current theme to be dark
+});

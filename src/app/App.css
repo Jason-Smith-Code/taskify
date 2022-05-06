@@ -55,9 +55,6 @@ a:hover {
     --Black: #000000;
 }
 
-/*  Add dark version here*/
-
-
 .App {
     background: linear-gradient(125deg, var(--Background1Light), var(--Background2Light) 100%);
     position: relative;
