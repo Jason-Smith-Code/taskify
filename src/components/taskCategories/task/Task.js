@@ -82,6 +82,7 @@ export const Task = (task) => {
                         <div className="task-top-left-icons">
                             {/* View button */}
                             <button
+                                data-testid="task-item-inspect"
                                 className="icon-button icon-margin-right"
                                 onClick={() =>
                                     dispatch(showDescription(task.id))
@@ -94,6 +95,7 @@ export const Task = (task) => {
                             </button>
                             {/* Edit button */}
                             <button
+                                data-testid="task-item-edit"
                                 className="icon-button"
                                 onClick={toggleEditMode}
                             >
@@ -105,6 +107,7 @@ export const Task = (task) => {
                         </div>
                         {/* delete task button */}
                         <button
+                            data-testid="task-item-delete"
                             className="icon-button"
                             onClick={() => dispatch(deleteTask(task.id))}
                         >
@@ -121,7 +124,10 @@ export const Task = (task) => {
                             ""
                         ) : (
                             <div className="task-hidden-contents-container">
-                                <p className="task-description">
+                                <p
+                                    className="task-description"
+                                    data-testid="task-description"
+                                >
                                     {task.description}
                                 </p>
                                 {task.completed === true ? (

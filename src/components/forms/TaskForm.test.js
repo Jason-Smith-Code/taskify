@@ -153,9 +153,11 @@ describe("<TaskForm />", () => {
         fireEvent.change(titleInput, {
             target: { value: Emptystring },
         });
+        expect(titleInput).toHaveValue("");
         fireEvent.change(descriptionElement, {
             target: { value: Emptystring },
         });
+        expect(descriptionElement).toHaveValue("");
         // check that submit button is not displayed when has nothing in its text fields
         //expect(taskSubmitButton).toBeNull();
     });

@@ -86,6 +86,7 @@ export const Category = (category) => {
                 {isEditing === false ? (
                     <div className="category-icon-contanier">
                         <button
+                            data-testid="edit-category-button"
                             className="icon-button"
                             onClick={toggleEditMode}
                         >
@@ -96,6 +97,7 @@ export const Category = (category) => {
                             />
                         </button>
                         <button
+                            data-testid="delete-category-button"
                             className="icon-button"
                             onClick={deletingCategory}
                         >
@@ -133,7 +135,7 @@ export const Category = (category) => {
                         </button>
                     </form>
                 ) : (
-                    <h2>
+                    <h2 data-testid="category-title">
                         {category.title} ( {newList.length} )
                     </h2>
                 )}

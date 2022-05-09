@@ -46,5 +46,10 @@ describe("<TaskForm />", () => {
             target: { value: "new Category" },
         });
         expect(titleInputElement).toHaveValue("new Category");
+
+        // submit the form
+        
+
+
     });
 });
