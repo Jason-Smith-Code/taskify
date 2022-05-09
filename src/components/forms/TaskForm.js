@@ -28,6 +28,7 @@ export function TaskForm() {
     // handle form submit
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log("task submit button clicked");
         if (title === "" || description === "") {
             return;
         }
@@ -127,7 +128,10 @@ export function TaskForm() {
                     ) : (
                         <div className="form-group">
                             <label>Select a category</label>
-                            <div className="options-container">
+                            <div
+                                className="options-container"
+                                data-testid="options-container"
+                            >
                                 {selectedCategories.map((item) => {
                                     return (
                                         <div
@@ -162,7 +166,7 @@ export function TaskForm() {
                         <button
                             className="form-submit"
                             data-testid="adding-task-submit"
-                            id="submitButton"
+                            id="task-submit-button"
                             type="submit"
                             value="Submit"
                         >

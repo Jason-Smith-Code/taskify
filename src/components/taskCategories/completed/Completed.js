@@ -27,7 +27,9 @@ export const Completed = () => {
             <div className="category-title-container">
                 <h2>Completed Tasks ( {newList.length} )</h2>
             </div>
-            <div className="tasks-container">{filterCategoryList()}</div>
+            <div className="tasks-container" data-testid="completed-container">
+                {filterCategoryList()}
+            </div>
         </div>
     );
 };

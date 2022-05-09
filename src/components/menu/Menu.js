@@ -35,7 +35,7 @@ export const Menu = () => {
     }
 
     return (
-        <div id="menu" className="hidden-menu">
+        <div id="menu" data-testid="hidden-menu" className="hidden-menu">
             <div id="close-menu-container">
                 <button
                     id="close-menu-button"
@@ -45,14 +45,14 @@ export const Menu = () => {
                     Close menu
                 </button>
             </div>
-            <Link className="menu-link" to="/">
+            <Link role="link-to-main-page" className="menu-link" to="/">
                 <FontAwesomeIcon
                     className="icon-margin-right"
                     icon={faCircleCheck}
                 />
                 Taskify
             </Link>
-            <Link className="menu-link" to="/guide">
+            <Link role="link-to-guide-page" className="menu-link" to="/guide">
                 <FontAwesomeIcon
                     className="icon-margin-right"
                     icon={faCircleInfo}

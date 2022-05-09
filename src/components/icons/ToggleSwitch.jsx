@@ -6,10 +6,10 @@ import React, { useState } from 'react';
 export const ToggleSwitch = () => {
     const size = "2xs"
     const [theme, setTheme] = useState("light");
-    console.log(`theme: ${theme}`)
+    console.log(`current theme: ${theme}`)
     
     const toggleTheme = () => {
-        console.log("clicked")
+        console.log("Theme has been toggled")
         if(theme === "dark"){
             setTheme("light")
         } else {
@@ -18,12 +18,14 @@ export const ToggleSwitch = () => {
     }
 
     if (theme === "dark") {
+        console.log("applying dark theme")
         document.documentElement.style.setProperty("--Color1Light", '#2b043e');
         document.documentElement.style.setProperty("--Color2Light", '#ffffff');
         document.documentElement.style.setProperty("--Color3Light", '#ffffff');
         document.documentElement.style.setProperty("--Background1Light", '#9E0091');
         document.documentElement.style.setProperty("--Background2Light", '#110044');
     } else {
+        console.log("applying light theme")
         document.documentElement.style.setProperty("--Color1Light", '#ffffff');
         document.documentElement.style.setProperty("--Color2Light", '#69009e');
         document.documentElement.style.setProperty("--Color3Light", '#9E0091');
@@ -32,10 +34,10 @@ export const ToggleSwitch = () => {
     }   
 
     return (
-        <div data-testid='light-dark-switch' className='spacing-right'>
-            <label className="switch" id="theme-toggle">
+        <div className='spacing-right'>
+            <label data-testid='theme-toggle' className="switch" id="theme-toggle">
                 <input
-                    data-testid='theme-toggle'
+                    data-testid='light-dark-switch'
                     type="checkbox"
                     name="lightDarkToggle"
                     id="lightDarkToggle" 

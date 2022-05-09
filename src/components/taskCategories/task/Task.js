@@ -1,13 +1,18 @@
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Task.css';
-import { deleteTask, showDescription, isComplete, editTask } from '../../../features/taskListSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-import { getCategoryList } from '../../../features/categoryListSlice';
-
-import { useForm } from 'react-hook-form';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./Task.css";
+import {
+    deleteTask,
+    showDescription,
+    isComplete,
+    editTask,
+} from "../../../features/taskListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { getCategoryList } from "../../../features/categoryListSlice";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 export const Task = (task) => {
     const selectedCategories = useSelector(getCategoryList);
@@ -18,133 +23,198 @@ export const Task = (task) => {
     const preloadedValues = {
         editTitle: task.title,
         editDescription: task.description,
-        editCategory: task.category
-    }
+        editCategory: task.category,
+    };
 
-    const {register} = useForm({
-        defaultValues: preloadedValues
+    const { register } = useForm({
+        defaultValues: preloadedValues,
     });
 
     const taskId = task.id;
     // Edit task
     const [newTitle, setNewtitle] = useState(preloadedValues.editTitle);
-    const [newCategory, setNewCategory] = useState(preloadedValues.editCategory);
-    const [newDescription, setNewDescription] = useState(preloadedValues.editDescription);
+    const [newCategory, setNewCategory] = useState(
+        preloadedValues.editCategory
+    );
+    const [newDescription, setNewDescription] = useState(
+        preloadedValues.editDescription
+    );
     const [isEditing, setEditing] = useState(false);
     const [characters, setCharacters] = useState(maxTitleSize);
 
-
     const toggleEditMode = () => {
-        setEditing(current => !current);
-    }
+        setEditing((current) => !current);
+    };
 
     const completeTask = () => {
-        dispatch(isComplete(task.id))
-    }
+        dispatch(isComplete(task.id));
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        dispatch(editTask({
-            id: taskId,
-            title: newTitle,
-            description: newDescription,
-            category: parseInt(newCategory)
-        }));
-        setEditing(false)
-    }
-    
+        dispatch(
+            editTask({
+                id: taskId,
+                title: newTitle,
+                description: newDescription,
+                category: parseInt(newCategory),
+            })
+        );
+        setEditing(false);
+    };
+
     const onTaskTitleChange = (e) => {
         let size = e.target.value.length;
-        setCharacters(maxTitleSize - size)
+        setCharacters(maxTitleSize - size);
         setNewtitle(e.target.value);
-    }
+    };
 
     const changeCategory = (e) => {
         setNewCategory(e.target.value);
-    }
+    };
 
-    return(
-        <div className="task-item">
-            {isEditing === false ? 
-            <>
-            <div className="task-top-row">
-                <div className="task-top-left-icons">
-                    {/* View button */}
-                    <button className="icon-button icon-margin-right" onClick={() => dispatch(showDescription(task.id))}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} size={iconSize}/>
-                    </button>
-                    {/* Edit button */}
-                    <button className="icon-button" onClick={toggleEditMode}>
-                            <FontAwesomeIcon icon={faPenToSquare} size={iconSize}/>
-                    </button>
-                </div>
-                {/* delete task button */}
-                <button className="icon-button" onClick={() => dispatch(deleteTask(task.id))}>
-                    <FontAwesomeIcon icon={faTrashCan} size={iconSize}/>
-                </button>         
-            </div> 
+    return (
+        <div className="task-item" data-testid={task.title}>
+            {isEditing === false ? (
+                <>
+                    <div className="task-top-row">
+                        <div className="task-top-left-icons">
+                            {/* View button */}
+                            <button
+                                className="icon-button icon-margin-right"
+                                onClick={() =>
+                                    dispatch(showDescription(task.id))
+                                }
+                            >
+                                <FontAwesomeIcon
+                                    icon={faMagnifyingGlass}
+                                    size={iconSize}
+                                />
+                            </button>
+                            {/* Edit button */}
+                            <button
+                                className="icon-button"
+                                onClick={toggleEditMode}
+                            >
+                                <FontAwesomeIcon
+                                    icon={faPenToSquare}
+                                    size={iconSize}
+                                />
+                            </button>
+                        </div>
+                        {/* delete task button */}
+                        <button
+                            className="icon-button"
+                            onClick={() => dispatch(deleteTask(task.id))}
+                        >
+                            <FontAwesomeIcon
+                                icon={faTrashCan}
+                                size={iconSize}
+                            />
+                        </button>
+                    </div>
 
-            <div className='task-title-description-container'>
-                <h3 className='task-title'>{task.title}</h3>
-                {task.show === false ? "" : 
-                <div className="task-hidden-contents-container">
-                    <p className='task-description'>{task.description}</p>
-                    {task.completed === true ? "" : <button type="button" onClick={completeTask} className='form-submit'>Complete</button>}
-                </div>
-                }
-            </div>
-            </> : ""}
-            {isEditing === true ? 
+                    <div className="task-title-description-container">
+                        <h3 className="task-title">{task.title}</h3>
+                        {task.show === false ? (
+                            ""
+                        ) : (
+                            <div className="task-hidden-contents-container">
+                                <p className="task-description">
+                                    {task.description}
+                                </p>
+                                {task.completed === true ? (
+                                    ""
+                                ) : (
+                                    <button
+                                        type="button"
+                                        onClick={completeTask}
+                                        className="form-submit"
+                                    >
+                                        Complete
+                                    </button>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                </>
+            ) : (
+                ""
+            )}
+            {isEditing === true ? (
                 <form onSubmit={handleSubmit}>
-                    <input 
-                        {...register('editTitle')}
-                        type="text" 
+                    <input
+                        {...register("editTitle")}
+                        type="text"
                         name="editTitle"
                         value={newTitle}
                         maxLength={maxTitleSize}
                         onChange={(e) => onTaskTitleChange(e)}
-                    ></input> 
-                    <p className="form-message">{newTitle.length > 0 ? "" : "Title Required"}</p>
-                    <p className="form-message">Remaining characters: {characters}</p>
+                    ></input>
+                    <p className="form-message">
+                        {newTitle.length > 0 ? "" : "Title Required"}
+                    </p>
+                    <p className="form-message">
+                        Remaining characters: {characters}
+                    </p>
 
                     <div className="form-group">
                         <textarea
-                            {...register('editDescription')}
+                            {...register("editDescription")}
                             name="editDescription"
                             required={true}
-                            data-testid='adding-task-form-input-description'
+                            data-testid="adding-task-form-input-description"
                             type="text"
                             value={newDescription}
-                            onChange={(event) => setNewDescription(event.target.value)}
+                            onChange={(event) =>
+                                setNewDescription(event.target.value)
+                            }
                         />
-                        <p className="form-message">{task.description.length > 0 ? "" : "Description Required"}</p>
+                        <p className="form-message">
+                            {task.description.length > 0
+                                ? ""
+                                : "Description Required"}
+                        </p>
                     </div>
 
-                    {selectedCategories < 1 ? <p>Please create a category</p> :
-                    <div>
-                        <label>Select a category</label>
-                        <div className="options-container"></div>
-                        {selectedCategories.map((item) => {
-                            return(
-                                <div key={item.id} className="radio-row">
-                                    <input 
-                                        {...register('editCategory')} 
-                                        name="editCategory" 
-                                        type="radio" 
-                                        value={item.id} 
-                                        defaultChecked={task.category === item.id}
-                                        onChange={changeCategory} 
-                                        className="category-button" 
+                    {selectedCategories < 1 ? (
+                        <p>Please create a category</p>
+                    ) : (
+                        <div>
+                            <label>Select a category</label>
+                            <div className="options-container"></div>
+                            {selectedCategories.map((item) => {
+                                return (
+                                    <div key={item.id} className="radio-row">
+                                        <input
+                                            {...register("editCategory")}
+                                            name="editCategory"
+                                            type="radio"
+                                            value={item.id}
+                                            defaultChecked={
+                                                task.category === item.id
+                                            }
+                                            onChange={changeCategory}
+                                            className="category-button"
                                         />
-                                        <p>{item.title}</p>    
-                                </div>)
-                            })
-                        }
-                    </div>}
-                    <button className="form-submit" type="submit" value="Submit">Confirm</button>
+                                        <p>{item.title}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    )}
+                    <button
+                        className="form-submit"
+                        type="submit"
+                        value="Submit"
+                    >
+                        Confirm
+                    </button>
                 </form>
-                : "" }
+            ) : (
+                ""
+            )}
         </div>
-    )
-}
+    );
+};

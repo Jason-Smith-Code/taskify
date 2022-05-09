@@ -31,19 +31,21 @@ describe("<ToggleSwitch />", () => {
                 </Provider>
             </BrowserRouter>
         );
+
         const logSpy = jest.spyOn(console, "log");
 
         let value =
             document.documentElement.style.getPropertyValue("--Color2Light");
 
-        console.log(value);
+        console.log(`the color is of --Color2Light is: ${value}`);
         expect(value).toBe("#69009e");
 
         // interact with toggle to switch theme
         const button = screen.getByTestId("theme-toggle");
 
         fireEvent.click(button);
-        console.log(value);
+
+        console.log(`the color is of --Color2Light is: ${value}`);
         expect(value).toBe("#ffffff");
 
         expect(logSpy).toHaveBeenCalledWith("theme: dark");
