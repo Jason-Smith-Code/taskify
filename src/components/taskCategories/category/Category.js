@@ -81,7 +81,7 @@ export const Category = (category) => {
     };
 
     return (
-        <div className="column">
+        <div className="column" data-testid="category-column">
             <div className="category-title-container">
                 {isEditing === false ? (
                     <div className="category-icon-contanier">
