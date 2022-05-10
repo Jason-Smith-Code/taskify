@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import taskListSlice from "../features/taskListSlice";
-import categoryListSlice from "../features/categoryListSlice";
+import categoryListSlice from "../features/categoryListSlice"; 
 
 import { loadState, saveState } from "../storage/LocalStorage";
 

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./Forms.css";
 import { addTask } from "../../features/taskListSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCategoryList } from "../../features/categoryListSlice";
-import { useSelector } from "react-redux";
 import { AddIcon } from "../icons/AddIcon";
 
 export function TaskForm() {
@@ -29,9 +28,6 @@ export function TaskForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("task submit button clicked");
-        if (title === "" || description === "") {
-            return;
-        }
 
         dispatch(
             addTask({
@@ -65,7 +61,7 @@ export function TaskForm() {
     };
 
     return (
-        // {categories length < 1}
+        // if there are no categories, do not render the task form
         <>
             {selectedCategories < 1 ? (
                 ""
@@ -122,37 +118,30 @@ export function TaskForm() {
                                 : "Description Required"}
                         </p>
                     </div>
-
-                    {selectedCategories < 1 ? (
-                        <p>Please create a category</p>
-                    ) : (
-                        <div className="form-group">
-                            <label>Select a category</label>
-                            <div
-                                className="options-container"
-                                data-testid="options-container"
-                            >
-                                {selectedCategories.map((item) => {
-                                    return (
-                                        <div
-                                            key={item.id}
-                                            className="radio-row"
-                                        >
-                                            <input
-                                                required
-                                                type="radio"
-                                                value={item.id}
-                                                name="category-radio"
-                                                onChange={onCategoryChange}
-                                                className="category-button"
-                                            />
-                                            <p>{item.title}</p>
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                    
+                    <div className="form-group">
+                        <label>Select a category</label>
+                        <div
+                            className="options-container"
+                            data-testid="options-container"
+                        >
+                            {selectedCategories.map((item) => {
+                                return (
+                                    <div key={item.id} className="radio-row">
+                                        <input
+                                            required
+                                            type="radio"
+                                            value={item.id}
+                                            name="category-radio"
+                                            onChange={onCategoryChange}
+                                            className="category-button"
+                                        />
+                                        <p>{item.title}</p>
+                                    </div>
+                                );
+                            })}
                         </div>
-                    )}
+                    </div>
 
                     {/* Form Submit */}
                     {selectedCategories.length < 1 ||

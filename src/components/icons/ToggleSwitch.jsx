@@ -6,15 +6,16 @@ import React, { useState } from 'react';
 export const ToggleSwitch = () => {
     const size = "2xs"
     const [theme, setTheme] = useState("light");
-    console.log(`current theme: ${theme}`)
     
-    const toggleTheme = () => {
+    const toggleTheme = () => { 
         console.log("Theme has been toggled")
         if(theme === "dark"){
             setTheme("light")
+            console.log(`current theme: ${theme}`)
         } else {
             setTheme("dark")
-        }
+            console.log(`current theme: ${theme}`)
+        } 
     }
 
     if (theme === "dark") {
@@ -31,7 +32,7 @@ export const ToggleSwitch = () => {
         document.documentElement.style.setProperty("--Color3Light", '#9E0091');
         document.documentElement.style.setProperty("--Background1Light", '#C2A5BC');
         document.documentElement.style.setProperty("--Background2Light", '#C1E9F1');
-    }   
+    } 
 
     return (
         <div className='spacing-right'>

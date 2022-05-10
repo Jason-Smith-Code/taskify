@@ -74,6 +74,10 @@ export const Task = (task) => {
         setNewCategory(e.target.value);
     };
 
+    const showTaskDescription = () => {
+        dispatch(showDescription(task.id));
+    };
+
     return (
         <div className="task-item" data-testid={task.title}>
             {isEditing === false ? (
@@ -84,9 +88,7 @@ export const Task = (task) => {
                             <button
                                 data-testid="task-item-inspect"
                                 className="icon-button icon-margin-right"
-                                onClick={() =>
-                                    dispatch(showDescription(task.id))
-                                }
+                                onClick={showTaskDescription}
                             >
                                 <FontAwesomeIcon
                                     icon={faMagnifyingGlass}

@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 describe("Your test", () => {
     afterAll(cleanup);
 
-    test("Your component with a full reducer flow", async () => {
+    test("Your component with a full reducer flow", () => {
         // Create a redux store
         render(
             <BrowserRouter>

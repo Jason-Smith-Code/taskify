@@ -1,4 +1,5 @@
 import { TaskForm } from "../components/forms/TaskForm";
+import { SimpleTaskForm } from "../components/forms/SimpleTaskForm";
 import { getTaskList } from "../features/taskListSlice";
 import { useSelector } from "react-redux";
 import "./CategoryTemplates.css";
@@ -27,7 +28,7 @@ export default function CategoryTemplate(category) {
     return (
         <div id="main">
             <div id="forms-column" className="column">
-                <TaskForm />
+                <SimpleTaskForm id={category.id} title={category.title} />
             </div>
             <div className="task-container">
                 <h2 className="category-title-container fit-content">

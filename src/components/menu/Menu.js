@@ -22,6 +22,7 @@ export const Menu = () => {
             <Link
                 key={category.id}
                 title={category.title}
+                id={category.id}
                 className="menu-link"
                 to={`/${RemoveSpaces(category.title)}`}
             >

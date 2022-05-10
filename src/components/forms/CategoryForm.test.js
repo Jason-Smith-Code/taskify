@@ -31,6 +31,7 @@ describe("<TaskForm />", () => {
                 </Provider>
             </BrowserRouter>
         );
+
         // identify the task form
         const theCategoryForm = document.getElementById("category-form");
         expect(theCategoryForm).toBeInTheDocument();
@@ -41,10 +42,6 @@ describe("<TaskForm />", () => {
         );
         expect(titleInputElement).toBeInTheDocument();
 
-        // Identify character cap element
-        const characterCapMessage = screen.getByTestId(
-            "category-form-character-cap"
-        );
         // fill in the title input
         fireEvent.change(titleInputElement, {
             target: { value: "new Category" },
@@ -57,6 +54,10 @@ describe("<TaskForm />", () => {
         });
         expect(titleInputElement).toHaveValue("wwwwwwwwwwwwwwwwwwww");
 
+        // Identify character cap element
+        const characterCapMessage = screen.getByTestId(
+            "category-form-character-cap"
+        );
         expect(characterCapMessage).toHaveTextContent("Character cap reached");
 
         // identify the submit button
@@ -67,6 +68,7 @@ describe("<TaskForm />", () => {
         fireEvent.change(titleInputElement, {
             target: { value: "" },
         });
+        expect(characterCapMessage).toHaveTextContent("");
         expect(titleInputElement).toHaveValue("");
         // expect the submit button to be null
         expect(submitButton).not.toBeInTheDocument();

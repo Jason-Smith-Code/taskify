@@ -119,12 +119,25 @@ describe("<TaskForm />", () => {
         const inputTitle = "This is the task title";
         const inputDescription = "This is the task description";
 
+        // check the character cap is rendered when using a title with 40 characters
+        fireEvent.click(titleInput);
+        fireEvent.change(titleInput, {
+            target: { value: "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" },
+        });
+        expect(titleInput).toHaveValue(
+            "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+        );
+        const characterCapReached = screen.getByText("Character cap reached");
+        expect(characterCapReached).toBeInTheDocument();
+
         // change title
         fireEvent.click(titleInput);
         fireEvent.change(titleInput, {
             target: { value: inputTitle },
         });
         expect(titleInput).toHaveValue("This is the task title");
+        // since the new title is less thant he character cap we can expect that there is not warning on screen
+        expect(characterCapReached).not.toBeInTheDocument();
         // change description
         fireEvent.click(descriptionElement);
         fireEvent.change(descriptionElement, {
@@ -158,7 +171,7 @@ describe("<TaskForm />", () => {
         });
         expect(descriptionElement).toHaveValue("");
 
-        expect(taskSubmitButton).toBeNull();
+        expect(taskSubmitButton).not.toBeInTheDocument();
 
         // check that submit button is not displayed when has nothing in its text fields
         //expect(taskSubmitButton).toBeNull();
