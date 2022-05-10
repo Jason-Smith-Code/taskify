@@ -40,16 +40,35 @@ describe("<TaskForm />", () => {
             "Enter category Title"
         );
         expect(titleInputElement).toBeInTheDocument();
-        // fill in the title input
 
+        // Identify character cap element
+        const characterCapMessage = screen.getByTestId(
+            "category-form-character-cap"
+        );
+        // fill in the title input
         fireEvent.change(titleInputElement, {
             target: { value: "new Category" },
         });
         expect(titleInputElement).toHaveValue("new Category");
 
-        // submit the form
-        
+        // max title size is currently 20, check that is displays the correct figures on screen
+        fireEvent.change(titleInputElement, {
+            target: { value: "wwwwwwwwwwwwwwwwwwww" },
+        });
+        expect(titleInputElement).toHaveValue("wwwwwwwwwwwwwwwwwwww");
 
+        expect(characterCapMessage).toHaveTextContent("Character cap reached");
 
+        // identify the submit button
+        const submitButton = screen.getByText("Add Category");
+        expect(submitButton).toBeInTheDocument();
+
+        // change the category title to ""
+        fireEvent.change(titleInputElement, {
+            target: { value: "" },
+        });
+        expect(titleInputElement).toHaveValue("");
+        // expect the submit button to be null
+        expect(submitButton).not.toBeInTheDocument();
     });
 });

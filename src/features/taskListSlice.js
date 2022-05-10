@@ -9,6 +9,7 @@ export const taskListSlice = createSlice({
         addTask: (state, action) => {
             console.log("Task added");
             state.taskList.push(action.payload);
+            console.log(`task added: ${action.payload.title}`);
         },
         deleteTask: (state, action) => {
             state.taskList = state.taskList.filter(

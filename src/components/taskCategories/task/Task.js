@@ -152,16 +152,20 @@ export const Task = (task) => {
                 <form onSubmit={handleSubmit}>
                     <input
                         {...register("editTitle")}
+                        data-testid="edit-task-title-input"
                         type="text"
                         name="editTitle"
                         value={newTitle}
                         maxLength={maxTitleSize}
                         onChange={(e) => onTaskTitleChange(e)}
                     ></input>
-                    <p className="form-message">
-                        {newTitle.length > 0 ? "" : "Title Required"}
+                    <p
+                        className="form-message"
+                        data-testid="task-edit-title-required"
+                    >
+                        {newTitle.length > 0 ? "" : "New Title Required"}
                     </p>
-                    <p className="form-message">
+                    <p className="form-message" data-testid="form-message">
                         Remaining characters: {characters}
                     </p>
 
@@ -177,39 +181,38 @@ export const Task = (task) => {
                                 setNewDescription(event.target.value)
                             }
                         />
-                        <p className="form-message">
-                            {task.description.length > 0
+                        <p
+                            className="form-message"
+                            data-testid="task-edit-description-required"
+                        >
+                            {newDescription.length > 0
                                 ? ""
                                 : "Description Required"}
                         </p>
                     </div>
-
-                    {selectedCategories < 1 ? (
-                        <p>Please create a category</p>
-                    ) : (
-                        <div>
-                            <label>Select a category</label>
-                            <div className="options-container"></div>
-                            {selectedCategories.map((item) => {
-                                return (
-                                    <div key={item.id} className="radio-row">
-                                        <input
-                                            {...register("editCategory")}
-                                            name="editCategory"
-                                            type="radio"
-                                            value={item.id}
-                                            defaultChecked={
-                                                task.category === item.id
-                                            }
-                                            onChange={changeCategory}
-                                            className="category-button"
-                                        />
-                                        <p>{item.title}</p>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    )}
+                    <div>
+                        <label>Select a category</label>
+                        <div className="options-container"></div>
+                        {selectedCategories.map((item) => {
+                            return (
+                                <div key={item.id} className="radio-row">
+                                    <input
+                                        {...register("editCategory")}
+                                        data-testid={`${item.title} radio`}
+                                        name="editCategory"
+                                        type="radio"
+                                        value={item.id}
+                                        defaultChecked={
+                                            task.category === item.id
+                                        }
+                                        onChange={changeCategory}
+                                        className="category-button"
+                                    />
+                                    <p>{item.title}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
                     <button
                         className="form-submit"
                         type="submit"

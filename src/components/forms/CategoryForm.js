@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './Forms.css';
+import "./Forms.css";
 import { addCategory } from "../../features/categoryListSlice";
 import { useDispatch } from "react-redux";
 import { AddIcon } from "../icons/AddIcon";
@@ -13,40 +13,38 @@ export function CategoryForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (title === ""){
-            console.log("a field is empty, form cannot be submitted")
-            return
-        }
-        dispatch(addCategory({
-            id: Date.now(),
-            title: title,
-        }));
+        dispatch(
+            addCategory({
+                id: Date.now(),
+                title: title,
+            })
+        );
         setCharacters(maxTitleSize);
-        clearForm()
-        refreshPage()
-    }
+        clearForm();
+        //refreshPage();
+    };
 
     const clearForm = () => {
         setTitle("");
-    }
+    };
 
     const onCategoryChange = (e) => {
         let size = e.target.value.length;
-        setCharacters(maxTitleSize - size)
+        setCharacters(maxTitleSize - size);
         setTitle(e.target.value);
-    }
+    };
 
-    function refreshPage() {
-        window.location.reload(false);
-    }
+    // function refreshPage() {
+    //     window.location.reload(false);
+    // }
 
     // i need to fire off scroll to end when dispatch has been submitted from adding a category
     useEffect(() => {
-        scrollToEnd()
+        scrollToEnd();
     }, [title]);
 
     function scrollToEnd() {
-        const element = document.getElementById('category-container');
+        const element = document.getElementById("category-container");
         // console.log(`the element container is ${element}`);
         const elementWidth = element.scrollWidth;
         // console.log(`the element width is ${elementWidth}`);
@@ -54,22 +52,47 @@ export function CategoryForm() {
     }
 
     return (
-        <form className="padded" id="category-form" data-testid="adding-category-form" onSubmit={handleSubmit}>
-            <div className="form-header"><AddIcon/><h2 data-testid="title-element" className="form-title">Add a Category</h2></div>    
+        <form
+            className="padded"
+            id="category-form"
+            data-testid="adding-category-form"
+            onSubmit={handleSubmit}
+        >
+            <div className="form-header">
+                <AddIcon />
+                <h2 data-testid="title-element" className="form-title">
+                    Add a Category
+                </h2>
+            </div>
             <input
                 required={true}
-                data-testid='adding-category-form-input-title'
+                data-testid="adding-category-form-input-title"
                 placeholder="Enter category Title"
                 type="text"
                 value={title}
                 maxLength={maxTitleSize}
                 onChange={(e) => onCategoryChange(e)}
             />
-            <p className="form-message">{title.length > 0 ? "" : "Title Required"}</p>
+            <p className="form-message">
+                {title.length > 0 ? "" : "Title Required"}
+            </p>
             <p className="form-message">Remaining characters: {characters}</p>
-            <p className="form-message">{title.length === maxTitleSize ? "Character cap reached" : ""}</p>
+            <p className="form-message" data-testid="category-form-character-cap">
+                {title.length === maxTitleSize ? "Character cap reached" : ""}
+            </p>
             {/* Disable submit while both input field conditions are not met */}
-            <button data-testid='adding-task-submit' className="form-submit" type="submit" value="Submit">Add Category</button>
+            {title.length > 0 ? (
+                <button
+                    data-testid="adding-task-submit"
+                    className="form-submit"
+                    type="submit"
+                    value="Submit"
+                >
+                    Add Category
+                </button>
+            ) : (
+                ""
+            )}
         </form>
-    )
+    );
 }

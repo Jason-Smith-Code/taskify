@@ -145,9 +145,8 @@ describe("<TaskForm />", () => {
         //  Check that the task has been added to a category
         // a console log in dispatch was not fired, so the form was not submitted
 
-        // check to see that the form is empty
+        // check to see that the form is empty by checking that the nputs are empty and the submit button is not visible
         fireEvent.click(taskSubmitButton);
-        // try to fill the form in without a title or description
 
         const Emptystring = "";
         fireEvent.change(titleInput, {
@@ -158,6 +157,9 @@ describe("<TaskForm />", () => {
             target: { value: Emptystring },
         });
         expect(descriptionElement).toHaveValue("");
+
+        expect(taskSubmitButton).toBeNull();
+
         // check that submit button is not displayed when has nothing in its text fields
         //expect(taskSubmitButton).toBeNull();
     });
