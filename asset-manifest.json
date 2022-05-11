@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/taskify/static/css/main.73334cbe.css",
-    "main.js": "/taskify/static/js/main.1594f6ca.js",
-    "static/js/787.42b6170e.chunk.js": "/taskify/static/js/787.42b6170e.chunk.js",
-    "static/media/main-light.jpg": "/taskify/static/media/main-light.3deebd1524b03fcce64f.jpg",
-    "static/media/main-dark.jpg": "/taskify/static/media/main-dark.d1ef3448d8365552e5b1.jpg",
-    "static/media/category.jpg": "/taskify/static/media/category.ec75913a8652343e6695.jpg",
-    "static/media/add-task-form.jpg": "/taskify/static/media/add-task-form.2fe6c9ea42dc99bf9c1a.jpg",
-    "static/media/edit-task.jpg": "/taskify/static/media/edit-task.393458ce5a26cfcd1d8c.jpg",
-    "static/media/edit-category.jpg": "/taskify/static/media/edit-category.fbc280f4d05defef3921.jpg",
-    "static/media/completed.jpg": "/taskify/static/media/completed.395c8931fd3926b2e562.jpg",
-    "static/media/view-task.jpg": "/taskify/static/media/view-task.8c8b21ba7add0475fa20.jpg",
-    "static/media/add-category-form.jpg": "/taskify/static/media/add-category-form.327c7e00b960674ab036.jpg",
-    "static/media/delete-category.jpg": "/taskify/static/media/delete-category.7144731409dc71593413.jpg",
-    "static/media/delete-task.jpg": "/taskify/static/media/delete-task.0aac6b277beb4b4d4373.jpg",
-    "index.html": "/taskify/index.html",
-    "main.73334cbe.css.map": "/taskify/static/css/main.73334cbe.css.map",
-    "main.1594f6ca.js.map": "/taskify/static/js/main.1594f6ca.js.map",
-    "787.42b6170e.chunk.js.map": "/taskify/static/js/787.42b6170e.chunk.js.map"
+    "main.css": "/static/css/main.73334cbe.css",
+    "main.js": "/static/js/main.fb2a7b7d.js",
+    "static/js/787.42b6170e.chunk.js": "/static/js/787.42b6170e.chunk.js",
+    "static/media/main-light.jpg": "/static/media/main-light.3deebd1524b03fcce64f.jpg",
+    "static/media/main-dark.jpg": "/static/media/main-dark.d1ef3448d8365552e5b1.jpg",
+    "static/media/category.jpg": "/static/media/category.ec75913a8652343e6695.jpg",
+    "static/media/add-task-form.jpg": "/static/media/add-task-form.2fe6c9ea42dc99bf9c1a.jpg",
+    "static/media/edit-task.jpg": "/static/media/edit-task.393458ce5a26cfcd1d8c.jpg",
+    "static/media/edit-category.jpg": "/static/media/edit-category.fbc280f4d05defef3921.jpg",
+    "static/media/completed.jpg": "/static/media/completed.395c8931fd3926b2e562.jpg",
+    "static/media/view-task.jpg": "/static/media/view-task.8c8b21ba7add0475fa20.jpg",
+    "static/media/add-category-form.jpg": "/static/media/add-category-form.327c7e00b960674ab036.jpg",
+    "static/media/delete-category.jpg": "/static/media/delete-category.7144731409dc71593413.jpg",
+    "static/media/delete-task.jpg": "/static/media/delete-task.0aac6b277beb4b4d4373.jpg",
+    "index.html": "/index.html",
+    "main.73334cbe.css.map": "/static/css/main.73334cbe.css.map",
+    "main.fb2a7b7d.js.map": "/static/js/main.fb2a7b7d.js.map",
+    "787.42b6170e.chunk.js.map": "/static/js/787.42b6170e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73334cbe.css",
-    "static/js/main.1594f6ca.js"
+    "static/js/main.fb2a7b7d.js"
   ]
 }
