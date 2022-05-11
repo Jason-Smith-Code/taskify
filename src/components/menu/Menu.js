@@ -25,7 +25,9 @@ export const Menu = () => {
                 title={category.title}
                 id={category.id}
                 className="menu-link"
-                to={`/${RemoveSpaces(category.title)}`}
+                exact
+                path={`/taskify/${RemoveSpaces(category.title)}`}
+                to={`/taskify/${RemoveSpaces(category.title)}`}
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -47,14 +49,28 @@ export const Menu = () => {
                     Close menu
                 </button>
             </div>
-            <Link role="link-to-main-page" className="menu-link" to="/">
+            <Link
+                onClick={closeMenu}
+                role="link-to-main-page"
+                className="menu-link"
+                to="/taskify"
+                exact
+                path="/taskify"
+            >
                 <FontAwesomeIcon
                     className="icon-margin-right"
                     icon={faCircleCheck}
                 />
                 Taskify
             </Link>
-            <Link role="link-to-guide-page" className="menu-link" to="/guide">
+            <Link
+                onClick={closeMenu}
+                role="link-to-guide-page"
+                className="menu-link"
+                to="/taskify/guide"
+                exact
+                path="/taskify/guide"
+            >
                 <FontAwesomeIcon
                     className="icon-margin-right"
                     icon={faCircleInfo}
