@@ -34,5 +34,7 @@ describe("<ToggleSwitch />", () => {
 
         console.log(`the color is of --Color2Light is: ${value}`);
         expect(value).toBe("#ffffff");
+
+        // Struggled to get this test to work, any advice is welcome
     });
 });
