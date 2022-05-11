@@ -153,8 +153,6 @@ describe("<TaskForm />", () => {
         });
         fireEvent.click(taskSubmitButton);
 
-        const form = screen.getByTestId("adding-task-form");
-
         //  Check that the task has been added to a category
         // a console log in dispatch was not fired, so the form was not submitted
 

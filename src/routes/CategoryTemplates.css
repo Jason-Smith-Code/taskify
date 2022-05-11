@@ -1,10 +1,11 @@
 .task-container {
-    width: calc(100% - 400px);
+    width:100%;
     padding: 25px;
     display: flex;
-    flex-direction: column;
+    align-content: baseline;
+    flex-flow: row;
+    flex-wrap: wrap;
     gap: 25px;
-    overflow-y: auto;
 }
 
 .task-strip-title-container {

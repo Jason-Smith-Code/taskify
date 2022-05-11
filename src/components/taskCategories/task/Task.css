@@ -1,6 +1,6 @@
 .task-item {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     background-color: var(--Color1Light);
     padding: 25px;
     border-radius: 25px;

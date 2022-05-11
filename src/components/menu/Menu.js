@@ -20,6 +20,7 @@ export const Menu = () => {
     function printCategoryLinks() {
         return selectedCategories.map((category) => (
             <Link
+                onClick={closeMenu}
                 key={category.id}
                 title={category.title}
                 id={category.id}
