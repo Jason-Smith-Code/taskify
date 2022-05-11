@@ -29,32 +29,45 @@ I aim to create this application in 30 days.
 
 ## My Task List
 
-☑ Create a wireframe of Taskify.
+☑ Create a wireframe of Taskify
+<br>  
 ☑ Use github for version control
+<br>  
 ☑ Setup file structure
+<br>
 ☑ Install all libraries
+<br>
 ☑ Implement Layout
+<br>
 ☑ Implement a theme
+<br>
 ☑ Add a Light / Dark mode
+<br>
 ☑ Implement forms for adding tasks
+<br>
 ☑ Implement state management (Redux toolkit)
+<br>
 ☑ Implement Router
+<br>
 ☑ Create template for category pages
+<br>
 ☑ Create guide page
+<br>
 ☑ Test application
+<br>
 ☑ Add Mobile, tablet and desktopp optimisation
+<br>
 ☑ Create a build
+<br>
 ☑ Upload to github pages
 
-## Screen Shots Desktop
+## Screen Shots
 
 Main Page : Light Theme
 ![A test image](src/assets/images/main-light.jpg)
 
 Main Page : Dark Theme
 ![A test image](src/assets/images/main-dark.jpg)
-
-## Screen Shots Mobile
 
 ## Viewing the application
 
@@ -68,18 +81,30 @@ It has the base features I planned on including, I plan on introducing more feat
 ## Bonus Objectives
 
 Version 1.1.0
+<br>
 ☐ Assigning a date to complete by on each task
+<br>
 ☐ Add animations
+<br>
 ☐ Implement a "clear data" button
+<br>
 
 Version 1.2.0
+<br>
 ☐ Implement Drag and drop
+<br>
 
 version 1.3.0
+<br>
 ☐ allow user to register
+<br>
 ☐ allow user to login
+<br>
 ☐ allow user to logout
+<br>
 ☐ saving the state to a user
+<br>
 
 version 1.4.0
+<br>
 ☐ Create video tutorial
