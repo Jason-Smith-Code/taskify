@@ -1,14 +1,26 @@
 # Bonus ojectives to implement at a later date
 
 # Implement Drag and Drop
+
 https://www.freecodecamp.org/news/how-to-add-drag-and-drop-in-react-with-react-beautiful-dnd/#what-is-react-beautiful-dnd
 or
 https://react-dnd.github.io/react-dnd/docs/api/use-drag
 
 # Saving state for users
+
 implement a back end
 allow user to register
 allow user to login
 allow user to logout
 
 # implement a date to be completed by in task form
+
+# Track the completed tasks and render a graph
+
+Use the data from completed tasks to show user how many tasks they are completing a day
+
+# Create a video tutorial
+
+# Apply some animations
+
+# Implement a clear data button to wipe all categories and tasks
