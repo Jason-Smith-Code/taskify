@@ -30,9 +30,9 @@ I aim to create this application in 30 days.
 ## My Task List
 
 ☑ Create a wireframe of Taskify
-<br>  
+<br>
 ☑ Use github for version control
-<br>  
+<br>
 ☑ Setup file structure
 <br>
 ☑ Install all libraries
