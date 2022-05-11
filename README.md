@@ -20,12 +20,12 @@ After creating a category the user can then start adding their tasks, each task 
 
 Taskify will be a mobile responsive application, it will have a beautiful modern and minimalistic user interface and allow the user to switch between light and dark mode.
 Taskify will allow users to create, delete, and edit categories as well as create, delete, edit and complete tasks.
-An off screen menu will be available allow users to navigate the application.
-Each task will have its own page where the user can view a simplified interface of tasks in that category.
+An off screen menu will be available to allow users to navigate the application.
+Each category will have its own page where the user can view a simplified interface of tasks in that category.
 The default page of Taskify will be an overview of all categories and tasks.
 There will be a guide page to illustrate how to use the application.
 I will get feedback on my application and make adjustments if needed.
-I aim to create this application in 30 days.
+I aim to create this application in 30 days working part time.
 
 ## My Task List
 
