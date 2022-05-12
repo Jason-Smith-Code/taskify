@@ -10,6 +10,8 @@ import React, { useState } from "react";
 import { getTaskList } from "../../../features/taskListSlice";
 import { Task } from "../task/Task";
 import { deleteTask } from "../../../features/taskListSlice";
+import { Link } from "react-router-dom";
+import { RemoveSpaces } from "../../../utilities/RemoveSpaces";
 
 export const Category = (category) => {
     const iconSize = "xl";
@@ -140,7 +142,18 @@ export const Category = (category) => {
                     </form>
                 ) : (
                     <h2 data-testid="category-title">
-                        {category.title} ( {newList.length} )
+                        <Link
+                            className="category-heading-link"
+                            exact
+                            path={`/taskify/category/${RemoveSpaces(
+                                category.title
+                            )}`}
+                            to={`/taskify/category/${RemoveSpaces(
+                                category.title
+                            )}`}
+                        >
+                            {category.title} ( {newList.length} )
+                        </Link>
                     </h2>
                 )}
             </div>

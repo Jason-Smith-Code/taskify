@@ -16,3 +16,11 @@
     margin-bottom: 10px;
 }
 
+.category-heading-link {
+    font-size: 1.5rem;
+    font-weight: 100;
+    word-wrap: break-word;
+    word-break: break-word;
+    color: var(--Color2Light);
+}
+
