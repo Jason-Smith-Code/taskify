@@ -1,19 +1,17 @@
-import './Main.css';
+import "./Main.css";
 import React from "react";
-import { TaskForm } from '../../forms/TaskForm';
-import { TaskCategories } from '../../taskCategories/TaskCategories';
-import { Completed } from '../../taskCategories/completed/Completed';
-import { CategoryForm } from '../../forms/CategoryForm';
+import { TaskForm } from "../../forms/TaskForm";
+import { TaskCategories } from "../../taskCategories/TaskCategories";
+import { CategoryForm } from "../../forms/CategoryForm";
 
 export function Main() {
-    return(
+    return (
         <div id="main">
             <div id="forms-column" className="column">
                 <CategoryForm />
-                <TaskForm />  
+                <TaskForm />
             </div>
             <TaskCategories />
-            <Completed />
         </div>
-    )
+    );
 }

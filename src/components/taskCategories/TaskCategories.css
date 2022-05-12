@@ -22,7 +22,7 @@
     
     #category-container {
         overflow-x: auto;
-        width: calc(100% - 800px);
+        width: calc(100% - 400px);
         flex-direction: row;
     }
 }

@@ -20,16 +20,14 @@ export const taskListSlice = createSlice({
             const task = state.taskList.find(
                 (task) => task.id === action.payload
             );
-            if (task) {
-                task.show = !task.show;
-            }
+            task.show = !task.show;
         },
         isComplete: (state, action) => {
             const task = state.taskList.find(
                 (task) => task.id === action.payload
             );
-            task.completed = true;
-            task.category = "complete";
+            task.completed = !task.completed;
+            task.show = !task.show;
         },
         editTask: (state, action) => {
             const index = state.taskList.findIndex(

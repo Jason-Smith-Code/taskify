@@ -96,16 +96,20 @@ export const Task = (task) => {
                                 />
                             </button>
                             {/* Edit button */}
-                            <button
-                                data-testid="task-item-edit"
-                                className="icon-button"
-                                onClick={toggleEditMode}
-                            >
-                                <FontAwesomeIcon
-                                    icon={faPenToSquare}
-                                    size={iconSize}
-                                />
-                            </button>
+                            {task.completed === true ? (
+                                ""
+                            ) : (
+                                <button
+                                    data-testid="task-item-edit"
+                                    className="icon-button"
+                                    onClick={toggleEditMode}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faPenToSquare}
+                                        size={iconSize}
+                                    />
+                                </button>
+                            )}
                         </div>
                         {/* delete task button */}
                         <button
@@ -133,7 +137,13 @@ export const Task = (task) => {
                                     {task.description}
                                 </p>
                                 {task.completed === true ? (
-                                    ""
+                                    <button
+                                        type="button"
+                                        onClick={completeTask}
+                                        className="form-submit"
+                                    >
+                                        Undo Complete
+                                    </button>
                                 ) : (
                                     <button
                                         type="button"
@@ -154,6 +164,7 @@ export const Task = (task) => {
                 <form onSubmit={handleSubmit}>
                     <input
                         {...register("editTitle")}
+                        required={true}
                         data-testid="edit-task-title-input"
                         type="text"
                         name="editTitle"
@@ -174,8 +185,8 @@ export const Task = (task) => {
                     <div className="form-group">
                         <textarea
                             {...register("editDescription")}
-                            name="editDescription"
                             required={true}
+                            name="editDescription"
                             data-testid="adding-task-form-input-description"
                             type="text"
                             value={newDescription}
