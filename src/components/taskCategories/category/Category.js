@@ -1,6 +1,7 @@
 import "./Category.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faFolder } from "@fortawesome/free-regular-svg-icons";
 import {
     deleteCategory,
     editCategoryTitle,
@@ -124,6 +125,15 @@ export const Category = (category) => {
         }
     };
 
+    function confirmDelete() {
+        const message = "Deleting a category will also delete all tasks inside";
+        if (window.confirm(message) === true) {
+            deletingCategory();
+        } else {
+            return;
+        }
+    }
+
     return (
         <div className="column" data-testid="category-column">
             <div className="category-title-container">
@@ -143,7 +153,7 @@ export const Category = (category) => {
                         <button
                             data-testid="delete-category-button"
                             className="icon-button"
-                            onClick={deletingCategory}
+                            onClick={confirmDelete}
                         >
                             <FontAwesomeIcon
                                 icon={faTrashCan}
@@ -157,6 +167,7 @@ export const Category = (category) => {
                 )}
                 {isEditing === true ? (
                     <form onSubmit={handleSubmit}>
+                        <label>Set new Title</label>
                         <input
                             {...register("editTitle")}
                             type="text"
@@ -200,6 +211,10 @@ export const Category = (category) => {
                                 category.title
                             )}`}
                         >
+                            <FontAwesomeIcon
+                                className="icon-margin-right"
+                                icon={faFolder}
+                            />
                             {category.title} ( {newList.length} )
                         </Link>
                     </h2>
