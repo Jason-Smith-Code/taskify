@@ -12,6 +12,7 @@ import { Task } from "../task/Task";
 import { deleteTask } from "../../../features/taskListSlice";
 import { Link } from "react-router-dom";
 import { RemoveSpaces } from "../../../utilities/RemoveSpaces";
+import { useForm } from "react-hook-form";
 
 export const Category = (category) => {
     const iconSize = "xl";
@@ -22,9 +23,17 @@ export const Category = (category) => {
         (task) => task.category === category.id
     );
 
-    const [newTitle, setNewtitle] = useState("");
+    const preloadedValues = {
+        editTitle: category.title,
+    };
+
+    const { register } = useForm({
+        defaultValues: preloadedValues,
+    });
+
+    const [newTitle, setNewtitle] = useState(preloadedValues.editTitle);
     const [isEditing, setEditing] = useState(false);
-    const [characters, setCharacters] = useState(20);
+    const [characters, setCharacters] = useState();
     const maxTitleSize = 20;
 
     // filter category list to only show items that have a category by name
@@ -116,8 +125,8 @@ export const Category = (category) => {
                 {isEditing === true ? (
                     <form onSubmit={handleSubmit}>
                         <input
+                            {...register("editTitle")}
                             type="text"
-                            placeholder={category.title}
                             value={newTitle}
                             maxLength={maxTitleSize}
                             onChange={(e) => onCategoryChange(e)}
@@ -125,9 +134,13 @@ export const Category = (category) => {
                         <p className="form-message">
                             {newTitle.length > 0 ? "" : "Title Required"}
                         </p>
-                        <p className="form-message">
-                            Remaining characters: {characters}
-                        </p>
+                        {characters === undefined ? (
+                            ""
+                        ) : (
+                            <p className="form-message">
+                                Remaining characters: {characters}
+                            </p>
+                        )}
                         {newTitle.length > 0 ? (
                             <button
                                 className="form-submit"
