@@ -215,13 +215,19 @@ export const Task = (task) => {
                             );
                         })}
                     </div>
-                    <button
-                        className="form-submit"
-                        type="submit"
-                        value="Submit"
-                    >
-                        Confirm
-                    </button>
+
+                    {/* Form Submit */}
+                    {newTitle.length === 0 || newDescription.length === 0 ? (
+                        ""
+                    ) : (
+                        <button
+                            className="form-submit"
+                            type="submit"
+                            value="Submit"
+                        >
+                            Confirm
+                        </button>
+                    )}
                 </form>
             ) : (
                 ""
