@@ -77,7 +77,7 @@ export const Guide = () => {
                         simply fill the "add category" form and click the "add
                         category" button.
                         <br />
-                        <Link to="/taskify" exact path="/taskify">
+                        <Link to="/taskify" path="/taskify">
                             Can be found on this page
                         </Link>
                         .

@@ -79,7 +79,12 @@ export const Task = (task) => {
     };
 
     return (
-        <div className="task-item" data-testid={task.title}>
+        <div
+            className={
+                task.completed === true ? "task-item-completed" : "task-item"
+            }
+            data-testid={task.title}
+        >
             {isEditing === false ? (
                 <>
                     <div className="task-top-row">

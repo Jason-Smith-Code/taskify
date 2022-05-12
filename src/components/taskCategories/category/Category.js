@@ -4,6 +4,7 @@ import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import {
     deleteCategory,
     editCategoryTitle,
+    getCategoryTitleStrings,
 } from "../../../features/categoryListSlice";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
@@ -19,7 +20,11 @@ export const Category = (category) => {
     const categoryId = category.id;
     const dispatch = useDispatch();
     const originalTaskList = useSelector(getTaskList);
-    const newList = originalTaskList.filter(
+
+    // remove the current categgory from the catergoryStrings array
+    const catergoryStrings = useSelector(getCategoryTitleStrings);
+
+    let newList = originalTaskList.filter(
         (task) => task.category === category.id
     );
 
@@ -34,11 +39,24 @@ export const Category = (category) => {
     const [newTitle, setNewtitle] = useState(preloadedValues.editTitle);
     const [isEditing, setEditing] = useState(false);
     const [characters, setCharacters] = useState();
+    const [titleMatch, setTitleMatch] = useState(false);
     const maxTitleSize = 20;
 
-    // filter category list to only show items that have a category by name
-    function filterCategoryList() {
-        return newList.map((task) => (
+    function orderedList() {
+        // this list will show completed tasks at the bottom of the list
+        let orderedArray = [];
+        for (let i = 0; i < newList.length; i++) {
+            if (newList[i].completed === false) {
+                orderedArray.push(newList[i]);
+            }
+        }
+        for (let i = 0; i < newList.length; i++) {
+            if (newList[i].completed === true) {
+                orderedArray.push(newList[i]);
+            }
+        }
+
+        return orderedArray.map((task) => (
             <Task
                 data-testid={task.title}
                 key={task.id}
@@ -69,8 +87,23 @@ export const Category = (category) => {
         setEditing(false);
     };
 
+    function removeCurrentCategoryTitle(arr, value) {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+        return arr;
+    }
+
     const onCategoryChange = (e) => {
         let size = e.target.value.length;
+        removeCurrentCategoryTitle(catergoryStrings, category.title);
+        const exists = catergoryStrings.includes(e.target.value);
+        if (exists === true) {
+            setTitleMatch(true);
+        } else {
+            setTitleMatch(false);
+        }
         setCharacters(maxTitleSize - size);
         setNewtitle(e.target.value);
     };
@@ -133,6 +166,9 @@ export const Category = (category) => {
                         ></input>
                         <p className="form-message">
                             {newTitle.length > 0 ? "" : "Title Required"}
+                            {titleMatch
+                                ? "Another category exists with the same title"
+                                : ""}
                         </p>
                         {characters === undefined ? (
                             ""
@@ -141,7 +177,7 @@ export const Category = (category) => {
                                 Remaining characters: {characters}
                             </p>
                         )}
-                        {newTitle.length > 0 ? (
+                        {(newTitle.length > 0) & (titleMatch === false) ? (
                             <button
                                 className="form-submit"
                                 type="submit"
@@ -157,7 +193,6 @@ export const Category = (category) => {
                     <h2 data-testid="category-title">
                         <Link
                             className="category-heading-link"
-                            exact
                             path={`/taskify/category/${RemoveSpaces(
                                 category.title
                             )}`}
@@ -171,7 +206,7 @@ export const Category = (category) => {
                 )}
             </div>
             {/* map out tasks in this category */}
-            <div className="tasks-container">{filterCategoryList()}</div>
+            <div className="tasks-container">{orderedList()}</div>
         </div>
     );
 };

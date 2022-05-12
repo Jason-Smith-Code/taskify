@@ -9,7 +9,7 @@ import React from "react";
 export function Header() {
     return (
         <div id="header">
-            <Link role="link" to="/taskify" exact path="/taskify">
+            <Link role="link" to="/taskify"  path="/taskify">
                 <div id="logo-container">
                     <FontAwesomeIcon icon={faCircleCheck} size="lg" />
                     <p id="logo-text">Taskify</p>

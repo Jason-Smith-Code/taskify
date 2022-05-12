@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Forms.css";
-import { addCategory } from "../../features/categoryListSlice";
-import { useDispatch } from "react-redux";
+import {
+    addCategory,
+    getCategoryTitleStrings,
+} from "../../features/categoryListSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { AddIcon } from "../icons/AddIcon";
-
 export function CategoryForm() {
     const maxTitleSize = 20;
     const [title, setTitle] = useState("");
     const [characters, setCharacters] = useState(maxTitleSize);
+    const [titleMatch, setTitleMatch] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -21,22 +24,25 @@ export function CategoryForm() {
         );
         setCharacters(maxTitleSize);
         clearForm();
-        //refreshPage();
     };
-
+    const catergoryStrings = useSelector(getCategoryTitleStrings);
     const clearForm = () => {
         setTitle("");
     };
 
     const onCategoryChange = (e) => {
         let size = e.target.value.length;
+        // check match of existing category titles
+        const exists = catergoryStrings.includes(e.target.value);
+        if (exists === true) {
+            setTitleMatch(true);
+        } else {
+            setTitleMatch(false);
+        }
         setCharacters(maxTitleSize - size);
         setTitle(e.target.value);
     };
 
-    // function refreshPage() {
-    //     window.location.reload(false);
-    // }
 
     // i need to fire off scroll to end when dispatch has been submitted from adding a category
     useEffect(() => {
@@ -75,13 +81,19 @@ export function CategoryForm() {
             />
             <p className="form-message">
                 {title.length > 0 ? "" : "Title Required"}
+                {titleMatch
+                    ? "Another category exists with the same title"
+                    : ""}
             </p>
             <p className="form-message">Remaining characters: {characters}</p>
-            <p className="form-message" data-testid="category-form-character-cap">
+            <p
+                className="form-message"
+                data-testid="category-form-character-cap"
+            >
                 {title.length === maxTitleSize ? "Character cap reached" : ""}
             </p>
             {/* Disable submit while both input field conditions are not met */}
-            {title.length > 0 ? (
+            {(title.length > 0) & (titleMatch === false) ? (
                 <button
                     data-testid="adding-task-submit"
                     className="form-submit"

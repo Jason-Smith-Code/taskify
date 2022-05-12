@@ -8,6 +8,15 @@
     box-shadow: 0px 5px 10px 0px var(--Black);
 }
 
+.task-item-completed {
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 25px;
+    border: 1px solid var(--Color1Light);
+
+}
+
 .task-item:hover {
     cursor: grab;
 }

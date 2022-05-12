@@ -22,7 +22,11 @@ button.delete-data {
     background: none;
     border: none;
     padding: 10px;
-    color: #69009e;
+    color: var(--Color2Light);
+}
+
+button.delete-data:hover {
+    color: var(--Color5Light);
 }
 
 .hidden-menu {
