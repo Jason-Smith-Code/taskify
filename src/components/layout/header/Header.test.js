@@ -3,8 +3,6 @@ import React from "react";
 import { Header } from "./Header";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { ToggleSwitch } from "../../icons/ToggleSwitch";
 
 describe("<Header />", () => {
     test("The Header is displayed", () => {
@@ -20,7 +18,7 @@ describe("<Header />", () => {
         expect(logoText).toBeInTheDocument();
 
         // logo contains link to home page
-        expect(screen.getByRole("link")).toHaveAttribute("href", "/");
+        expect(screen.getByRole("link")).toHaveAttribute("href", "/taskify");
 
         // contains a menu button
         const menu = screen.getByText("Menu");

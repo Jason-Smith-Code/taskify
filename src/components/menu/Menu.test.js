@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "../../app/App";
 import React from "react";
@@ -7,6 +7,9 @@ import configureStore from "redux-mock-store";
 import { BrowserRouter } from "react-router-dom";
 
 describe("<Menu />", () => {
+
+    afterAll(cleanup())
+
     const initialState = {
         categories: {
             categoryList: [
@@ -46,13 +49,13 @@ describe("<Menu />", () => {
         // link to guide page
         expect(screen.getByRole("link-to-guide-page")).toHaveAttribute(
             "href",
-            "/guide"
+            "/taskify/guide"
         );
 
         // link to taskify
         expect(screen.getByRole("link-to-main-page")).toHaveAttribute(
             "href",
-            "/"
+            "/taskify"
         );
 
         const testCategory = screen.getAllByText("TestCategory");

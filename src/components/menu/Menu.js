@@ -26,8 +26,8 @@ export const Menu = () => {
                 id={category.id}
                 className="menu-link"
                 exact
-                path={`/taskify/${RemoveSpaces(category.title)}`}
-                to={`/taskify/${RemoveSpaces(category.title)}`}
+                path={`/category/${RemoveSpaces(category.title)}`}
+                to={`/category/${RemoveSpaces(category.title)}`}
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -53,9 +53,9 @@ export const Menu = () => {
                 onClick={closeMenu}
                 role="link-to-main-page"
                 className="menu-link"
-                to="/taskify"
+                to="/"
                 exact
-                path="/taskify"
+                path="/"
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -67,9 +67,9 @@ export const Menu = () => {
                 onClick={closeMenu}
                 role="link-to-guide-page"
                 className="menu-link"
-                to="/taskify/guide"
+                to="/guide"
                 exact
-                path="/taskify/guide"
+                path="/guide"
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"

@@ -19,8 +19,9 @@ describe("Your test", () => {
             </BrowserRouter>
         );
 
+        console.debug();
         // the store has nothing in it, lets add a category
-        // identiify category title input
+        // identify category title input
         const addACategoryInput = screen.getByPlaceholderText(
             "Enter category Title"
         );
