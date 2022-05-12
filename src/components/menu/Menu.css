@@ -16,6 +16,15 @@
     transition: 250ms ease-in-out;
 }
 
+button.delete-data {
+    width: fit-content;
+    font-size: 1em;
+    background: none;
+    border: none;
+    padding: 10px;
+    color: #69009e;
+}
+
 .hidden-menu {
     transform: translate(100%,0);
 }

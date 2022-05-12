@@ -18,7 +18,7 @@ function App() {
             <Route
                 key={category.id}
                 exact
-                path={`/category/${RemoveSpaces(category.title)}`}
+                path={`/taskify/category/${RemoveSpaces(category.title)}`}
                 element={
                     <CategoryTemplate
                         title={category.title}
@@ -34,8 +34,8 @@ function App() {
         <div className="App">
             <Header />
             <Routes>
-                <Route exact path="/" element={<Main />} />
-                <Route exact path="/guide" element={<Guide />} />
+                <Route exact path="/taskify" element={<Main />} />
+                <Route exact path="/taskify/guide" element={<Guide />} />
                 {createCategoryRoutes()}
             </Routes>
             <Footer />

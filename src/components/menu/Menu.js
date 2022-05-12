@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faFolder } from "@fortawesome/free-regular-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 
 export const Menu = () => {
     const selectedCategories = useSelector(getCategoryList);
@@ -15,6 +16,20 @@ export const Menu = () => {
         const menu = document.getElementById("menu");
         menu.classList.remove("visible-menu");
         menu.classList.add("hidden-menu");
+    }
+
+    function deleteStorage() {
+        localStorage.clear();
+        window.location.reload();
+    }
+
+    function confirmDelete() {
+        const message = "are you sure you want to delete all data";
+        if (window.confirm(message) === true) {
+            deleteStorage();
+        } else {
+            return;
+        }
     }
 
     function printCategoryLinks() {
@@ -26,8 +41,8 @@ export const Menu = () => {
                 id={category.id}
                 className="menu-link"
                 exact
-                path={`/category/${RemoveSpaces(category.title)}`}
-                to={`/category/${RemoveSpaces(category.title)}`}
+                path={`/taskify/category/${RemoveSpaces(category.title)}`}
+                to={`/taskify/category/${RemoveSpaces(category.title)}`}
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -53,9 +68,9 @@ export const Menu = () => {
                 onClick={closeMenu}
                 role="link-to-main-page"
                 className="menu-link"
-                to="/"
+                to="/taskify"
                 exact
-                path="/"
+                path="/taskify"
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -67,9 +82,9 @@ export const Menu = () => {
                 onClick={closeMenu}
                 role="link-to-guide-page"
                 className="menu-link"
-                to="/guide"
+                to="/taskify/guide"
                 exact
-                path="/guide"
+                path="/taskify/guide"
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -77,6 +92,13 @@ export const Menu = () => {
                 />
                 Guide
             </Link>
+            <button onClick={confirmDelete} className="delete-data">
+                <FontAwesomeIcon
+                    className="icon-margin-right"
+                    icon={faExclamationCircle}
+                />
+                Clear all data
+            </button>
             <p className="menu-heading">Categories</p>
             {printCategoryLinks()}
         </div>

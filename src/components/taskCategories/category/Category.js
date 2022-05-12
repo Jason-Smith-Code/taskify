@@ -126,13 +126,17 @@ export const Category = (category) => {
                         <p className="form-message">
                             Remaining characters: {characters}
                         </p>
-                        <button
-                            className="form-submit"
-                            type="submit"
-                            value="Submit"
-                        >
-                            Confirm
-                        </button>
+                        {newTitle.length > 0 ? (
+                            <button
+                                className="form-submit"
+                                type="submit"
+                                value="Submit"
+                            >
+                                Confirm
+                            </button>
+                        ) : (
+                            ""
+                        )}
                     </form>
                 ) : (
                     <h2 data-testid="category-title">
