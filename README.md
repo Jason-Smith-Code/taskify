@@ -27,65 +27,63 @@ There will be a guide page to illustrate how to use the application.
 I will get feedback on my application and make adjustments if needed.
 I aim to create this application in 30 days working part time.
 
-## How I worked on this project
-
--   Researched to-do list and task managing applications on both desktop and mobile
--   Made a list of features i wanted to include
--   Brainstormed ideas of what the application could be called
--   Used wireframing tool [FIGMA](https://www.figma.com/) to plan out my application
--   Set up repository on github and access it locally
--   Install Libraries
-
 ## How to navigate this project
 
-Handling dynamic user generated links [CategoryTemplate](https://github.com/Jason-Smith-Code/taskify/blob/main/src/routes/CategoryTemplate.js)
-Menu [Menu](https://github.com/Jason-Smith-Code/taskify/blob/main/src/components/menu/Menu.js)
+-   Handling dynamic user generated links [CategoryTemplate](https://github.com/Jason-Smith-Code/taskify/blob/main/src/routes/CategoryTemplate.js)
+-   Building the menu [Menu](https://github.com/Jason-Smith-Code/taskify/blob/main/src/components/menu/Menu.js)
 
 ## Why I built the project this way
 
-## My Task List
+## How I worked on this project
 
 ☑ research
--   Researched to-do list and task managing applications on both desktop and mobile
--   Researched to-do list and task managing applications on both desktop and mobile
-<br>
-☑ Write up the idea of the project
-<br>
-☑ Brain storm Project Title
-<br>
-☑ Create a wireframe of Taskify
-<br>
-☑ Use github for version control
-<br>
-☑ Setup file structure
-<br>
-☑ Install all libraries
-<br>
-☑ Implement Layout
-<br>
-☑ Implement a theme
-<br>
-☑ Add a Light / Dark mode
-<br>
-☑ Implement forms for adding tasks
-<br>
-☑ Implement state management (Redux toolkit)
-<br>
-☑ Implement Router
-<br>
-☑ Create template for category pages
-<br>
-☑ Create guide page
-<br>
-☑ Test application
-<br>
-☑ Add Mobile, tablet and desktopp optimisation
-<br>
-☑ Create a build
-<br>
-☑ Upload to github pages
-<br>
-☑ Implement a "clear data" button
+
+-   Researched desktop apps which handle task lists
+-   Researched mobile apps which handle task lists
+    <br>
+    ☑ Write up the idea of the project
+-   Made a list of features i wanted to include
+    <br>
+    ☑ Brain storm Project Title
+-   Make list of all words associated with the subject
+-   Combined words together to shorten and simpliify the title
+-   Get opinions of other people which one to work with
+    <br>
+    ☑ Create a wireframe of Taskify
+    -   Used wireframing tool [FIGMA](https://www.figma.com/) to plan out my application
+        <br>
+        ☑ Use github for version control
+    -   Set up repository and access it locally
+        <br>
+        ☑ Setup file structure
+        <br>
+        ☑ Install all libraries
+        <br>
+        ☑ Implement Layout
+        <br>
+        ☑ Implement a theme
+        <br>
+        ☑ Add a Light / Dark mode
+        <br>
+        ☑ Implement forms for adding tasks
+        <br>
+        ☑ Implement state management (Redux toolkit)
+        <br>
+        ☑ Implement Router
+        <br>
+        ☑ Create template for category pages
+        <br>
+        ☑ Create guide page
+        <br>
+        ☑ Test application
+        <br>
+        ☑ Add Mobile, tablet and desktopp optimisation
+        <br>
+        ☑ Create a build
+        <br>
+        ☑ Upload to github pages
+        <br>
+        ☑ Implement a "clear data" button
 
 ## Screen Shots
 
