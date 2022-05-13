@@ -125,16 +125,19 @@ It has the base features I planned on including, I plan on introducing more feat
 
 ## Bonus Objectives
 
-Version 1.2.0
-[ ] Assigning a date to complete by on each task
-[ ] Add animations
-[ ] Print current tasks by converting them into a downloadable PDF
+**Version 1.2.0**
 
-version 1.3.0
-[ ] allow user to register
-[ ] allow user to login
-[ ] allow user to logout
-[ ] saving the state to a user
+-   [ ] Assigning a date to complete by on each task
+-   [ ] Add animations
+-   [ ] Print current tasks by converting them into a downloadable PDF
 
-version 1.4.0
-[ ] Create video tutorial
+**Version 1.3.0**
+
+-   [ ] allow user to register
+-   [ ] allow user to login
+-   [ ] allow user to logout
+-   [ ] saving the state to a user
+
+**Version 1.4.0**
+
+-   [ ] Create video tutorial
