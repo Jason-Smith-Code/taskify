@@ -34,7 +34,7 @@ I aim to create this application in 30 days working part time.
 
 ## What was my Workflow
 
--   [x] Research todo apps
+-   [x] **Research todo apps** <br>
         Researched mobile & desktop apps which handle task lists, take notes of the layout and features.
 
 -   [x] Write up the idea of the project
