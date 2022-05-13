@@ -37,8 +37,8 @@ I aim to create this application in 30 days working part time.
 -   **✅ Research to-do applications** <br>
     Researched mobile & desktop applications which handle task lists, I made notes of layout and features.
 
--   **✅ Write up the idea of the project** <br>
-    Made a list of features i wanted to include in my application from the research. I created a priority list, marked the most important tasks, and the rest were bonus objectives if I had enough time.
+✅ **Write up the idea of the project** <br>
+Made a list of features i wanted to include in my application from the research. I created a priority list, marked the most important tasks, and the rest were bonus objectives if I had enough time.
 
 -   **✅ Brain storm Project Title** <br>
     Made a list of all words associated with the project subject, experimented with combining those words together, forming a final list potential titles. Gathered opinons about that list and picked the most popular one.
