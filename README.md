@@ -108,11 +108,9 @@ I aim to create this application in 30 days working part time.
 
 ## Screen Shots
 
-Main Page : Light Theme
-![A test image](src/assets/images/main-light.jpg)
+![Main Page : Light Theme](src/assets/images/main-light.jpg)
 
-Main Page : Dark Theme
-![A test image](src/assets/images/main-dark.jpg)
+![Main Page : Dark Theme](src/assets/images/main-dark.jpg)
 
 ## Viewing the application
 
