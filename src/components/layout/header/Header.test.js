@@ -18,7 +18,7 @@ describe("<Header />", () => {
         expect(logoText).toBeInTheDocument();
 
         // logo contains link to home page
-        expect(screen.getByRole("link")).toHaveAttribute("href", "/");
+        expect(screen.getByRole("link")).toHaveAttribute("href", "/taskify");
 
         // contains a menu button
         const menu = screen.getByText("Menu");

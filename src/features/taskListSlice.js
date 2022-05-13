@@ -37,11 +37,22 @@ export const taskListSlice = createSlice({
             state.taskList[index].category = action.payload.category;
             state.taskList[index].description = action.payload.description;
         },
+        deleteAllCompletedTasks: (state) => {
+            state.taskList = state.taskList.filter(
+                (task) => task.completed === false
+            );
+        },
     },
 });
 
-export const { addTask, deleteTask, showDescription, isComplete, editTask } =
-    taskListSlice.actions;
+export const {
+    addTask,
+    deleteTask,
+    showDescription,
+    isComplete,
+    editTask,
+    deleteAllCompletedTasks,
+} = taskListSlice.actions;
 
 export const getTaskList = (state) => state.tasks.taskList;
 

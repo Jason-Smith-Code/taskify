@@ -8,9 +8,13 @@ import { faCircleCheck, faFolder } from "@fortawesome/free-regular-svg-icons";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { deleteAllCompletedTasks } from "../../features/taskListSlice";
+import { useDispatch } from "react-redux";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 export const Menu = () => {
     const selectedCategories = useSelector(getCategoryList);
+    const dispatch = useDispatch();
 
     function closeMenu() {
         const menu = document.getElementById("menu");
@@ -30,6 +34,10 @@ export const Menu = () => {
         } else {
             return;
         }
+    }
+
+    function deleteAllTheCompletedTasks() {
+        dispatch(deleteAllCompletedTasks());
     }
 
     function printCategoryLinks() {
@@ -89,6 +97,16 @@ export const Menu = () => {
                 />
                 Guide
             </Link>
+            <button
+                onClick={deleteAllTheCompletedTasks}
+                className="delete-data"
+            >
+                <FontAwesomeIcon
+                    className="icon-margin-right"
+                    icon={faTrashCan}
+                />
+                Delete all completed tasks
+            </button>
             <button onClick={confirmDelete} className="delete-data">
                 <FontAwesomeIcon
                     className="icon-margin-right"

@@ -126,11 +126,17 @@ export const Category = (category) => {
     };
 
     function confirmDelete() {
-        const message = "Deleting a category will also delete all tasks inside";
-        if (window.confirm(message) === true) {
-            deletingCategory();
+        // if the category contains 0 tasks ignore dont show a confirmations
+        if (originalTaskList.length > 0) {
+            const message =
+                "Deleting a category will also delete all tasks inside";
+            if (window.confirm(message) === true) {
+                deletingCategory();
+            } else {
+                return;
+            }
         } else {
-            return;
+            deletingCategory();
         }
     }
 
