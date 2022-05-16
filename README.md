@@ -37,8 +37,8 @@ I aim to create this application in 30 days working part time.
 -   **✅ Research to-do applications** <br>
     Researched mobile & desktop applications which handle task lists, I made notes of layout and features.
 
-✅ **Write up the idea of the project** <br>
-Made a list of features i wanted to include in my application from the research. I created a priority list, marked the most important tasks, and the rest were bonus objectives if I had enough time.
+-   **✅ Write up the idea of the project** <br>
+    Made a list of features i wanted to include in my application from the research. I created a priority list, marked the most important tasks, and the rest were bonus objectives if I had enough time.
 
 -   **✅ Brain storm Project Title** <br>
     Made a list of all words associated with the project subject, experimented with combining those words together, forming a final list potential titles. Gathered opinons about that list and picked the most popular one.
@@ -49,7 +49,9 @@ Made a list of features i wanted to include in my application from the research.
 
 -   **✅ Create a wireframe of Taskify** <br>
     Used wireframing tool [FIGMA](https://www.figma.com/) to plan out my application.<br>
-    You can see the results of that work [here](DOWNLOAD LINK TO PDF PLAN)
+    You can see the results of that work here
+    [Main](./src/assets/pdf/taskify-main.pdf)
+    [Category](./src/assets/pdf/taskify-category.pdf)
 
 -   **✅ Use github for version control** <br>
     Set up repository on github, and accessed it locally to start work using git commands to regularly add, commit, and push changes to the repository.
