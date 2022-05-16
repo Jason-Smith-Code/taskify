@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/taskify/static/css/main.93c615be.css",
-    "main.js": "/taskify/static/js/main.6ca5c679.js",
+    "main.js": "/taskify/static/js/main.dff7d3a8.js",
     "static/js/787.42b6170e.chunk.js": "/taskify/static/js/787.42b6170e.chunk.js",
-    "static/media/main-light.jpg": "/taskify/static/media/main-light.3deebd1524b03fcce64f.jpg",
-    "static/media/main-dark.jpg": "/taskify/static/media/main-dark.d1ef3448d8365552e5b1.jpg",
+    "static/media/main-light.jpg": "/taskify/static/media/main-light.71d3ebad522137858ad2.jpg",
+    "static/media/main-dark.jpg": "/taskify/static/media/main-dark.25baa12128dc3e5a1ddc.jpg",
     "static/media/category.jpg": "/taskify/static/media/category.ec75913a8652343e6695.jpg",
     "static/media/add-task-form.jpg": "/taskify/static/media/add-task-form.2fe6c9ea42dc99bf9c1a.jpg",
     "static/media/edit-task.jpg": "/taskify/static/media/edit-task.393458ce5a26cfcd1d8c.jpg",
@@ -16,11 +16,11 @@
     "static/media/delete-task.jpg": "/taskify/static/media/delete-task.0aac6b277beb4b4d4373.jpg",
     "index.html": "/taskify/index.html",
     "main.93c615be.css.map": "/taskify/static/css/main.93c615be.css.map",
-    "main.6ca5c679.js.map": "/taskify/static/js/main.6ca5c679.js.map",
+    "main.dff7d3a8.js.map": "/taskify/static/js/main.dff7d3a8.js.map",
     "787.42b6170e.chunk.js.map": "/taskify/static/js/787.42b6170e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93c615be.css",
-    "static/js/main.6ca5c679.js"
+    "static/js/main.dff7d3a8.js"
   ]
 }
