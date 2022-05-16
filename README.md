@@ -49,9 +49,7 @@ I aim to create this application in 30 days working part time.
 
 -   **✅ Create a wireframe of Taskify** <br>
     Used wireframing tool [FIGMA](https://www.figma.com/) to plan out my application.<br>
-    You can see the results of that work here
-    <a href="./src/assets/pdf/taskify-main.pdf" download="main pdf">Main PDF plan</a>
-    <a href="./src/assets/pdf/taskify-category.pdf" download="main pdf">Category PDF plan</a>
+    You can see the results of that work [here](./src/assets/images/figma-plan.jpg)
 
 -   **✅ Use github for version control** <br>
     Set up repository on github, and accessed it locally to start work using git commands to regularly add, commit, and push changes to the repository.
