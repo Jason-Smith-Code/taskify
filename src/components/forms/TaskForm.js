@@ -3,7 +3,6 @@ import "./Forms.css";
 import { addTask } from "../../features/taskListSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoryList } from "../../features/categoryListSlice";
-import { AddIcon } from "../icons/AddIcon";
 
 export function TaskForm() {
     const selectedCategories = useSelector(getCategoryList);
@@ -73,8 +72,7 @@ export function TaskForm() {
                     onSubmit={handleSubmit}
                 >
                     <div className="form-header">
-                        <AddIcon />
-                        <h2 className="form-title">Add a Task</h2>
+                        <h2>Add a Task</h2>
                     </div>
                     <div className="form-group">
                         <input
@@ -118,7 +116,7 @@ export function TaskForm() {
                                 : "Description Required"}
                         </p>
                     </div>
-                    
+
                     <div className="form-group">
                         <label>Select a category</label>
                         <div

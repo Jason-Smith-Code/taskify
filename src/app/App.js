@@ -17,7 +17,7 @@ function App() {
         return selectedCategories.map((category) => (
             <Route
                 key={category.id}
-                path={`/taskify/category/${RemoveSpaces(category.title)}`}
+                path={`/category/${RemoveSpaces(category.title)}`}
                 element={
                     <CategoryTemplate
                         title={category.title}
@@ -33,8 +33,8 @@ function App() {
         <div className="App">
             <Header />
             <Routes>
-                <Route path="/taskify" element={<Main />} />
-                <Route path="/taskify/guide" element={<Guide />} />
+                <Route path="/" element={<Main />} />
+                <Route path="/guide" element={<Guide />} />
                 {createCategoryRoutes()}
             </Routes>
             <Footer />

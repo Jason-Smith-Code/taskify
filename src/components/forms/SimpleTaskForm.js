@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Forms.css";
 import { addTask } from "../../features/taskListSlice";
 import { useDispatch } from "react-redux";
-import { AddIcon } from "../icons/AddIcon";
 
 export function SimpleTaskForm(props) {
     const maxTitleSize = 40;
@@ -51,8 +50,7 @@ export function SimpleTaskForm(props) {
             onSubmit={handleSubmit}
         >
             <div className="form-header">
-                <AddIcon />
-                <h2 className="form-title">Add a Task to {props.title}</h2>
+                <h2>Add a Task to {props.title}</h2>
             </div>
             <div className="form-group">
                 <input

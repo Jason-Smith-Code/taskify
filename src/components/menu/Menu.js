@@ -5,9 +5,11 @@ import { useSelector } from "react-redux";
 import { RemoveSpaces } from "../../utilities/RemoveSpaces";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faFolder } from "@fortawesome/free-regular-svg-icons";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import {
+    faCircleInfo,
+    faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
 import { deleteAllCompletedTasks } from "../../features/taskListSlice";
 import { useDispatch } from "react-redux";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
@@ -48,8 +50,8 @@ export const Menu = () => {
                 title={category.title}
                 id={category.id}
                 className="menu-link"
-                path={`/taskify/category/${RemoveSpaces(category.title)}`}
-                to={`/taskify/category/${RemoveSpaces(category.title)}`}
+                path={`/category/${RemoveSpaces(category.title)}`}
+                to={`/category/${RemoveSpaces(category.title)}`}
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -75,8 +77,8 @@ export const Menu = () => {
                 onClick={closeMenu}
                 role="link-to-main-page"
                 className="menu-link"
-                to="/taskify"
-                path="/taskify"
+                to="/"
+                path="/"
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"
@@ -88,8 +90,8 @@ export const Menu = () => {
                 onClick={closeMenu}
                 role="link-to-guide-page"
                 className="menu-link"
-                to="/taskify/guide"
-                path="/taskify/guide"
+                to="/guide"
+                path="/guide"
             >
                 <FontAwesomeIcon
                     className="icon-margin-right"

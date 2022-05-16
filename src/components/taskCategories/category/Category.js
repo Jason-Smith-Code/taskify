@@ -210,12 +210,8 @@ export const Category = (category) => {
                     <h2 data-testid="category-title">
                         <Link
                             className="category-heading-link"
-                            path={`/taskify/category/${RemoveSpaces(
-                                category.title
-                            )}`}
-                            to={`/taskify/category/${RemoveSpaces(
-                                category.title
-                            )}`}
+                            path={`/category/${RemoveSpaces(category.title)}`}
+                            to={`/category/${RemoveSpaces(category.title)}`}
                         >
                             <FontAwesomeIcon
                                 className="icon-margin-right"

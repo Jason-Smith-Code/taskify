@@ -5,7 +5,6 @@ import {
     getCategoryTitleStrings,
 } from "../../features/categoryListSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { AddIcon } from "../icons/AddIcon";
 export function CategoryForm() {
     const maxTitleSize = 20;
     const [title, setTitle] = useState("");
@@ -43,7 +42,6 @@ export function CategoryForm() {
         setTitle(e.target.value);
     };
 
-
     // i need to fire off scroll to end when dispatch has been submitted from adding a category
     useEffect(() => {
         scrollToEnd();
@@ -65,10 +63,7 @@ export function CategoryForm() {
             onSubmit={handleSubmit}
         >
             <div className="form-header">
-                <AddIcon />
-                <h2 data-testid="title-element" className="form-title">
-                    Add a Category
-                </h2>
+                <h2 data-testid="title-element">Add a Category</h2>
             </div>
             <input
                 required={true}

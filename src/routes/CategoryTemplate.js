@@ -49,12 +49,7 @@ export default function CategoryTemplate(category) {
                 <SimpleTaskForm id={category.id} title={category.title} />
             </div>
             <div className="task-container">
-                <Link
-                    role="link"
-                    className="menu-link"
-                    to="/taskify"
-                    path="/taskify"
-                >
+                <Link role="link" className="menu-link" to="/" path="/">
                     <FontAwesomeIcon
                         className="icon-margin-right"
                         icon={faRotateLeft}

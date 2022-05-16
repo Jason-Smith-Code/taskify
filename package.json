@@ -1,6 +1,6 @@
 {
   "name": "taskify",
-  "homepage": "https://jason-smith-code.github.io/taskify",
+  "homepage": "https://jason-smith-code.github.io/taskify/",
   "version": "1.1.0",
   "private": true,
   "dependencies": {

@@ -86,11 +86,7 @@
         color: var(--Color5Light);
         margin: 10px 0;
     }
-    
-    .form-title {
-        margin-left: 10px;
-    }
-    
+
     .form-header {
         width: 100%;
         display: flex;

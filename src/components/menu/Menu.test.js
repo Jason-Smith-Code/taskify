@@ -7,9 +7,6 @@ import configureStore from "redux-mock-store";
 import { BrowserRouter } from "react-router-dom";
 
 describe("<Menu />", () => {
-
-    afterAll(cleanup())
-
     const initialState = {
         categories: {
             categoryList: [

@@ -1,7 +1,15 @@
 import "./Guide.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import {
+    faMagnifyingGlass,
+    faCircleInfo,
+    faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+    faTrashCan,
+    faPenToSquare,
+    faFolder,
+} from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 import React from "react";
 // Import images
@@ -54,11 +62,29 @@ export const Guide = () => {
                                 icon={faPenToSquare}
                                 size={iconSize}
                             />
+                            <FontAwesomeIcon
+                                className="icon-guide-padding"
+                                icon={faCircleInfo}
+                                size={iconSize}
+                            />
+                            <FontAwesomeIcon
+                                className="icon-guide-padding"
+                                icon={faFolder}
+                                size={iconSize}
+                            />
+                            <FontAwesomeIcon
+                                className="icon-guide-padding"
+                                icon={faExclamationCircle}
+                                size={iconSize}
+                            />
                         </div>
                         <div className="icon-description-column">
                             <p>View</p>
                             <p>Delete</p>
                             <p>Edit</p>
+                            <p>Information</p>
+                            <p>Category page</p>
+                            <p>Clear Data</p>
                         </div>
                     </div>
                 </div>
@@ -77,7 +103,7 @@ export const Guide = () => {
                         simply fill the "add category" form and click the "add
                         category" button.
                         <br />
-                        <Link to="/taskify" path="/taskify">
+                        <Link to="/" path="/">
                             Can be found on this page
                         </Link>
                         .
@@ -198,9 +224,10 @@ export const Guide = () => {
                         alt="view task"
                     ></img>
                     <p>
-                        Once the task is marked as complete, the task will be
-                        moved from its current category into the "completed
-                        category".
+                        Once the task is marked as complete, the task will move
+                        to the bottom of the category list, and will have a less
+                        noticable appearance. It's possible to un-complete the
+                        task too.
                     </p>
                     <img
                         className="guide-image"

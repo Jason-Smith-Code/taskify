@@ -11,7 +11,7 @@ const root = ReactDOMClient.createRoot(container);
 
 root.render(
     <React.StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="/taskify">
             <Provider store={store}>
                 <App />
             </Provider>
