@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
 import { testStore } from "../../../app/createTestStore";
@@ -7,9 +7,14 @@ import App from "../../../app/App";
 import { BrowserRouter } from "react-router-dom";
 
 describe("Your test", () => {
-    afterAll(cleanup);
+    let confirmSpy;
+    beforeAll(() => {
+        confirmSpy = jest.spyOn(window, "confirm");
+        confirmSpy.mockImplementation(jest.fn(() => true));
+    });
+    afterAll(() => confirmSpy.mockRestore());
 
-    test("Your component with a full reducer flow", async () => {
+    test("<Category />", async () => {
         // Create a redux store
         render(
             <BrowserRouter>
@@ -86,8 +91,12 @@ describe("Your test", () => {
         const editCategoryButton = screen.getByTestId("edit-category-button");
         expect(editCategoryButton).toBeInTheDocument();
         fireEvent.click(editCategoryButton);
+        expect(screen.getByText("Set new Title")).toBeInTheDocument();
+
         // identify the edit category title field
-        const editCategoryInput = screen.getByPlaceholderText("New Category");
+        const editCategoryInput = screen.getByTestId(
+            "edit-category-title-input"
+        );
         // change the input value
         fireEvent.change(editCategoryInput, {
             target: { value: "Changed Title" },
@@ -109,10 +118,10 @@ describe("Your test", () => {
         );
         expect(deleteCategoryButton).toBeInTheDocument();
         // click the delete button
-        fireEvent.click(deleteCategoryButton);
-        // expect the state of tasklist to be zero
 
-        // expect to not fund any category on screen
+        fireEvent.click(deleteCategoryButton);
+
+        // expect to not find any category on screen
         expect(newCategoryTitle).not.toBeInTheDocument();
     });
 });

@@ -74,8 +74,16 @@ export function CategoryForm() {
                 maxLength={maxTitleSize}
                 onChange={(e) => onCategoryChange(e)}
             />
-            <p className="form-message">
+            <p
+                className="form-message"
+                data-testid="category-edit-title-required"
+            >
                 {title.length > 0 ? "" : "Title Required"}
+            </p>
+            <p
+                className="form-message"
+                data-testid="category-edit-title-matched"
+            >
                 {titleMatch
                     ? "Another category exists with the same title"
                     : ""}

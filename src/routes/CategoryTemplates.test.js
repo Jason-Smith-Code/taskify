@@ -8,7 +8,6 @@ import App from "../app/App";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { nothing } from "immer";
 
 describe("<CategoryTemplate />", () => {
     // create 2 tasks and 2 categories

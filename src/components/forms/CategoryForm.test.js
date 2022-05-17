@@ -8,15 +8,19 @@ import App from "../../app/App";
 
 // https://jestjs.io/docs/expect
 
-describe("<TaskForm />", () => {
+describe("<CategoryForm />", () => {
     const mockStore = configureStore();
     let store;
 
-    // expect the task form to not be in the document when no category exists
-    test("Task Form doesnt render with empty categories", () => {
+    beforeEach(() => {
         const initialState = {
             categories: {
-                categoryList: [],
+                categoryList: [
+                    {
+                        title: "existing title",
+                        id: 1,
+                    },
+                ],
             },
             tasks: {
                 taskList: [],
@@ -31,7 +35,10 @@ describe("<TaskForm />", () => {
                 </Provider>
             </BrowserRouter>
         );
+    });
 
+    // expect the task form to not be in the document when no category exists
+    test("Category form renders correctly", () => {
         // identify the task form
         const theCategoryForm = document.getElementById("category-form");
         expect(theCategoryForm).toBeInTheDocument();
@@ -55,10 +62,8 @@ describe("<TaskForm />", () => {
         expect(titleInputElement).toHaveValue("wwwwwwwwwwwwwwwwwwww");
 
         // Identify character cap element
-        const characterCapMessage = screen.getByTestId(
-            "category-form-character-cap"
-        );
-        expect(characterCapMessage).toHaveTextContent("Character cap reached");
+        const characterCapMessage = screen.getByText("Remaining characters: 0");
+        expect(characterCapMessage).toBeInTheDocument();
 
         // identify the submit button
         const submitButton = screen.getByText("Add Category");
@@ -68,9 +73,23 @@ describe("<TaskForm />", () => {
         fireEvent.change(titleInputElement, {
             target: { value: "" },
         });
-        expect(characterCapMessage).toHaveTextContent("");
         expect(titleInputElement).toHaveValue("");
-        // expect the submit button to be null
+        const zeroStringMessage = screen.getByTestId(
+            "category-edit-title-required"
+        );
+        expect(zeroStringMessage).toHaveTextContent("Title Required");
+
+        // expect the submit button not to be on screen
         expect(submitButton).not.toBeInTheDocument();
+
+        // check that the user can not submit a category which has a title that already exists
+        fireEvent.change(titleInputElement, {
+            target: { value: "existing title" },
+        });
+        const matchedTitle = screen.getByTestId("category-edit-title-matched");
+        expect(matchedTitle).toHaveTextContent(
+            "Another category exists with the same title"
+        );
+        expect(matchedTitle).toBeInTheDocument();
     });
 });

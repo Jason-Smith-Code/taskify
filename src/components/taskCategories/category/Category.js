@@ -175,6 +175,7 @@ export const Category = (category) => {
                     <form onSubmit={handleSubmit}>
                         <label>Set new Title</label>
                         <input
+                            data-testid="edit-category-title-input"
                             {...register("editTitle")}
                             type="text"
                             value={newTitle}

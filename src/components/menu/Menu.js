@@ -20,12 +20,12 @@ export const Menu = () => {
 
     function closeMenu() {
         const menu = document.getElementById("menu");
-        menu.classList.remove("visible-menu");
         menu.classList.add("hidden-menu");
     }
 
     function deleteStorage() {
         localStorage.clear();
+        // refresh page to show cleared storage
         window.location.reload();
     }
 
@@ -45,6 +45,7 @@ export const Menu = () => {
     function printCategoryLinks() {
         return selectedCategories.map((category) => (
             <Link
+                data-testid={`${RemoveSpaces(category.title)}-menu-link`}
                 onClick={closeMenu}
                 key={category.id}
                 title={category.title}

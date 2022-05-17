@@ -93,6 +93,12 @@ describe("Your test", () => {
         expect(completeButton).toBeInTheDocument();
         fireEvent.click(completeButton);
 
+        // test uncompleting the task
+        fireEvent.click(inspectButton);
+        const undoComplete = screen.getByText("Undo Complete");
+        expect(undoComplete).toBeInTheDocument();
+        fireEvent.click(undoComplete);
+
         // test that we can hide the description and complete button
         fireEvent.click(inspectButton);
         expect(taskDescription).not.toBeInTheDocument();

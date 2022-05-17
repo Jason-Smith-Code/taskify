@@ -5,7 +5,6 @@ import App from "../../app/App";
 import configureStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { TaskForm } from "./TaskForm";
 
 // https://jestjs.io/docs/expect
 
@@ -42,7 +41,7 @@ describe("<SimpleTaskForm />", () => {
         const menuButton = screen.getByText("Menu");
         fireEvent.click(menuButton);
         // find the home category
-        const homeLink = screen.getByRole("link", { name: /home/i });
+        const homeLink = screen.getByRole("link", { name: /home /i });
         fireEvent.click(homeLink);
 
         // identify the task form
