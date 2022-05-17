@@ -74,9 +74,7 @@ describe("<CategoryForm />", () => {
             target: { value: "" },
         });
         expect(titleInputElement).toHaveValue("");
-        const zeroStringMessage = screen.getByTestId(
-            "category-edit-title-required"
-        );
+        const zeroStringMessage = screen.getByTestId("category-title-required");
         expect(zeroStringMessage).toHaveTextContent("Title Required");
 
         // expect the submit button not to be on screen
@@ -86,7 +84,7 @@ describe("<CategoryForm />", () => {
         fireEvent.change(titleInputElement, {
             target: { value: "existing title" },
         });
-        const matchedTitle = screen.getByTestId("category-edit-title-matched");
+        const matchedTitle = screen.getByTestId("category-title-matched");
         expect(matchedTitle).toHaveTextContent(
             "Another category exists with the same title"
         );

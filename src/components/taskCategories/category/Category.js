@@ -182,12 +182,18 @@ export const Category = (category) => {
                             maxLength={maxTitleSize}
                             onChange={(e) => onCategoryChange(e)}
                         ></input>
-                        <p className="form-message">
-                            {newTitle.length > 0 ? "" : "Title Required"}
-                            {titleMatch
-                                ? "Another category exists with the same title"
-                                : ""}
-                        </p>
+                        {newTitle.length > 0 ? (
+                            ""
+                        ) : (
+                            <p className="form-message">Title Required</p>
+                        )}
+                        {titleMatch ? (
+                            <p className="form-message">
+                                Another category exists with the same title"
+                            </p>
+                        ) : (
+                            ""
+                        )}
                         {characters === undefined ? (
                             ""
                         ) : (

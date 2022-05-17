@@ -8,13 +8,10 @@ export const ToggleSwitch = () => {
     const [theme, setTheme] = useState("light");
     
     const toggleTheme = () => { 
-        console.log("Theme has been toggled")
         if(theme === "dark"){
             setTheme("light")
-            console.log(`current theme: ${theme}`)
         } else {
             setTheme("dark")
-            console.log(`current theme: ${theme}`)
         } 
     }
 
@@ -25,6 +22,7 @@ export const ToggleSwitch = () => {
         document.documentElement.style.setProperty("--Color3Light", '#ffffff');
         document.documentElement.style.setProperty("--Background1Light", '#9E0091');
         document.documentElement.style.setProperty("--Background2Light", '#110044');
+        console.log("dark theme applied")
     } else {
         console.log("applying light theme")
         document.documentElement.style.setProperty("--Color1Light", '#ffffff');
@@ -32,6 +30,7 @@ export const ToggleSwitch = () => {
         document.documentElement.style.setProperty("--Color3Light", '#9E0091');
         document.documentElement.style.setProperty("--Background1Light", '#C2A5BC');
         document.documentElement.style.setProperty("--Background2Light", '#C1E9F1');
+        console.log("light theme applied")
     } 
 
     return (

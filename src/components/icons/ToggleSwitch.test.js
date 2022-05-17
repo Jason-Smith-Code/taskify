@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import "@testing-library/jest-dom";
 import App from "../../app/App";
@@ -9,8 +9,6 @@ import { BrowserRouter } from "react-router-dom";
 // Since this toggle affects the entire appearance of the app, I will need to import App
 
 describe("<ToggleSwitch />", () => {
-    afterAll(cleanup);
-
     test("toggle switch", () => {
         render(
             <BrowserRouter>
@@ -20,21 +18,22 @@ describe("<ToggleSwitch />", () => {
             </BrowserRouter>
         );
 
+        // const taskifyText = screen.getByText("Add a Category");
+        // expect(taskifyText).toBeInTheDocument();
+        // let propertyValue = getComputedStyle(taskifyText);
+        // let style = propertyValue.color;
+        // console.log(style);
+
         let value =
             document.documentElement.style.getPropertyValue("--Color2Light");
-        console.log(value);
-
-        console.log(`the color is of --Color2Light is: ${value}`);
         expect(value).toBe("#69009e");
 
         // interact with toggle to switch theme
-        const button = screen.getByTestId("theme-toggle");
-
-        fireEvent.click(button);
-
-        console.log(`the color is of --Color2Light is: ${value}`);
+        // const label = screen.getByTestId("theme-toggle");
+        const input = screen.getByTestId("light-dark-switch");
+        console.log("clicking iinput button");
+        fireEvent.click(input);
         expect(value).toBe("#ffffff");
-
         // Struggled to get this test to work, any advice is welcome
     });
 });

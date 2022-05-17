@@ -7,14 +7,12 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { TaskForm } from "./TaskForm";
 
-// https://jestjs.io/docs/expect
-
 describe("<TaskForm />", () => {
     const mockStore = configureStore();
     let store;
 
     // expect the task form to not be in the document when no category exists
-    test("Task Form doesnt render with empty categories", () => {
+    test("Task Form doesn't render when there are no categories", () => {
         const initialState = {
             categories: {
                 categoryList: [],

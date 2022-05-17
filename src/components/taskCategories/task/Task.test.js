@@ -196,5 +196,7 @@ describe("Your test", () => {
         // expect the current category to have no tasks in it
 
         // check that the completed tasks list contains the task
+
+        // test changing a task category
     });
 });

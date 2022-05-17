@@ -6,7 +6,7 @@ import { testStore } from "../../../app/createTestStore";
 import App from "../../../app/App";
 import { BrowserRouter } from "react-router-dom";
 
-describe("Your test", () => {
+describe("<Category />", () => {
     let confirmSpy;
     beforeAll(() => {
         confirmSpy = jest.spyOn(window, "confirm");
@@ -14,8 +14,7 @@ describe("Your test", () => {
     });
     afterAll(() => confirmSpy.mockRestore());
 
-    test("<Category />", async () => {
-        // Create a redux store
+    test("Expect the title of the category", () => {
         render(
             <BrowserRouter>
                 <Provider store={testStore}>
@@ -24,7 +23,6 @@ describe("Your test", () => {
             </BrowserRouter>
         );
 
-        console.debug();
         // the store has nothing in it, lets add a category
         // identify category title input
         const addACategoryInput = screen.getByPlaceholderText(
@@ -39,12 +37,15 @@ describe("Your test", () => {
         const addCategorySubmitButton = screen.getByRole("button", {
             name: /Add Category/i,
         });
-        // cliick submit button
+        // click submit button
         fireEvent.click(addCategorySubmitButton);
 
         // expect the base state of the store (0 tasks in 1 category)
         const categoryTitle = screen.getByText("New Category ( 0 )");
+        // expect it to be in the document
         expect(categoryTitle).toBeInTheDocument();
+        // expect it to be a link
+        expect(categoryTitle).toHaveAttribute("href", "/category/New-Category");
 
         // i need to add a task and place it in the category after first creating a category
         // identify the task title input
@@ -107,8 +108,49 @@ describe("Your test", () => {
         });
         // click the confirm button
         fireEvent.click(confirmEditCategoryButton);
-        // expect the new category title to be shown
-        // identify the new category
+        // identify and expect the new category
+        const newCategoryTitle = screen.getByText("Changed Title ( 1 )");
+        expect(newCategoryTitle).toBeInTheDocument();
+    });
+
+    test("title warning - category exists with same title", async () => {
+        render(
+            <BrowserRouter>
+                <Provider store={testStore}>
+                    <App />
+                </Provider>
+            </BrowserRouter>
+        );
+        const addACategoryInput = screen.getByPlaceholderText(
+            "Enter category Title"
+        );
+        
+        // test trying to add a new category with the same title as an existing one "Changed Title"
+        fireEvent.change(addACategoryInput, {
+            target: { value: "Changed Title" },
+        });
+        expect(addACategoryInput).toHaveValue("Changed Title");
+        // expect to see warning
+        const sameTitleWarning = screen.getByText(
+            "Another category exists with the same title"
+        );
+        expect(sameTitleWarning).toBeInTheDocument();
+        // check that the warniing does not show if the title is not the same as an existing title
+        fireEvent.change(addACategoryInput, {
+            target: { value: "Changed Title2" },
+        });
+        expect(addACategoryInput).toHaveValue("Changed Title2");
+        expect(sameTitleWarning).not.toBeInTheDocument();
+    });
+
+    test("deleting a category", async () => {
+        render(
+            <BrowserRouter>
+                <Provider store={testStore}>
+                    <App />
+                </Provider>
+            </BrowserRouter>
+        );
         const newCategoryTitle = screen.getByText("Changed Title ( 1 )");
         expect(newCategoryTitle).toBeInTheDocument();
         // delete a category
