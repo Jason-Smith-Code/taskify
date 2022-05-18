@@ -39,7 +39,7 @@ export function CategoryForm() {
             setTitleMatch(false);
         }
         setCharacters(maxTitleSize - size);
-        setTitle(e.target.value);
+        setTitle(e.target.value.replace(/[^\w\s]/gi, ""));
     };
 
     // i need to fire off scroll to end when dispatch has been submitted from adding a category
