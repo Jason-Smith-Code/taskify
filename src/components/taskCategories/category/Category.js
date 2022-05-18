@@ -106,7 +106,7 @@ export const Category = (category) => {
             setTitleMatch(false);
         }
         setCharacters(maxTitleSize - size);
-        setNewtitle(e.target.value);
+        setNewtitle(e.target.value.replace(/[^\w\s]/gi, ""));
     };
 
     const deletingCategory = () => {

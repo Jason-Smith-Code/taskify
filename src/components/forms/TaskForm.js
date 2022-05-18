@@ -56,7 +56,7 @@ export function TaskForm() {
     };
 
     const onCategoryChange = (e) => {
-        setSelectedCategory(e.target.value.replace(/[^\w\s]/gi, ""));
+        setSelectedCategory(e.target.value);
     };
 
     return (

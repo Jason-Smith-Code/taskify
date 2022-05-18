@@ -39,7 +39,7 @@ export function SimpleTaskForm(props) {
         // we want to show the user how many remaining characters available for them to use
         let size = e.target.value.length;
         setCharacters(maxTitleSize - size);
-        setTitle(e.target.value.replace(/[^\w\s]/gi, ""));
+        setTitle(e.target.value);
     };
 
     return (
