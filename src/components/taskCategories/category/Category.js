@@ -97,7 +97,7 @@ export const Category = (category) => {
     }
 
     const onCategoryChange = (e) => {
-        let size = e.target.value.length;
+        let size = e.target.value.replace(/[^\w\s]/gi, "").length;
         removeCurrentCategoryTitle(catergoryStrings, category.title);
         const exists = catergoryStrings.includes(e.target.value);
         if (exists === true) {
@@ -105,8 +105,8 @@ export const Category = (category) => {
         } else {
             setTitleMatch(false);
         }
-        setCharacters(maxTitleSize - size);
         setNewtitle(e.target.value.replace(/[^\w\s]/gi, ""));
+        setCharacters(maxTitleSize - size);
     };
 
     const deletingCategory = () => {
